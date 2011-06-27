@@ -1,0 +1,20 @@
+<query id="updateNmsMib" action="update">
+    <tables>
+        <table name="nms_mib" />
+    </tables>
+    <columns>
+        <column name="mib_srl" var="mib_srl" notnull="notnull" />
+        <column name="module_srl" var="module_srl" notnull="notnull" />
+        <column name="mmid" var="mmid" notnull="notnull" minlength="1" maxlength="40" />
+        <column name="mib" var="mib" notnull="notnull" minlength="1" maxlength="250" />
+        <column name="max" var="max" notnull="notnull" minlength="1" maxlength="250" />
+        <column name="group_name" var="group_name" minlength="1" maxlength="40" />
+        <column name="mib_title" var="mib_title" notnull="notnull" minlength="1" maxlength="250" />
+        <column name="description" var="description" default="" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

@@ -1,0 +1,80 @@
+/* header */
+.snmp_sheet .header { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmp_sheet .header ul { height:80px; behavior: url(modules/nms/tpl/css/pie.php); }
+.snmp_sheet .header ul li.menu p { _width:32px; }
+
+/* list */
+.snmp_sheet .list { background:#fff url(../../images/white/pattern.png); border-top-color:#f0f0f0; }
+.snmp_sheet .list .list_count { background:#f8f8f8; padding-left:10px; border-top-width:1px; border-top-color:#fff; }
+
+.snmp_sheet .list .list_content .item { zoom:1; }
+.snmp_sheet .list .list_content .item .mini { float:left; }
+.snmp_sheet .list .list_content .item .title { padding:39px 30px 30px 22px; float:left; display:inline-block; }
+.snmp_sheet .list .list_content .item .stats { float:left; }
+.snmp_sheet .list .list_content .item .stats li p { margin:0 20px 0 10px; display:inline; vertical-align:middle; }
+.snmp_sheet .list .list_content .item .stats li.summary { display:inline; }
+
+/* gallery */
+.snmp_sheet .gallery { background:#fff url(../../images/white/pattern.png); }
+.snmp_sheet .gallery .list_count { background:url(../../images/white/shadow.png) repeat-x; padding-left:10px; 
+_background:none; _height:25px;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='modules/nms/skins/snmp_sheet/images/white/shadow.png');
+}
+.snmp_sheet .gallery .list_count img { vertical-align:middle; }
+.snmp_sheet .gallery .list_content .item { margin-right:-2px; }
+
+/* view */
+.snmp_sheet .view { background:#fff url(../../images/white/pattern.png); text-align:center; zoom:1; }
+.snmp_sheet .view h4,.snmp_sheet .view h3,.snmp_sheet .view div { text-align:left; }
+.snmp_sheet .view h3 { background:url(../../images/white/shadow.png) repeat-x; padding-left:10px; 
+_background:none; _height:25px;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='modules/nms/skins/snmp_sheet/images/white/shadow.png');
+}
+.snmp_sheet .view .content { margin:0 auto; display:inline-block; width:950px; _width:970px; }
+
+/* view graph */
+.snmp_sheet .view .content .graph_list ul li { padding:2px; display:inline; vertical-align:middle; }
+.snmp_sheet .view .content h4 { padding:10px 10px 10px 15px; background:url(../../images/white/dot.png) no-repeat left center; font-size:1.2em; color:#333;
+_background:none; _height:16px; _padding:0px 10px 10px 15px; _width:200px;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='modules/nms/skins/snmp_sheet/images/white/dot.png');
+}
+
+/* view customer */
+.snmp_sheet .view .content .graph_list .customer { margin-top:10px; }
+
+/* view table */
+.snmp_sheet .view .content .list_table .nmsTable { border:1px solid #f0f0f0; background:#f8f8f8; width:700px; }
+.snmp_sheet .view .content .list_table .nmsTable thead tr th form ul li { padding:2px; display:inline; vertical-align:middle; }
+.snmp_sheet .view .content .list_table .nmsTable tfoot div { text-align:center; }
+
+/* legend */
+.snmp_sheet .view .content .legend ul { position:relative; behavior: url(modules/nms/tpl/css/pie.php); width:200px; }
+.snmp_sheet .view .content .legend ul li { _width:100%; }
+
+/* history */
+.snmp_sheet .history h4 { _float:none; _display:inline; }
+.snmp_sheet .history form#history_proc { _float:none; _display:inline; }
+.snmp_sheet .history div.history_list ul.history_item li { margin:0; padding:20px; *display:inline; }
+.snmp_sheet .history div.history_list ul.history_item li img.thumb { border:1px solid #eee; }
+.snmp_sheet .history div.history_list ul.history_item li.history_navigation { padding:0px; }
+.snmp_sheet .history div.history_list ul.history_item li.history_navigation div.arrow_left { position:absolute; top:20px; *top:35px; left:0px; z-index:10; }
+.snmp_sheet .history div.history_list ul.history_item li.history_navigation div.arrow_right { position:absolute; top:20px; *top:35px; right:0px; _right:5px; z-index:10; }
+
+/* footer */
+.snmp_sheet .footer { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmp_sheet .footer .description { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmp_sheet address { filter:alpha(opacity=20); }
+
+/* graph image */
+.snmp_sheet .graph { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmp_sheet .graph .loading { _top:20px; }
+
+/* button */
+.snmp_sheet .button { border:1px solid #eaeaea; _background:#fff; text-align:center; }
+.snmp_sheet .button:active { position:relative; top:1px; }
+
+.snmp_sheet .inputDate, .snmp_sheet .inputSearch { border:1px solid #f0f0f0; }
+.snmp_sheet .inputSearch { width:200px; }
+
+/* select */
+.snmp_sheet .select { display:block; display:inline; }

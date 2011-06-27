@@ -1,0 +1,17 @@
+<filter name="delete_mib" module="nms" act="procNmsAdminDeleteMib" confirm_msg_code="confirm_delete">
+    <form>
+        <node target="mib_srl" required="true" />
+        <node target="module_srl" required="true" />
+    </form>
+    <parameter>
+        <param name="mib_srl" target="mib_srl" />
+        <param name="module_srl" target="module_srl" />
+        <param name="mmid" target="mmid" />
+        <param name="log_delete" target="log_delete" />
+    </parameter>
+    <response callback_func="completeDeleteMib">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>

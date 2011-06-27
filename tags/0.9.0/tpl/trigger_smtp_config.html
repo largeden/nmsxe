@@ -1,0 +1,35 @@
+<!--%import("filter/insert_smtp.xml")-->
+
+<form id="smtp_form" action="./" method="post" onsubmit="return procFilter(this, insert_smtp);" enctype="multipart/form-data">
+    <h4 class="xeAdmin">{$lang->nms_smtp_config}</h4>
+    <p class="summary">{nl2br($lang->nms_about_smtp_config)}</p>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_smtp_config_summary}">
+    <caption>{$lang->nms_caption}: SMTP Config</caption>
+        <tr>
+            <th><div><label for="textfield1">{$lang->nms_smtp_server}</label></div></th>
+            <th><div><label for="textfield2">{$lang->nms_smtp_secure}</label></div></th>
+            <th><div><label for="textfield3">{$lang->nms_smtp_port}</label></div></th>
+            <th><div><label for="textfield4">{$lang->nms_smtp_user}</label></div></th>
+            <th><div><label for="textfield5">{$lang->nms_smtp_pass}</label></div></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="textfield1" name="smtp_server" value="{$smtp_info->smtp_server}" class="inputTypeText" /></td>
+            <td>
+                <select id="textfield2" name="smtp_secure" class="w80">
+                    <option value="tcp" <!--@if($smtp_info->smtp_secure=='tcp'||!$smtp_info->smtp_secure)-->selected="selected"<!--@end-->>tcp</option>
+                    <option value="ssl" <!--@if($smtp_info->smtp_secure=='ssl')-->selected="selected"<!--@end-->>ssl</option>
+                    <option value="vls" <!--@if($smtp_info->smtp_secure=='vls')-->selected="selected"<!--@end-->>vls</option>
+                </select>
+            </td>
+            <td><input type="text" id="textfield3" name="smtp_port" value="{$smtp_info->smtp_port}" class="inputTypeText" /></td>
+            <td><input type="text" id="textfield4" name="smtp_user" value="{$smtp_info->smtp_user}" class="inputTypeText" /></td>
+            <td><input type="password" id="textfield5" name="smtp_pass" value="" class="inputTypeText" /></td>
+        </tr>
+        <tr>
+            <th colspan="5" class="button">
+                <span class="button blue"><input type="button" value="SMTP 접속 확인" onclick="$nms.doCheckSMTPInfo();"/></span>
+                <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+            </th>
+        </tr>
+    </table>
+</form>

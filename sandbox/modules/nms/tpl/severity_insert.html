@@ -1,0 +1,142 @@
+<!--@if(in_array($nms_info->mid, array($module_config->syslog_mid,$module_config->snmptrap_mid)))-->
+<!--#include("service_header.html")-->
+<!--@else-->
+<!--#include("host_header.html")-->
+<!--@endif-->
+<!--%import("filter/insert_severity.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_severity)" enctype="multipart/form-data">
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="nms_title_mib_list" id="mib_srl" value="{$mib_srl}" />
+    <h4 class="xeAdmin">{$lang->nms_dispNmsAdminSeverityInfo_summary}</h4>
+    <p class="summary">{nl2br($lang->nms_about_dispNmsAdminSeverityInfo)}</p>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminSeverityInfo_summary}">
+    <caption>{$lang->nms_caption} : Severity Level</caption>
+    <!--@if(!$mib_srl)-->
+        <tr>
+            <th><div>{$lang->nms_title_mib_list}</div></th>
+            <td class="wide">
+                <div class="targetItem">
+                    <strong>{$lang->list_target_item}</strong>
+                    <select size="10" name="targetItem" id="targetItem" multiple="multiple" ondblclick="$nms.doInsertItem(); return false;">
+                    <!--@foreach($mib_info as $key => $val)-->
+                        <!--@if(!$valmid)-->
+                        <optgroup label="{$val->getMid()}">
+                        <!--@elseif($valmid != $val->getMid())-->
+                        </optgroup>
+                        <optgroup label="{$val->getMid()}">
+                        <!--@endif-->
+                        <option value="{$val->getMibSrl()}">{$val->getMmid()} ({$val->getMid()})</option>
+                        {@ $valmid = $val->getMid() }
+                    <!--@endforeach-->
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="displayButton">
+                    <a href="#$nms.doInsertItem" onclick="$nms.doInsertItem();" class="buttonSet buttonRight" title="{$lang->cmd_insert}"><span>{$lang->cmd_insert}</span></a><br />
+                    <a href="#$nms.doDeleteItem" onclick="$nms.doDeleteItem();" class="buttonSet buttonLeft" title="{$lang->cmd_delete}"><span>{$lang->cmd_delete}</span></a><br />
+                </div>
+                <div class="displayItem">
+                    <strong>{$lang->list_display_item}</strong>
+                    <select size="10" name="mib_list" id="displayItem" multiple="multiple" ondblclick="$nms.doDeleteItem();">
+                    </select>
+
+                </div>
+            </td>
+        </tr>
+        <!--@endif-->
+        <tr>
+            <th><div>{$lang->nms_title_severity_level}</div></th>
+            <td class="wide">
+                <select name="nms_title_severity_level">
+                    <!--@if($severity_info->severity==null)--><option value="">{$lang->nms_notuse}</option><!--@endif-->
+                    <!--@foreach($lang->nms_severity as $no => $val)-->
+                    <option value="{$no}" <!--@if($severity_info->severity!=null)-->disabled="true"<!--@endif--> <!--@if($severity_info->severity!=null && $severity_info->severity==$no)-->selected="selected"<!--@endif-->>{$val}</option>
+                    <!--@endforeach-->
+                </select>
+                <p>
+                    <!--@foreach($lang->nms_severity as $no => $val)-->
+                    {$val} : {$lang->nms_about_severity[$no]}<br />
+                    <!--@endforeach-->
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_type}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_title_value" value="{$severity_info->value}" class="inputTypeText w200" />
+                <select name="nms_title_type">
+                    <option value="">{$lang->nms_notuse}</option>
+                    <!--@foreach($lang->nms_type as $no => $val)-->
+                    <option value="{$no}" <!--@if($severity_info->type!="" && $severity_info->type==$no)-->selected="selected"<!--@endif-->>{$val}</option>
+                    <!--@endforeach-->
+                </select>
+                <p>{nl2br($lang->nms_about_type)}</p>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_event_type}</div></th>
+            <td class="wide">
+                <select name="event_type">
+                    <option value="">{$lang->nms_notuse}</option>
+                    <!--@foreach($lang->nms_event_type as $no => $about)-->
+                    <option value="{$no}" <!--@if($severity_info->event->type!="" && $severity_info->event->type==$no)-->selected="selected"<!--@endif-->>{$about}</option>
+                    <!--@endforeach-->
+                </select>
+                <p>{nl2br($lang->nms_about_event_type)}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_event_sec}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_title_event_sec" value="{$severity_info->event->sec}" class="inputTypeText w80" />
+                <p>{$lang->nms_about_event_sec}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_event_count}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_title_event_count" value="{$severity_info->event->count}" class="inputTypeText w40" />
+                <p>{$lang->nms_about_event_count}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_act}</div></th>
+            <td class="wide act">
+                <!--@foreach($lang->nms_act as $actname => $about)-->
+                <input type="checkbox" id="act_{$actname}" name="act_{$actname}" <!--@if($severity_info->act[$actname])-->checked="checked"<!--@endif--> class="checkbox" />
+                <label for="act_{$actname}">{$actname}</label>
+                <!--@endforeach-->
+            </td>
+        </tr>
+        <!--@foreach($lang->nms_act as $actname => $about)-->
+        <tr id="act_{$actname}_0"><th colspan="2" class="act"><div>{$actname}</div></th></tr>
+        <tr id="act_{$actname}_1">
+            <th><div>{$lang->nms_severity_value}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_value" value="{$severity_info->act_value[$actname]}" class="inputTypeText w400" />
+                <!--@if($lang->nms_act_member[$actname])--><a href="{getUrl('','module','nms','act','dispNmsAdminMember','target','act_'.$actname.'_value','type',$lang->nms_act_member[$actname])}" onclick="popopen(this.href);return false;" class="buttonSet buttonMember" title="{$lang->nms_member}"><span>{$lang->nms_member}</span></a><!--@endif-->
+                <p>{$about}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_2">
+            <th><div>{$lang->nms_severity_form}</div></th>
+            <td>
+                <textarea name="act_{$actname}_form" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($severity_info->act_form[$actname])}</textarea>
+                <p>{$lang->nms_about_severity_form}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_3">
+            <th><div>{$lang->nms_severity_path}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_path" value="{$severity_info->act_path[$actname]}" class="inputTypeText w400" />
+                <p>{nl2br($lang->nms_about_severity_path)}<b>{realpath("./")}</b></p>
+            </td>
+        </tr>
+        <!--@endforeach-->
+        <tr>
+            <th colspan="2" class="button">
+                <span class="button strong black"><input type="submit" value="{$lang->cmd_save}" /></span>
+            </th>
+        </tr>
+    </table>
+</form>

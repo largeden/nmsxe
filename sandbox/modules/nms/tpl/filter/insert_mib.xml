@@ -1,0 +1,22 @@
+<filter name="insert_mib" module="nms" act="procNmsAdminInsertMib" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="nms_mmid" required="true" maxlength="40" filter="alpha_number" />
+        <node target="nms_mib_title" required="true" maxlength="250" />
+        <node target="nms_mib" required="true" />
+        <node target="nms_max" required="true" filter="number" />
+        <node target="nms_group_name" required="true" />
+    </form>
+    <parameter>
+        <param name="mmid" target="nms_mmid" />
+        <param name="mib_title" target="nms_mib_title" />
+        <param name="mib" target="nms_mib" />
+        <param name="max" target="nms_max" />
+        <param name="group_name" target="nms_group_name" />
+    </parameter>
+    <response callback_func="completeInsertMib">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module_srl" />
+        <tag name="page_mib" />
+    </response>
+</filter>

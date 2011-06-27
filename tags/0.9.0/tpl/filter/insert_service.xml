@@ -1,0 +1,22 @@
+<filter name="insert_service" module="nms" act="procNmsAdminInsertService" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="nms_service_type" required="true" />
+        <node target="mid" required="true" maxlength="40" filter="alpha_number" />
+        <node target="browser_title" required="true" maxlength="250" />
+    </form>
+    <parameter>
+        <param name="service_type" target="nms_service_type" />
+        <param name="board_name" target="mid" />
+        <param name="module_srl" target="module_srl" />
+        <param name="module_category_srl" target="module_category_srl" />
+        <param name="browser_title" target="browser_title" />
+        <param name="skin" target="skin" />
+        <param name="description" target="description" />
+    </parameter>
+    <response callback_func="completeInsertService">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="module_srl" />
+    </response>
+</filter>

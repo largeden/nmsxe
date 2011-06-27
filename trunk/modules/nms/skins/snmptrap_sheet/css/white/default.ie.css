@@ -1,0 +1,35 @@
+/* header */
+.snmptrap_sheet .header { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmptrap_sheet .header ul { height:80px; behavior: url(modules/nms/tpl/css/pie.php); }
+.snmptrap_sheet .header ul li.menu p { _width:32px; }
+
+/* list */
+.snmptrap_sheet .list { background:#fff url(../../images/white/pattern.png); border-top-color:#f0f0f0; padding-bottom:30px; }
+.snmptrap_sheet .list .list_count { padding-left:10px; background:url(../../images/white/shadow.png) repeat-x;
+_background:none; _height:25px;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='modules/nms/skins/snmptrap_sheet/images/white/shadow.png');
+}
+
+/* view table */
+.snmptrap_sheet .list .list_table { margin:0 auto; padding:0; text-align:center; width:90%; border:1px solid #f0f0f0; }
+.snmptrap_sheet .list .list_table .nmsTable { margin:0; width:100%; }
+.snmptrap_sheet .list .list_table .nmsTable thead tr th { border-style:solid; border-width:0; border-bottom-width:1px; border-color:#f0f0f0; }
+.snmptrap_sheet .list .list_table .nmsTable thead tr th.regdate div { width:80px; }
+.snmptrap_sheet .list .list_table .nmsTable tfoot tr td { border-style:solid; border-width:0; border-top-width:1px; border-color:#fff; }
+.snmptrap_sheet .list .list_table .nmsTable tbody tr:first-child td div { border-top-width:1px; }
+.snmptrap_sheet .list .list_table .nmsTable tbody tr td div.snmptraps { width:99%; _width:95%; _display:inline; }
+
+/* footer */
+.snmptrap_sheet .footer { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmptrap_sheet .footer .description { behavior: url(modules/nms/tpl/css/pie.php); }
+.snmptrap_sheet address { filter:alpha(opacity=20); }
+
+/* button */
+.snmptrap_sheet .button { border:1px solid #eaeaea; _background:#fff; text-align:center; }
+.snmptrap_sheet .button:active { position:relative; top:1px; }
+
+.snmptrap_sheet .inputDate, .snmptrap_sheet .inputSearch { border:1px solid #f0f0f0; }
+.snmptrap_sheet .inputSearch { width:200px; }
+
+/* select */
+.snmptrap_sheet .select { display:block; display:inline; }

@@ -1,0 +1,8 @@
+<filter name="wizard" module="nms" act="procNmsAdminSettingWizard">
+    <form />
+    <parameter />
+    <response callback_func="wizardStep">
+        <tag name="act" />
+        <tag name="step" />
+    </response>
+</filter>

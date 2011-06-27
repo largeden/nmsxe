@@ -1,0 +1,21 @@
+<!--#include("header.html")-->
+<!--%import("filter/delete_group.xml")-->
+
+<form action="./" method="get" onsubmit="return procFilter(this, delete_group)" enctype="multipart/form-data">
+<input type="hidden" name="page" value="{$page}" />
+<input type="hidden" name="group_srl" value="{$group_info->group_srl}" />
+<input type="hidden" name="cronstate" value="{$group_info->cronstate}" />
+    <h4 class="xeAdmin">{$lang->confirm_delete}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminDeleteGroup_summary}">
+    <caption>{$lang->nms_caption} : {count($group_info)}{$lang->nms_caption_dispNmsAdminDeleteGroup}</caption>
+    <tr>
+        <th scope="row"><div>{$lang->nms_group_list}</div></th>
+        <td class="wide">{$group_info->gid}</td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_delete}" /></span>
+            <a href="{getUrl('','module','admin','act','dispNmsAdminGroupList')}" class="button"><span>{$lang->cmd_back}</span></a>
+        </th>
+    </table>
+</form>

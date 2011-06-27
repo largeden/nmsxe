@@ -1,0 +1,9 @@
+<?php
+    if(!defined('__ZBXE__')) exit();
+
+    class snmp_sheet {
+        function snmp_sheet() {
+            return;
+        }
+    }
+?>

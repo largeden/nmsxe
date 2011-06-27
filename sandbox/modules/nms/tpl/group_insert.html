@@ -1,0 +1,54 @@
+<!--#include("header.html")-->
+<!--%import("filter/insert_group.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_group)" enctype="multipart/form-data">
+<input type="hidden" name="page" value="{$page}" />
+<input type="hidden" name="group_srl" value="{$group_info->group_srl}" />
+    <h4 class="xeAdmin"><!--@if($act=='dispNmsAdminInsertGroup')-->{$lang->nms_dispNmsAdminInsertGroup}<!--@else-->{$lang->nms_dispNmsAdminGroupInfo}<!--@end--></h4>
+    <table cellspacing="0" class="rowTable" summary="<!--@if($act=="dispNmsAdminInsertGroup")-->{$lang->nms_dispNmsAdminInsertGroup_summary}<!--@else-->{$lang->nms_dispNmsAdminGroupInfo_summary}<!--@end-->">
+    <caption>{$lang->nms_caption}</caption>
+    <tr>
+        <th scope="row"><div>{$lang->nms_group_title}</div></th>
+        <td>
+            <input type="text" name="nms_group_title" value="{$group_info->gid}" class="inputTypeText w200" />
+            <p>{$lang->nms_about_group_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_schedule_title}</div></th>
+        <td>
+            <select name="nms_schedule_title">
+                <option value="">{$lang->nms_notuse}</option>
+                <!--@foreach($schedule as $key => $val)-->
+                    <!--@if($key)-->
+                        <option value="{$key}" <!--@if($group_info->schedule==$key)-->selected="selected"<!--@end-->>{$lang->nms_schedule[$val]}</option>
+                    <!--@end-->
+                <!--@endforeach-->
+            </select>
+            <p>{$lang->nms_about_schedule_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_cronstate_title}</div></th>
+        <td>
+            <label for="cronY"><input type="radio" id="cronY" name="nms_cronstate_title" value="Y" <!--@if($group_info->cronstate=='Y')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['Y']}</label>
+            <label for="cronN"><input type="radio" id="cronN" name="nms_cronstate_title" value="N" <!--@if($group_info->cronstate=='N')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['N']}</label>
+            <p>{$lang->nms_about_cronstate_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_group_description_title}</div></th>
+        <td>
+            <textarea name="description" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($group_info->description)}</textarea>
+            <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','description')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting" title="{$lang->cmd_find_langcode}"><span>{$lang->cmd_find_langcode}</span></a>
+            <p>{$lang->nms_about_group_description_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+            <span class="button"><input type="button" value="{$lang->cmd_back}" onclick="history.back(); return false;" /></span>
+        </th>
+    </tr>
+    </table>
+</form>

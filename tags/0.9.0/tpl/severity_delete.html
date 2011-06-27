@@ -1,0 +1,38 @@
+<!--@if(in_array($nms_info->mid, array($module_config->syslog_mid,$module_config->snmptrap_mid)))-->
+<!--#include("service_header.html")-->
+<!--@else-->
+<!--#include("host_header.html")-->
+<!--@endif-->
+<!--%import("filter/delete_severity.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, delete_severity)" enctype="multipart/form-data">
+<input type="hidden" name="page_sl" value="{$page_sl}" />
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="mib_srl" value="{$severity_info->get('document_srl')}" />
+<input type="hidden" name="severity" value="{$severity}" />
+    <h4 class="xeAdmin">{$lang->confirm_delete}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminDeleteSeverity_summary}">
+    <caption>{$lang->nms_caption} : {count($severity_info)}{$lang->nms_caption_dispNmsAdminDeleteSeverity}</caption>
+        <tr>
+            <th scope="row"><div>{$lang->nms_severity_module}</div></th>
+            <td class="wide">{$severity_info->getMid()}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_severity_mib}</div></th>
+            <td class="wide">{$severity_info->getMmid()}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_title_severity_level}</div></th>
+            <td class="wide">{$lang->nms_severity[$severity]}</td>
+        </tr>
+        <tr>
+            <td class="wide" colspan="2"><label for="for_log_delete" class="fr"><input type="checkbox" name="log_delete" value="Y" id="for_log_delete" class="checkbox" /> {$lang->nms_delete_severity_log}</label></td>
+        </tr>
+        <tr>
+            <th colspan="2" class="button">
+                <span class="button black strong"><input type="submit" value="{$lang->cmd_delete}" /></span>
+                <a href="{getUrl('module','admin','act','dispNmsAdminSeverityList','mib_srl','','module_srl','','severity','')}" class="button"><span>{$lang->cmd_back}</span></a>
+            </th>
+        </tr>
+    </table>
+</form>

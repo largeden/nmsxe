@@ -1,0 +1,13 @@
+<query id="insertNmsSnmpLog" action="insert">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <columns>
+        <column name="module_srl" var="module_srl" filter="number" notnull="notnull" />
+        <column name="mib_srl" var="mib_srl" filter="number" notnull="notnull" />
+        <column name="value" var="value" />
+        <column name="session" var="session" default="" />
+        <column name="regdate" var="regdate" default="curdate()" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+</query>

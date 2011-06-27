@@ -1,0 +1,16 @@
+<query id="getNmsLastSnmpLog" action="select">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="snmp_srl" order="desc" />
+        <list_count var="list_count" default="20" />
+    </navigation>
+</query>

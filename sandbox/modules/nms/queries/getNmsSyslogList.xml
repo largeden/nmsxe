@@ -1,0 +1,25 @@
+<query id="getNmsSyslogList" action="select">
+    <tables>
+        <table name="nms_syslog_log" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <group pipe="where">
+            <condition operation="like" column="priority" var="s_priority" pipe="or" />
+            <condition operation="equal" column="facility" var="s_facility" pipe="or" />
+            <condition operation="equal" column="severity" var="s_severity" pipe="or" />
+            <condition operation="like" column="ip_address" var="s_ip_address" pipe="or" />
+            <condition operation="like" column="ip_port" var="s_ip_port" pipe="or" />
+            <condition operation="like" column="value" var="s_value" pipe="or" />
+            <condition operation="like_prefix" column="regdate" var="s_regdate" pipe="or" />
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="syslog_srl" order="order_type" />
+        <list_count var="list_count" default="10" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

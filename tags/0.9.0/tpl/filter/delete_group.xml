@@ -1,0 +1,14 @@
+<filter name="delete_group" module="nms" act="procNmsAdminDeleteGroup" confirm_msg_code="confirm_delete">
+    <form>
+        <node target="group_srl" required="true" />
+    </form>
+    <parameter>
+        <param name="group_srl" target="group_srl" />
+        <param name="cronstate" target="cronstate" />
+    </parameter>
+    <response callback_func="completeDeleteGroup">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>

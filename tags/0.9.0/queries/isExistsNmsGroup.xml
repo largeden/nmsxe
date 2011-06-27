@@ -1,0 +1,12 @@
+<query id="isExistsNmsGroup" action="select">
+    <tables>
+        <table name="nms_group" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="gid" var="gid" notnull="notnull" pipe="where" />
+        <condition operation="notequal" column="group_srl" var="group_srl" filter="number" pipe="and" />
+    </conditions>
+</query>

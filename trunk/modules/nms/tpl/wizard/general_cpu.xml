@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard version="0.2">
+    <title xml:lang="ko">CPU 정보</title>
+    <title xml:lang="en">CPU information</title>
+    <title xml:lang="zh-CN">CPU information</title>
+    <title xml:lang="jp">CPU information</title>
+    <title xml:lang="es">CPU information</title>
+    <title xml:lang="ru">CPU information</title>
+    <title xml:lang="fr">CPU information</title>
+    <title xml:lang="zh-TW">CPU information</title>
+    <title xml:lang="vi">CPU information</title>
+    <title xml:lang="mn">CPU information</title>
+    <description xml:lang="ko">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="en">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="zh-CN">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="jp">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="es">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="ru">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="fr">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="zh-TW">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="vi">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="mn">
+        CPU의 정보를 출력합니다.(ucd-snmp)
+        ssCpuUser - CPU User 현재 정보(%)
+        ssCpuSystem - CPU System 현재 정보(%)
+        ssCpuIdle - CPU Idle 현재 정보(%)
+        100-ssCpuIdle - CPU 이용 정보(%)
+        laLoad.1 - 지난 1분간 평균 Load(%)
+        laLoad.2 - 지난 5분간 평균 Load(%)
+        laLoad.3 - 지난 15분간 평균 Load(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <date>2010-11-11</date>
+    <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+        <name xml:lang="ko">라르게덴</name>
+        <name xml:lang="en">largeden</name>
+        <name xml:lang="zh-CN">largeden</name>
+        <name xml:lang="jp">ラルゲデン</name>
+        <name xml:lang="es">largeden</name>
+        <name xml:lang="ru">largeden</name>
+        <name xml:lang="fr">largeden</name>
+        <name xml:lang="zh-TW">largeden</name>
+        <name xml:lang="vi">largeden</name>
+        <name xml:lang="mn">largeden</name>
+    </author>
+    <mode />
+    <mib_groups />
+    <mibs>
+        <var id="ssCpuUser">
+            <mmid>ssCpuUser</mmid>
+            <mib_title xml:lang="ko">ssCpuUser</mib_title>
+            <mib_title xml:lang="en">ssCpuUser</mib_title>
+            <mib_title xml:lang="zh-CN">ssCpuUser</mib_title>
+            <mib_title xml:lang="jp">ssCpuUser</mib_title>
+            <mib_title xml:lang="es">ssCpuUser</mib_title>
+            <mib_title xml:lang="ru">ssCpuUser</mib_title>
+            <mib_title xml:lang="fr">ssCpuUser</mib_title>
+            <mib_title xml:lang="zh-TW">ssCpuUser</mib_title>
+            <mib_title xml:lang="vi">ssCpuUser</mib_title>
+            <mib_title xml:lang="mn">ssCpuUser</mib_title>
+            <mib>.1.3.6.1.4.1.2021.11.9.0</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">CPU User 현재 정보(%)</description>
+            <description xml:lang="en">CPU User 현재 정보(%)</description>
+            <description xml:lang="zh-CN">CPU User 현재 정보(%)</description>
+            <description xml:lang="jp">CPU User 현재 정보(%)</description>
+            <description xml:lang="es">CPU User 현재 정보(%)</description>
+            <description xml:lang="ru">CPU User 현재 정보(%)</description>
+            <description xml:lang="fr">CPU User 현재 정보(%)</description>
+            <description xml:lang="zh-TW">CPU User 현재 정보(%)</description>
+            <description xml:lang="vi">CPU User 현재 정보(%)</description>
+            <description xml:lang="mn">CPU User 현재 정보(%)</description>
+            <legend xml:lang="ko">user</legend>
+            <legend xml:lang="en">user</legend>
+            <legend xml:lang="zh-CN">user</legend>
+            <legend xml:lang="jp">user</legend>
+            <legend xml:lang="es">user</legend>
+            <legend xml:lang="ru">user</legend>
+            <legend xml:lang="fr">user</legend>
+            <legend xml:lang="zh-TW">user</legend>
+            <legend xml:lang="vi">user</legend>
+            <legend xml:lang="mn">user</legend>
+            <collect />
+        </var>
+        <var id="ssCpuSystem">
+            <mmid>ssCpuSystem</mmid>
+            <mib_title xml:lang="ko">ssCpuSystem</mib_title>
+            <mib_title xml:lang="en">ssCpuSystem</mib_title>
+            <mib_title xml:lang="zh-CN">ssCpuSystem</mib_title>
+            <mib_title xml:lang="jp">ssCpuSystem</mib_title>
+            <mib_title xml:lang="es">ssCpuSystem</mib_title>
+            <mib_title xml:lang="ru">ssCpuSystem</mib_title>
+            <mib_title xml:lang="fr">ssCpuSystem</mib_title>
+            <mib_title xml:lang="zh-TW">ssCpuSystem</mib_title>
+            <mib_title xml:lang="vi">ssCpuSystem</mib_title>
+            <mib_title xml:lang="mn">ssCpuSystem</mib_title>
+            <mib>.1.3.6.1.4.1.2021.11.10.0</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">CPU System 현재 정보(%)</description>
+            <description xml:lang="en">CPU System 현재 정보(%)</description>
+            <description xml:lang="zh-CN">CPU System 현재 정보(%)</description>
+            <description xml:lang="jp">CPU System 현재 정보(%)</description>
+            <description xml:lang="es">CPU System 현재 정보(%)</description>
+            <description xml:lang="ru">CPU System 현재 정보(%)</description>
+            <description xml:lang="fr">CPU System 현재 정보(%)</description>
+            <description xml:lang="zh-TW">CPU System 현재 정보(%)</description>
+            <description xml:lang="vi">CPU System 현재 정보(%)</description>
+            <description xml:lang="mn">CPU System 현재 정보(%)</description>
+            <legend xml:lang="ko">system</legend>
+            <legend xml:lang="en">system</legend>
+            <legend xml:lang="zh-CN">system</legend>
+            <legend xml:lang="jp">system</legend>
+            <legend xml:lang="es">system</legend>
+            <legend xml:lang="ru">system</legend>
+            <legend xml:lang="fr">system</legend>
+            <legend xml:lang="zh-TW">system</legend>
+            <legend xml:lang="vi">system</legend>
+            <legend xml:lang="mn">system</legend>
+            <collect />
+        </var>
+        <var id="ssCpuIdle">
+            <mmid>ssCpuIdle</mmid>
+            <mib_title xml:lang="ko">ssCpuIdle</mib_title>
+            <mib_title xml:lang="en">ssCpuIdle</mib_title>
+            <mib_title xml:lang="zh-CN">ssCpuIdle</mib_title>
+            <mib_title xml:lang="jp">ssCpuIdle</mib_title>
+            <mib_title xml:lang="es">ssCpuIdle</mib_title>
+            <mib_title xml:lang="ru">ssCpuIdle</mib_title>
+            <mib_title xml:lang="fr">ssCpuIdle</mib_title>
+            <mib_title xml:lang="zh-TW">ssCpuIdle</mib_title>
+            <mib_title xml:lang="vi">ssCpuIdle</mib_title>
+            <mib_title xml:lang="mn">ssCpuIdle</mib_title>
+            <mib>.1.3.6.1.4.1.2021.11.11.0</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="en">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="zh-CN">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="jp">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="es">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="ru">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="fr">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="zh-TW">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="vi">CPU Idle 현재 정보(%)</description>
+            <description xml:lang="mn">CPU Idle 현재 정보(%)</description>
+            <legend xml:lang="ko">idle</legend>
+            <legend xml:lang="en">idle</legend>
+            <legend xml:lang="zh-CN">idle</legend>
+            <legend xml:lang="jp">idle</legend>
+            <legend xml:lang="es">idle</legend>
+            <legend xml:lang="ru">idle</legend>
+            <legend xml:lang="fr">idle</legend>
+            <legend xml:lang="zh-TW">idle</legend>
+            <legend xml:lang="vi">idle</legend>
+            <legend xml:lang="mn">idle</legend>
+            <collect />
+        </var>
+        <var id="usage">
+            <mmid>usage</mmid>
+            <mib_title xml:lang="ko">usage</mib_title>
+            <mib_title xml:lang="en">usage</mib_title>
+            <mib_title xml:lang="zh-CN">usage</mib_title>
+            <mib_title xml:lang="jp">usage</mib_title>
+            <mib_title xml:lang="es">usage</mib_title>
+            <mib_title xml:lang="ru">usage</mib_title>
+            <mib_title xml:lang="fr">usage</mib_title>
+            <mib_title xml:lang="zh-TW">usage</mib_title>
+            <mib_title xml:lang="vi">usage</mib_title>
+            <mib_title xml:lang="mn">usage</mib_title>
+            <mib>.1.3.6.1.4.1.2021.11.11.0</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">CPU 이용 정보(%)</description>
+            <description xml:lang="en">CPU 이용 정보(%)</description>
+            <description xml:lang="zh-CN">CPU 이용 정보(%)</description>
+            <description xml:lang="jp">CPU 이용 정보(%)</description>
+            <description xml:lang="es">CPU 이용 정보(%)</description>
+            <description xml:lang="ru">CPU 이용 정보(%)</description>
+            <description xml:lang="fr">CPU 이용 정보(%)</description>
+            <description xml:lang="zh-TW">CPU 이용 정보(%)</description>
+            <description xml:lang="vi">CPU 이용 정보(%)</description>
+            <description xml:lang="mn">CPU 이용 정보(%)</description>
+            <legend xml:lang="ko">사용률</legend>
+            <legend xml:lang="en">usage</legend>
+            <legend xml:lang="zh-CN">usage</legend>
+            <legend xml:lang="jp">usage</legend>
+            <legend xml:lang="es">usage</legend>
+            <legend xml:lang="ru">usage</legend>
+            <legend xml:lang="fr">usage</legend>
+            <legend xml:lang="zh-TW">usage</legend>
+            <legend xml:lang="vi">usage</legend>
+            <legend xml:lang="mn">usage</legend>
+            <collect>5</collect>
+        </var>
+        <var id="laLoad1">
+            <mmid>laLoad1</mmid>
+            <mib_title xml:lang="ko">laLoad 1분</mib_title>
+            <mib_title xml:lang="en">laLoad 1분</mib_title>
+            <mib_title xml:lang="zh-CN">laLoad 1분</mib_title>
+            <mib_title xml:lang="jp">laLoad 1분</mib_title>
+            <mib_title xml:lang="es">laLoad 1분</mib_title>
+            <mib_title xml:lang="ru">laLoad 1분</mib_title>
+            <mib_title xml:lang="fr">laLoad 1분</mib_title>
+            <mib_title xml:lang="zh-TW">laLoad 1분</mib_title>
+            <mib_title xml:lang="vi">laLoad 1분</mib_title>
+            <mib_title xml:lang="mn">laLoad 1분</mib_title>
+            <mib>.1.3.6.1.4.1.2021.10.1.3.1</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="en">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="zh-CN">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="jp">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="es">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="ru">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="fr">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="zh-TW">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="vi">지난 1분간 평균 Load(%)</description>
+            <description xml:lang="mn">지난 1분간 평균 Load(%)</description>
+            <legend xml:lang="ko">Load 1분</legend>
+            <legend xml:lang="en">Load 1min</legend>
+            <legend xml:lang="zh-CN">Load 1min</legend>
+            <legend xml:lang="jp">Load 1min</legend>
+            <legend xml:lang="es">Load 1min</legend>
+            <legend xml:lang="ru">Load 1min</legend>
+            <legend xml:lang="fr">Load 1min</legend>
+            <legend xml:lang="zh-TW">Load 1min</legend>
+            <legend xml:lang="vi">Load 1min</legend>
+            <legend xml:lang="mn">Load 1min</legend>
+            <collect />
+        </var>
+        <var id="laLoad2">
+            <mmid>laLoad2</mmid>
+            <mib_title xml:lang="ko">laLoad 5분</mib_title>
+            <mib_title xml:lang="en">laLoad 5분</mib_title>
+            <mib_title xml:lang="zh-CN">laLoad 5분</mib_title>
+            <mib_title xml:lang="jp">laLoad 5분</mib_title>
+            <mib_title xml:lang="es">laLoad 5분</mib_title>
+            <mib_title xml:lang="ru">laLoad 5분</mib_title>
+            <mib_title xml:lang="fr">laLoad 5분</mib_title>
+            <mib_title xml:lang="zh-TW">laLoad 5분</mib_title>
+            <mib_title xml:lang="vi">laLoad 5분</mib_title>
+            <mib_title xml:lang="mn">laLoad 5분</mib_title>
+            <mib>.1.3.6.1.4.1.2021.10.1.3.2</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="en">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="zh-CN">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="jp">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="es">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="ru">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="fr">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="zh-TW">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="vi">지난 5분간 평균 Load(%)</description>
+            <description xml:lang="mn">지난 5분간 평균 Load(%)</description>
+            <legend xml:lang="ko">Load 5분</legend>
+            <legend xml:lang="en">Load 5min</legend>
+            <legend xml:lang="zh-CN">Load 5min</legend>
+            <legend xml:lang="jp">Load 5min</legend>
+            <legend xml:lang="es">Load 5min</legend>
+            <legend xml:lang="ru">Load 5min</legend>
+            <legend xml:lang="fr">Load 5min</legend>
+            <legend xml:lang="zh-TW">Load 5min</legend>
+            <legend xml:lang="vi">Load 5min</legend>
+            <legend xml:lang="mn">Load 5min</legend>
+            <collect />
+        </var>
+        <var id="laLoad3">
+            <mmid>laLoad3</mmid>
+            <mib_title xml:lang="ko">laLoad 15분</mib_title>
+            <mib_title xml:lang="en">laLoad 15분</mib_title>
+            <mib_title xml:lang="zh-CN">laLoad 15분</mib_title>
+            <mib_title xml:lang="jp">laLoad 15분</mib_title>
+            <mib_title xml:lang="es">laLoad 15분</mib_title>
+            <mib_title xml:lang="ru">laLoad 15분</mib_title>
+            <mib_title xml:lang="fr">laLoad 15분</mib_title>
+            <mib_title xml:lang="zh-TW">laLoad 15분</mib_title>
+            <mib_title xml:lang="vi">laLoad 15분</mib_title>
+            <mib_title xml:lang="mn">laLoad 15분</mib_title>
+            <mib>.1.3.6.1.4.1.2021.10.1.3.3</mib>
+            <max>100</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="en">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="zh-CN">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="jp">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="es">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="ru">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="fr">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="zh-TW">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="vi">지난 15분간 평균 Load(%)</description>
+            <description xml:lang="mn">지난 15분간 평균 Load(%)</description>
+            <legend xml:lang="ko">Load 15분</legend>
+            <legend xml:lang="en">Load 15min</legend>
+            <legend xml:lang="zh-CN">Load 15min</legend>
+            <legend xml:lang="jp">Load 15min</legend>
+            <legend xml:lang="es">Load 15min</legend>
+            <legend xml:lang="ru">Load 15min</legend>
+            <legend xml:lang="fr">Load 15min</legend>
+            <legend xml:lang="zh-TW">Load 15min</legend>
+            <legend xml:lang="vi">Load 15min</legend>
+            <legend xml:lang="mn">Load 15min</legend>
+            <collect />
+        </var>
+    </mibs>
+</wizard>

@@ -1,0 +1,21 @@
+<filter name="insert_config" module="nms" act="procNmsAdminInsertConfig" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="nms_cron_type" required="true" />
+        <node target="nms_syslog_type" required="true" />
+        <node target="nms_snmptrap_type" required="true" />
+        <node target="nms_schedule_type" required="true" />
+        <node target="nms_compress" required="true" filter="number" />
+    </form>
+    <parameter>
+        <param name="crontype" target="nms_cron_type" />
+        <param name="syslogtype" target="nms_syslog_type" />
+        <param name="snmptraptype" target="nms_snmptrap_type" />
+        <param name="schedule" target="nms_schedule_type" />
+        <param name="compress" target="nms_compress" />
+        <param name="compress_type" target="nms_compress_type" />
+    </parameter>
+    <response callback_func="complete">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

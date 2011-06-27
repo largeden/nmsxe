@@ -1,0 +1,48 @@
+<!--#include("./init.html")-->
+<!--#include("./header.html")-->
+<!--@if($group_name)-->
+    <!--@if($document_srl)-->
+        <!--#include("./history.view.html")-->
+    <!--@elseif($view_style == 'table')-->
+        <!--#include("./view.table.html")-->
+    <!--@else-->
+        <!--#include("./view.graph.html")-->
+    <!--@endif-->
+<!--@else-->
+    <!--@if($document_srl && !$group_name)-->
+        <!--#include("./history.view.html")-->
+    <!--@elseif($list_style == 'list')-->
+        <!--#include("./style.list.html")-->
+    <!--@else-->
+        <!--#include("./style.gallery.html")-->
+    <!--@endif-->
+<!--@endif-->
+
+<!--@if(!$group_name)-->
+    <div class="pagination">
+        <a href="{getUrl('page','')}" class="prevEnd">{$lang->first_page}</a>
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <strong>{$page_no}</strong>
+            <!--@else-->
+                <a href="{getUrl('page',$page_no)}">{$page_no}</a>
+            <!--@end-->
+        <!--@end-->
+        <a href="{getUrl('page',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page}</a>
+
+        <form action="./" method="get" id="fo_search">
+        <input type="hidden" name="mid" value="{$mid}" />
+        <input type="hidden" name="list_style" value="{$list_style}" />
+        <input type="hidden" name="view_style" value="{$view_style}" />
+        <input type="hidden" name="page" value="{$page}" />
+        <select name="search_target" class="select">
+            <!--@foreach($search_option as $key => $val)-->
+            <option value="{$key}" <!--@if($search_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
+            <!--@endforeach-->
+        </select>
+        <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputSearch" />
+        <input type="submit" class="button" value="{$lang->cmd_search}" title="{$lang->cmd_search}" />
+        </form>
+    </div>
+<!--@endif-->
+<!--#include("./footer.html")-->

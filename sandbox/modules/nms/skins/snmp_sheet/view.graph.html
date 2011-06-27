@@ -1,0 +1,90 @@
+<div class="view">
+    <h3>
+        <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+            <img src="./images/{$colorset}/statistics.gif" alt="statistics" width="16" height="16" />
+        <!--@end-->
+        {$mib_group_info->getMibTitle()}
+    </h3>
+    <div class="content">
+        <div class="graph_list">
+            <!--@foreach($view_graph as $mode)-->
+                <h4>{$mib_group_info->getMibTitle()} {$mode}</h4>
+                <!--@if($mode == 'customer')-->
+                <form id="fo_nms_customer" action="./" method="get" onsubmit="return procFilter(this, snmp_sheet.customer); return false;">
+                <input type="hidden" name="group_name" value="{$group_name}" />
+                <input type="hidden" name="colorset" value="{$colorset}" />
+                    <ul>
+                        <li>
+                            <select class="select" name="mode">
+                                <option value="normal" selected="selected">normal</option>
+                                <option value="1hour">1hour</option>
+                                <option value="3hour">3hour</option>
+                                <option value="6hour">6hour</option>
+                                <option value="12hour">12hour</option>
+                                <option value="day">day</option>
+                                <option value="week">week</option>
+                                <option value="month">month</option>
+                                <option value="year">year</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="text" value="" name="regdate" readonly="readonly" class="inputDate" />
+                            <select class="select" name="reghour">
+                            <option value="00" selected="selected">00</option>
+                            <!--@for($t=1; $t < 24; $t++)-->
+                            <option value="{sprintf('%02d', $t)}">{sprintf('%02d', $t)}</option>
+                            <!--@end-->
+                            </select>
+                        </li>
+                        <li>
+                            <input type="submit" class="button" value="{$lang->cmd_view}" />
+                        </li>
+                    </ul>
+                </form>
+                <div class="customer"></div>
+                <!--@else-->
+                <div class="graph normal">
+                    <em>{getUrl('','act','dispNmsGraph','mid',$mid,'graph','line','group_name',$group_name,'mode',$mode,'skin',$colorset,'unit',$module_info->unit)}</em>
+                </div>
+                <!--@endif-->
+            <!--@endforeach-->
+        </div>
+        <div class="legend">
+            <h4>{$lang->nms_view_current}</h4>
+            <ul>
+            <!--@foreach($mib_group_info->getSnmpCurrent() as $val)-->
+                <!--@if(in_array($val->collect_mode, array(2,3)))-->
+                    {@ $val->max = 100 }
+                <!--@endif-->
+                <li><span>{$val->legend_name}</span>
+                    <!--@if($byte)-->
+                    <p>{$mib_group_info->getSizeBytes($val->value,3,1024)} / {$mib_group_info->getSizeBytes($val->max*$byte,3,1024)}</p>
+                    <!--@else-->
+                    <p>{$mib_group_info->getSizeBytes($val->value)} / {$mib_group_info->getSizeBytes($val->max)}</p>
+                    <!--@endif-->
+                </li>
+            <!--@endforeach-->
+            </ul>
+            <h4>{$lang->nms_view_legend}</h4>
+            <ul>
+            <!--@foreach($mib_info as $mib)-->
+                <li><span>{$mib->getExtraVars('legend_name')}</span>
+                    <p>{$mib->getDescription()}</p>
+                </li>
+            <!--@endforeach-->
+            </ul>
+        </div>
+    </div>
+    <div class="history">
+        <h4 id="history_list">History <img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></h4>
+        <!--@if($grant->manager)-->
+        <!--%import("../../tpl/filter/history_proc.xml")-->
+        <form id="history_proc" action="./" method="post" onsubmit="return procFilter(this, history_proc)" enctype="multipart/form-data">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="group_name" value="{$group_name}" />
+            <input type="submit" class="button" value="{$lang->nms_history_save}" title="{$lang->nms_history_save}" />
+        </form>
+        <!--@endif-->
+        <div class="history_list"></div>
+    </div>
+</div>

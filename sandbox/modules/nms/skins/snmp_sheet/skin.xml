@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">nmsXE Snmp Sheet 스킨</title>
+    <title xml:lang="en">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="zh-CN">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="jp">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="es">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="ru">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="fr">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="zh-TW">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="vi">nmsXE Snmp Sheet Skin</title>
+    <title xml:lang="mn">nmsXE Snmp Sheet Skin</title>
+    <description xml:lang="ko">nmsXE Snmp Sheet 스킨입니다.</description>
+    <description xml:lang="en">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="zh-CN">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="jp">nmsXE Snmp Sheet です。</description>
+    <description xml:lang="es">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="ru">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="fr">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="zh-TW">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="vi">nmsXE Snmp Sheet Skin.</description>
+    <description xml:lang="mn">nmsXE Snmp Sheet Skin.</description>
+    <version>1.0</version>
+    <date>2010-11-06</date>
+    <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+        <name xml:lang="ko">라르게덴</name>
+        <name xml:lang="en">largeden</name>
+        <name xml:lang="zh-CN">largeden</name>
+        <name xml:lang="jp">ラルゲデン</name>
+        <name xml:lang="es">largeden</name>
+        <name xml:lang="ru">largeden</name>
+        <name xml:lang="fr">largeden</name>
+        <name xml:lang="zh-TW">largeden</name>
+        <name xml:lang="vi">largeden</name>
+        <name xml:lang="mn">largeden</name>
+    </author>
+
+    <colorset>
+        <color name="white" src="screenshot/white.jpg">
+            <title xml:lang="ko">하얀색(기본)</title>
+            <title xml:lang="en">White (default)</title>
+            <title xml:lang="zh-CN">白色（基本）</title>
+            <title xml:lang="jp">白（デフォルト）</title>
+            <title xml:lang="es">Blanco (por defecto)</title>
+            <title xml:lang="ru">White (default)</title>
+            <title xml:lang="fr">White (default)</title>
+            <title xml:lang="zh-TW">白色(預設)</title>
+            <title xml:lang="vi">White (default)</title>
+            <title xml:lang="mn">White (default)</title>
+        </color>
+        <color name="black" src="screenshot/black.jpg">
+            <title xml:lang="ko">검은색</title>
+            <title xml:lang="en">Black</title>
+            <title xml:lang="zh-CN">黑色</title>
+            <title xml:lang="jp">黒</title>
+            <title xml:lang="es">Negro</title>
+            <title xml:lang="ru">Черного</title>
+            <title xml:lang="fr">Black</title>
+            <title xml:lang="zh-TW">黑色</title>
+            <title xml:lang="vi">Black</title>
+            <title xml:lang="mn">Black</title>
+        </color>
+    </colorset>
+
+    <extra_vars>
+        <group> 
+            <title xml:lang="ko">기본설정</title>
+            <title xml:lang="en">Default Setting</title>
+            <title xml:lang="zh-CN">Default Setting</title>
+            <title xml:lang="jp">基本設定</title>
+            <title xml:lang="es">Default Setting</title>
+            <title xml:lang="ru">Default Setting</title>
+            <title xml:lang="fr">Default Setting</title>
+            <title xml:lang="zh-TW">Default Setting</title>
+            <title xml:lang="vi">Default Setting</title>
+            <title xml:lang="mn">Default Setting</title>
+            <var name="default_style" type="select">
+                <title xml:lang="ko">기본 스타일</title>
+                <title xml:lang="en">Default Style</title>
+                <title xml:lang="zh-CN">Default Style</title>
+                <title xml:lang="jp">基本スタイル</title>
+                <title xml:lang="es">Default Style</title>
+                <title xml:lang="ru">Default Style</title>
+                <title xml:lang="fr">Default Style</title>
+                <title xml:lang="zh-TW">Default Style</title>
+                <title xml:lang="vi">Default Style</title>
+                <title xml:lang="mn">Default Style</title>
+                <description xml:lang="ko">처음 화면에 보여줄 기본 스타일을 정해주세요.</description>
+                <description xml:lang="en">The first show on the screen, please set the default style.</description>
+                <description xml:lang="zh-CN">The first show on the screen, please set the default style.</description>
+                <description xml:lang="jp">最初の画面に見せる基本的なスタイルを決めてください。</description>
+                <description xml:lang="es">The first show on the screen, please set the default style.</description>
+                <description xml:lang="ru">The first show on the screen, please set the default style.</description>
+                <description xml:lang="fr">The first show on the screen, please set the default style.</description>
+                <description xml:lang="zh-TW">The first show on the screen, please set the default style.</description>
+                <description xml:lang="vi">The first show on the screen, please set the default style.</description>
+                <description xml:lang="mn">The first show on the screen, please set the default style.</description>
+                <options value="gallery">
+                    <title xml:lang="ko">갤러리</title>
+                    <title xml:lang="en">Gallery</title>
+                    <title xml:lang="zh-CN">Gallery</title>
+                    <title xml:lang="jp">ギャラリー</title>
+                    <title xml:lang="es">Gallery</title>
+                    <title xml:lang="ru">Gallery</title>
+                    <title xml:lang="fr">Gallery</title>
+                    <title xml:lang="zh-TW">Gallery</title>
+                    <title xml:lang="vi">Gallery</title>
+                    <title xml:lang="mn">Gallery</title>
+                </options>
+                <options value="list">
+                    <title xml:lang="ko">목록</title>
+                    <title xml:lang="en">list</title>
+                    <title xml:lang="zh-CN">目录型</title>
+                    <title xml:lang="jp">リスト</title>
+                    <title xml:lang="es">list</title>
+                    <title xml:lang="ru">list</title>
+                    <title xml:lang="fr">list</title>
+                    <title xml:lang="zh-TW">列表型</title>
+                    <title xml:lang="vi">list</title>
+                    <title xml:lang="mn">list</title>
+                </options>
+            </var>
+            <var name="view_style" type="select">
+                <title xml:lang="ko">그룹 스타일</title>
+                <title xml:lang="en">Group Style</title>
+                <title xml:lang="zh-CN">Group Style</title>
+                <title xml:lang="jp">グループスタイル</title>
+                <title xml:lang="es">Group Style</title>
+                <title xml:lang="ru">Group Style</title>
+                <title xml:lang="fr">Group Style</title>
+                <title xml:lang="zh-TW">Group Style</title>
+                <title xml:lang="vi">Group Style</title>
+                <title xml:lang="mn">Group Style</title>
+                <description xml:lang="ko">그룹이름을 선택했을시 보여줄 스타일을 정해주세요.</description>
+                <description xml:lang="en">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="zh-CN">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="jp">グループ名を選択した時に見せるスタイルを決めてください。</description>
+                <description xml:lang="es">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="ru">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="fr">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="zh-TW">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="vi">When you have a group name, select the show Please specify style.</description>
+                <description xml:lang="mn">When you have a group name, select the show Please specify style.</description>
+                <options value="graph">
+                    <title xml:lang="ko">그래프</title>
+                    <title xml:lang="en">Graph</title>
+                    <title xml:lang="zh-CN">Graph</title>
+                    <title xml:lang="jp">グラフ</title>
+                    <title xml:lang="es">Graph</title>
+                    <title xml:lang="ru">Graph</title>
+                    <title xml:lang="fr">Graph</title>
+                    <title xml:lang="zh-TW">Graph</title>
+                    <title xml:lang="vi">Graph</title>
+                    <title xml:lang="mn">Graph</title>
+                </options>
+                <options value="table">
+                    <title xml:lang="ko">표</title>
+                    <title xml:lang="en">table</title>
+                    <title xml:lang="zh-CN">table</title>
+                    <title xml:lang="jp">表</title>
+                    <title xml:lang="es">table</title>
+                    <title xml:lang="ru">table</title>
+                    <title xml:lang="fr">table</title>
+                    <title xml:lang="zh-TW">table</title>
+                    <title xml:lang="vi">table</title>
+                    <title xml:lang="mn">table</title>
+                </options>
+            </var>
+            <var name="display_login_info" type="select">
+                <title xml:lang="ko">로그인 정보 출력</title>
+                <title xml:lang="en">Display Login Info</title>
+                <title xml:lang="zh-CN">显示会员信息组</title>
+                <title xml:lang="jp">ログイン情報表示</title>
+                <title xml:lang="es">Muestra la información de la conección</title>
+                <title xml:lang="ru">Display Login Info</title>
+                <title xml:lang="fr">Display Login Info</title>
+                <title xml:lang="zh-TW">顯示登入資料</title>
+                <title xml:lang="vi">Display Login Info</title>
+                <title xml:lang="mn">Display Login Info</title>
+                <description />
+                <options value="Y">
+                    <title xml:lang="ko">출력</title>
+                    <title xml:lang="en">display</title>
+                    <title xml:lang="zh-CN">显示</title>
+                    <title xml:lang="jp">表示</title>
+                    <title xml:lang="es">display</title>
+                    <title xml:lang="ru">display</title>
+                    <title xml:lang="fr">display</title>
+                    <title xml:lang="zh-TW">顯示</title>
+                    <title xml:lang="vi">display</title>
+                    <title xml:lang="mn">display</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">출력하지 않음</title>
+                    <title xml:lang="en">not display</title>
+                    <title xml:lang="zh-CN">不显示</title>
+                    <title xml:lang="jp">非表示</title>
+                    <title xml:lang="es">not display</title>
+                    <title xml:lang="ru">not display</title>
+                    <title xml:lang="fr">not display</title>
+                    <title xml:lang="zh-TW">隱藏</title>
+                    <title xml:lang="vi">not display</title>
+                    <title xml:lang="mn">not display</title>
+                </options>
+            </var>
+            <var name="display_management_button" type="select">
+                <title xml:lang="ko">관리 페이지 메뉴 출력</title>
+                <title xml:lang="en">Display Management page menu</title>
+                <title xml:lang="zh-CN">Display Management page menu</title>
+                <title xml:lang="jp">管理ページメニューを出力</title>
+                <title xml:lang="es">Display Management page menu</title>
+                <title xml:lang="ru">Display Management page menu</title>
+                <title xml:lang="fr">Display Management page menu</title>
+                <title xml:lang="zh-TW">Display Management page menu</title>
+                <title xml:lang="vi">Display Management page menu</title>
+                <title xml:lang="mn">Display Management page menu</title>
+                <description />
+                <options value="Y">
+                    <title xml:lang="ko">출력</title>
+                    <title xml:lang="en">display</title>
+                    <title xml:lang="zh-CN">显示</title>
+                    <title xml:lang="jp">表示</title>
+                    <title xml:lang="es">display</title>
+                    <title xml:lang="ru">display</title>
+                    <title xml:lang="fr">display</title>
+                    <title xml:lang="zh-TW">顯示</title>
+                    <title xml:lang="vi">display</title>
+                    <title xml:lang="mn">display</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">출력하지 않음</title>
+                    <title xml:lang="en">not display</title>
+                    <title xml:lang="zh-CN">不显示</title>
+                    <title xml:lang="jp">非表示</title>
+                    <title xml:lang="es">not display</title>
+                    <title xml:lang="ru">not display</title>
+                    <title xml:lang="fr">not display</title>
+                    <title xml:lang="zh-TW">隱藏</title>
+                    <title xml:lang="vi">not display</title>
+                    <title xml:lang="mn">not display</title>
+                </options>
+            </var>
+            <var name="title" type="text">
+                <title xml:lang="ko">모듈 제목</title>
+                <title xml:lang="en">Title of Module</title>
+                <title xml:lang="zh-CN">Title of Module</title>
+                <title xml:lang="jp">モジュールのタイトル</title>
+                <title xml:lang="es">Title of Module</title>
+                <title xml:lang="ru">Title of Module</title>
+                <title xml:lang="fr">Title of Module</title>
+                <title xml:lang="zh-TW">Title of Module</title>
+                <title xml:lang="vi">Title of Module</title>
+                <title xml:lang="mn">Title of Module</title>
+                <description xml:lang="ko">모듈의 제목을 적어주세요.</description>
+                <description xml:lang="en">Please input the title of module.</description>
+                <description xml:lang="zh-CN">Please input the title of module.</description>
+                <description xml:lang="jp">モジュールのタイトルを入力してください。</description>
+                <description xml:lang="es">Please input the title of module.</description>
+                <description xml:lang="ru">Please input the title of module.</description>
+                <description xml:lang="fr">Please input the title of module.</description>
+                <description xml:lang="zh-TW">Please input the title of module.</description>
+                <description xml:lang="vi">Please input the title of module.</description>
+                <description xml:lang="mn">Please input the title of module.</description>
+            </var>
+            <var name="sub_title" type="text">
+                <title xml:lang="ko">모듈 부제목</title>
+                <title xml:lang="en">Subtitle of Module</title>
+                <title xml:lang="zh-CN">Subtitle of Module</title>
+                <title xml:lang="jp">サブタイトル</title>
+                <title xml:lang="es">Subtitle of Module</title>
+                <title xml:lang="ru">Subtitle of Module</title>
+                <title xml:lang="fr">Subtitle of Module</title>
+                <title xml:lang="zh-TW">Subtitle of Module</title>
+                <title xml:lang="vi">Subtitle of Module</title>
+                <title xml:lang="mn">Subtitle of Module</title>
+                <description xml:lang="ko">모듈의 부제목을 적어주세요.</description>
+                <description xml:lang="en">Please input the subtitle of module.</description>
+                <description xml:lang="zh-CN">Please input the subtitle of module.</description>
+                <description xml:lang="jp">モジュールのサブタイトルを入力してください。</description>
+                <description xml:lang="es">Please input the subtitle of module.</description>
+                <description xml:lang="ru">Please input the subtitle of module.</description>
+                <description xml:lang="fr">Please input the subtitle of module.</description>
+                <description xml:lang="zh-TW">Please input the subtitle of module.</description>
+                <description xml:lang="vi">Please input the subtitle of module.</description>
+                <description xml:lang="mn">Please input the subtitle of module.</description>
+            </var>
+            <var name="comment" type="textarea">
+                <title xml:lang="ko">모듈 상세 설명</title>
+                <title xml:lang="en">Description of Module</title>
+                <title xml:lang="zh-CN">Description of Module</title>
+                <title xml:lang="jp">モジュールの詳しい説明</title>
+                <title xml:lang="es">Description of Module</title>
+                <title xml:lang="ru">Description of Module</title>
+                <title xml:lang="fr">Description of Module</title>
+                <title xml:lang="zh-TW">Description of Module</title>
+                <title xml:lang="vi">Description of Module</title>
+                <title xml:lang="mn">Description of Module</title>
+                <description xml:lang="ko">모듈의 상세설명을 적어주세요.</description>
+                <description xml:lang="en">Please input the description of module.</description>
+                <description xml:lang="zh-CN">Please input the description of module.</description>
+                <description xml:lang="jp">モジュールの詳しい説明を入力してください。</description>
+                <description xml:lang="es">Please input the description of module.</description>
+                <description xml:lang="ru">Please input the description of module.</description>
+                <description xml:lang="fr">Please input the description of module.</description>
+                <description xml:lang="zh-TW">Please input the description of module.</description>
+                <description xml:lang="vi">Please input the description of module.</description>
+                <description xml:lang="mn">Please input the description of module.</description>
+            </var>
+            <var name="title_image" type="image">
+                <title xml:lang="ko">모듈 이미지</title>
+                <title xml:lang="en">Image of Module</title>
+                <title xml:lang="zh-CN">Image of Module</title>
+                <title xml:lang="jp">モジュールのイメージ</title>
+                <title xml:lang="es">Image of Module</title>
+                <title xml:lang="ru">Image of Module</title>
+                <title xml:lang="fr">Image of Module</title>
+                <title xml:lang="zh-TW">Image of Module</title>
+                <title xml:lang="vi">Image of Module</title>
+                <title xml:lang="mn">Image of Module</title>
+                <description xml:lang="ko">모듈 상단에 사용할 이미지를 올려주세요.(세로 80px 이하)</description>
+                <description xml:lang="en">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="zh-CN">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="jp">モジュールの上端に乗せるイメージをアップロドしてください。（縦８０px以下）</description>
+                <description xml:lang="es">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="ru">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="fr">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="zh-TW">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="vi">Please upload your own image at the top of the module. (80px height or less)</description>
+                <description xml:lang="mn">Please upload your own image at the top of the module. (80px height or less)</description>
+            </var>
+        </group>
+        <group>
+            <title xml:lang="ko">부가설정</title>
+            <title xml:lang="en">Additional Setting</title>
+            <title xml:lang="zh-CN">Additional Setting</title>
+            <title xml:lang="jp">基本設定</title>
+            <title xml:lang="es">Additional Setting</title>
+            <title xml:lang="ru">Additional Setting</title>
+            <title xml:lang="fr">Additional Setting</title>
+            <title xml:lang="zh-TW">Additional Setting</title>
+            <title xml:lang="vi">Additional Setting</title>
+            <title xml:lang="mn">Additional Setting</title>
+            <var name="width_count" type="text">
+                <title xml:lang="ko">갤러리 가로 줄수</title>
+                <title xml:lang="en">Horizontal Lines Gallery</title>
+                <title xml:lang="zh-CN">Horizontal Lines Gallery</title>
+                <title xml:lang="jp">ギャラリー横の一行数</title>
+                <title xml:lang="es">Horizontal Lines Gallery</title>
+                <title xml:lang="ru">Horizontal Lines Gallery</title>
+                <title xml:lang="fr">Horizontal Lines Gallery</title>
+                <title xml:lang="zh-TW">Horizontal Lines Gallery</title>
+                <title xml:lang="vi">Horizontal Lines Gallery</title>
+                <title xml:lang="mn">Horizontal Lines Gallery</title>
+                <description xml:lang="ko">기본 스타일이 갤러리일 경우 한줄에 보여줄 그래프의 수를 나타냅니다. (기본 5)</description>
+                <description xml:lang="en">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="zh-CN">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="jp">基本スタイルがギャラリーの場合は一行に見せるグラフの数を表します。 基本　5）</description>
+                <description xml:lang="es">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="ru">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="fr">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="zh-TW">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="vi">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+                <description xml:lang="mn">The default style for the gallery show in the graph represents the number of line. (Default 5)</description>
+            </var>
+            <var name="view_graph" type="checkbox">
+                <title xml:lang="ko">보여줄 그래프</title>
+                <title xml:lang="en">Graphs Show</title>
+                <title xml:lang="zh-CN">Graphs Show</title>
+                <title xml:lang="jp">見せるグラフ</title>
+                <title xml:lang="es">Graphs Show</title>
+                <title xml:lang="ru">Graphs Show</title>
+                <title xml:lang="fr">Graphs Show</title>
+                <title xml:lang="zh-TW">Graphs Show</title>
+                <title xml:lang="vi">Graphs Show</title>
+                <title xml:lang="mn">Graphs Show</title>
+                <description xml:lang="ko">
+                    그룹을 선택했을때 보여줄 그래프를 선택 하실 수 있습니다.
+                    normal은 33시간입니다.
+                    customer는 normal~year의 설정을 원하는 시간대로 볼 수 있는 옵션이 있습니다.
+                </description>
+                <description xml:lang="en">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options.
+                </description>
+                <description xml:lang="zh-CN">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options.
+                </description>
+                <description xml:lang="jp">
+                    グループを選択する時見せるグラフを選択することが出来ます。
+                    normalは３３時間です。
+                    customerはnormalからyearまでの設定を願い時間帯に見るオプションがあります。
+                </description>
+                <description xml:lang="es">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <description xml:lang="ru">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <description xml:lang="fr">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <description xml:lang="zh-TW">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <description xml:lang="vi">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <description xml:lang="mn">
+                    Select the group you can choose when to show the graph.
+                    normal 33 hours.
+                    customer of the normal ~ year can be viewed as the time you want to set options
+                </description>
+                <options value="normal">
+                    <title xml:lang="ko">normal</title>
+                    <title xml:lang="en">normal</title>
+                    <title xml:lang="zh-CN">normal</title>
+                    <title xml:lang="jp">normal</title>
+                    <title xml:lang="es">normal</title>
+                    <title xml:lang="ru">normal</title>
+                    <title xml:lang="fr">normal</title>
+                    <title xml:lang="zh-TW">normal</title>
+                    <title xml:lang="vi">normal</title>
+                    <title xml:lang="mn">normal</title>
+                </options>
+                <options value="1hour">
+                    <title xml:lang="ko">1hour</title>
+                    <title xml:lang="en">1hour</title>
+                    <title xml:lang="zh-CN">1hour</title>
+                    <title xml:lang="jp">1hour</title>
+                    <title xml:lang="es">1hour</title>
+                    <title xml:lang="ru">1hour</title>
+                    <title xml:lang="fr">1hour</title>
+                    <title xml:lang="zh-TW">1hour</title>
+                    <title xml:lang="vi">1hour</title>
+                    <title xml:lang="mn">1hour</title>
+                </options>
+                <options value="3hour">
+                    <title xml:lang="ko">3hour</title>
+                    <title xml:lang="en">3hour</title>
+                    <title xml:lang="zh-CN">3hour</title>
+                    <title xml:lang="jp">3hour</title>
+                    <title xml:lang="es">3hour</title>
+                    <title xml:lang="ru">3hour</title>
+                    <title xml:lang="fr">3hour</title>
+                    <title xml:lang="zh-TW">3hour</title>
+                    <title xml:lang="vi">3hour</title>
+                    <title xml:lang="mn">3hour</title>
+                </options>
+                <options value="6hour">
+                    <title xml:lang="ko">6hour</title>
+                    <title xml:lang="en">6hour</title>
+                    <title xml:lang="zh-CN">6hour</title>
+                    <title xml:lang="jp">6hour</title>
+                    <title xml:lang="es">6hour</title>
+                    <title xml:lang="ru">6hour</title>
+                    <title xml:lang="fr">6hour</title>
+                    <title xml:lang="zh-TW">6hour</title>
+                    <title xml:lang="vi">6hour</title>
+                    <title xml:lang="mn">6hour</title>
+                </options>
+                <options value="12hour">
+                    <title xml:lang="ko">12hour</title>
+                    <title xml:lang="en">12hour</title>
+                    <title xml:lang="zh-CN">12hour</title>
+                    <title xml:lang="jp">12hour</title>
+                    <title xml:lang="es">12hour</title>
+                    <title xml:lang="ru">12hour</title>
+                    <title xml:lang="fr">12hour</title>
+                    <title xml:lang="zh-TW">12hour</title>
+                    <title xml:lang="vi">12hour</title>
+                    <title xml:lang="mn">12hour</title>
+                </options>
+                <options value="day">
+                    <title xml:lang="ko">day</title>
+                    <title xml:lang="en">day</title>
+                    <title xml:lang="zh-CN">day</title>
+                    <title xml:lang="jp">day</title>
+                    <title xml:lang="es">day</title>
+                    <title xml:lang="ru">day</title>
+                    <title xml:lang="fr">day</title>
+                    <title xml:lang="zh-TW">day</title>
+                    <title xml:lang="vi">day</title>
+                    <title xml:lang="mn">day</title>
+                </options>
+                <options value="week">
+                    <title xml:lang="ko">week</title>
+                    <title xml:lang="en">week</title>
+                    <title xml:lang="zh-CN">week</title>
+                    <title xml:lang="jp">week</title>
+                    <title xml:lang="es">week</title>
+                    <title xml:lang="ru">week</title>
+                    <title xml:lang="fr">week</title>
+                    <title xml:lang="zh-TW">week</title>
+                    <title xml:lang="vi">week</title>
+                    <title xml:lang="mn">week</title>
+                </options>
+                <options value="month">
+                    <title xml:lang="ko">month</title>
+                    <title xml:lang="en">month</title>
+                    <title xml:lang="zh-CN">month</title>
+                    <title xml:lang="jp">month</title>
+                    <title xml:lang="es">month</title>
+                    <title xml:lang="ru">month</title>
+                    <title xml:lang="fr">month</title>
+                    <title xml:lang="zh-TW">month</title>
+                    <title xml:lang="vi">month</title>
+                    <title xml:lang="mn">month</title>
+                </options>
+                <options value="year">
+                    <title xml:lang="ko">year</title>
+                    <title xml:lang="en">year</title>
+                    <title xml:lang="zh-CN">year</title>
+                    <title xml:lang="jp">year</title>
+                    <title xml:lang="es">year</title>
+                    <title xml:lang="ru">year</title>
+                    <title xml:lang="fr">year</title>
+                    <title xml:lang="zh-TW">year</title>
+                    <title xml:lang="vi">year</title>
+                    <title xml:lang="mn">year</title>
+                </options>
+                <options value="customer">
+                    <title xml:lang="ko">customer</title>
+                    <title xml:lang="en">customer</title>
+                    <title xml:lang="zh-CN">customer</title>
+                    <title xml:lang="jp">customer</title>
+                    <title xml:lang="es">customer</title>
+                    <title xml:lang="ru">customer</title>
+                    <title xml:lang="fr">customer</title>
+                    <title xml:lang="zh-TW">customer</title>
+                    <title xml:lang="vi">customer</title>
+                    <title xml:lang="mn">customer</title>
+                </options>
+            </var>
+            <var name="unit" type="text">
+                <title xml:lang="ko">단위</title>
+                <title xml:lang="en">Unit</title>
+                <title xml:lang="zh-CN">Unit</title>
+                <title xml:lang="jp">単位</title>
+                <title xml:lang="es">Unit</title>
+                <title xml:lang="ru">Unit</title>
+                <title xml:lang="fr">Unit</title>
+                <title xml:lang="zh-TW">Unit</title>
+                <title xml:lang="vi">Unit</title>
+                <title xml:lang="mn">Unit</title>
+                <description xml:lang="ko">그래프에 표시할 단위를 나타냅니다. 단위 종류로는 Byte,KByte,MByte,%,Bps 등을 사용해주세요. (기본 Bps)</description>
+                <description xml:lang="en">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="zh-CN">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="jp">グラフの表示単位を表します。単位の種類には、Byte、KByte、KByte、GByte、%、Bps等を使ってください。（基本　Bps）</description>
+                <description xml:lang="es">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="ru">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="fr">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="zh-TW">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="vi">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+                <description xml:lang="mn">Displayed on the graph represents a unit. Unit types include Byte,KByte,MByte,%,Bps etc., please use. (Default Bps)</description>
+            </var>
+            <var name="refresh" type="select">
+                <title xml:lang="ko">그래프 새로고침</title>
+                <title xml:lang="en">Refresh Graph</title>
+                <title xml:lang="zh-CN">Refresh Graph</title>
+                <title xml:lang="jp">グラフ改め</title>
+                <title xml:lang="es">Refresh Graph</title>
+                <title xml:lang="ru">Refresh Graph</title>
+                <title xml:lang="fr">Refresh Graph</title>
+                <title xml:lang="zh-TW">Refresh Graph</title>
+                <title xml:lang="vi">Refresh Graph</title>
+                <title xml:lang="mn">Refresh Graph</title>
+                <description xml:lang="ko">SNMP 수집 설정 주기에 맞춰 그래프 이미지를 자동으로 새로고침 합니다.</description>
+                <description xml:lang="en">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="zh-CN">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="jp">SNMP収集設定周期に合わせてグラフイメージを自動的に改めます。</description>
+                <description xml:lang="es">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="ru">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="fr">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="zh-TW">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="vi">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <description xml:lang="mn">SNMP collection cycle, set to automatically refresh the image according to the graph.</description>
+                <options value="Y">
+                    <title xml:lang="ko">사용</title>
+                    <title xml:lang="en">Use</title>
+                    <title xml:lang="zh-CN">Use</title>
+                    <title xml:lang="jp">使用</title>
+                    <title xml:lang="es">Use</title>
+                    <title xml:lang="ru">Use</title>
+                    <title xml:lang="fr">Use</title>
+                    <title xml:lang="zh-TW">Use</title>
+                    <title xml:lang="vi">Use</title>
+                    <title xml:lang="mn">Use</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">비사용</title>
+                    <title xml:lang="en">Non-use</title>
+                    <title xml:lang="zh-CN">Non-use</title>
+                    <title xml:lang="jp">不使用</title>
+                    <title xml:lang="es">Non-use</title>
+                    <title xml:lang="ru">Non-use</title>
+                    <title xml:lang="fr">Non-use</title>
+                    <title xml:lang="zh-TW">Non-use</title>
+                    <title xml:lang="vi">Non-use</title>
+                    <title xml:lang="mn">Non-use</title>
+                </options>
+            </var>
+            <var name="preview" type="select">
+                <title xml:lang="ko">그래프 미리보기</title>
+                <title xml:lang="en">Graph Preview</title>
+                <title xml:lang="zh-CN">Graph Preview</title>
+                <title xml:lang="jp">グラフプレビュー</title>
+                <title xml:lang="es">Graph Preview</title>
+                <title xml:lang="ru">Graph Preview</title>
+                <title xml:lang="fr">Graph Preview</title>
+                <title xml:lang="zh-TW">Graph Preview</title>
+                <title xml:lang="vi">Graph Preview</title>
+                <title xml:lang="mn">Graph Preview</title>
+                <description xml:lang="ko">기본 스타일 상에서 normal그래프를 미리보기.</description>
+                <description xml:lang="en">The default style on the normal graph preview.</description>
+                <description xml:lang="zh-CN">The default style on the normal graph preview</description>
+                <description xml:lang="jp">基本スタイル上でnormalグラフをプリビュー</description>
+                <description xml:lang="es">The default style on the normal graph preview</description>
+                <description xml:lang="ru">The default style on the normal graph preview</description>
+                <description xml:lang="fr">The default style on the normal graph preview</description>
+                <description xml:lang="zh-TW">The default style on the normal graph preview</description>
+                <description xml:lang="vi">The default style on the normal graph preview</description>
+                <description xml:lang="mn">The default style on the normal graph preview</description>
+                <options value="Y">
+                    <title xml:lang="ko">사용</title>
+                    <title xml:lang="en">Use</title>
+                    <title xml:lang="zh-CN">Use</title>
+                    <title xml:lang="jp">使用</title>
+                    <title xml:lang="es">Use</title>
+                    <title xml:lang="ru">Use</title>
+                    <title xml:lang="fr">Use</title>
+                    <title xml:lang="zh-TW">Use</title>
+                    <title xml:lang="vi">Use</title>
+                    <title xml:lang="mn">Use</title>
+                </options>
+                <options value="N">
+                    <title xml:lang="ko">비사용</title>
+                    <title xml:lang="en">Non-use</title>
+                    <title xml:lang="zh-CN">Non-use</title>
+                    <title xml:lang="jp">不使用</title>
+                    <title xml:lang="es">Non-use</title>
+                    <title xml:lang="ru">Non-use</title>
+                    <title xml:lang="fr">Non-use</title>
+                    <title xml:lang="zh-TW">Non-use</title>
+                    <title xml:lang="vi">Non-use</title>
+                    <title xml:lang="mn">Non-use</title>
+                </options>
+            </var>
+        </group>
+    </extra_vars>
+</skin>

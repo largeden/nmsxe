@@ -1,0 +1,48 @@
+<!--#include("header.html")-->
+
+<h4 class="xeAdmin">{$lang->nms_dispNmsAdminGroupList}</h4>
+<table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminGroupList_summary}">
+<caption>{$lang->nms_caption} : Total {number_format($page_navigation->total_count)}, Page {number_format($page_navigation->cur_page)}/{number_format($page_navigation->total_page)}</caption>
+    <thead>
+        <tr>
+            <th scope="col"><div>{$lang->no}</div></th>
+            <th scope="col"><div>{$lang->nms_group_list}</div></th>
+            <th scope="col"><div>{$lang->nms_schedule_list}</div></th>
+            <th scope="col"><div>{$lang->nms_cronstate_list}</div></th>
+            <th scope="col"><div>{$lang->regdate}</div></th>
+            <th scope="col" colspan="2"><div>&nbsp;</div></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@foreach($group_list as $no => $val)-->
+        <tr class="row{$cycle_idx}">
+            <td>{$no}</td>
+            <td>{$val->gid}</td>
+            <td>{$lang->nms_schedule[$val->schedule]}</td>
+            <td>{$lang->nms_typeselect[$val->cronstate]}</td>
+            <td>{zdate($val->regdate,"Y-m-d")}</td>
+            <td><a href="{getUrl('act','dispNmsAdminGroupInfo','group_srl',$val->group_srl)}" class="buttonSet buttonSetting" title="{$lang->cmd_setup}"><span>{$lang->cmd_setup}</span></a></td>
+            <td><a href="{getUrl('act','dispNmsAdminDeleteGroup','group_srl', $val->group_srl)}" class="buttonSet buttonDelete" title="{$lang->cmd_delete}"><span>{$lang->cmd_delete}</span></a></td>
+        </tr>
+        <!--@endforeach-->
+    </tbody>
+</table>
+
+<!-- 페이지 네비게이션 -->
+<div class="pagination a1">
+    <a href="{getUrl('page','','module_srl','')}" class="prevEnd">{$lang->first_page}</a> 
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+        <!--@if($page == $page_no)-->
+            <strong>{$page_no}</strong> 
+        <!--@else-->
+            <a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a> 
+        <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="nextEnd">{$lang->last_page}</a>
+</div>
+
+<div class="clear">
+    <div class="fr">
+        <a href="{getUrl('act','dispNmsAdminInsertGroup','module_srl','')}" class="button black strong"><span>{$lang->cmd_make}</span></a>
+    </div>
+</div>

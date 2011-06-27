@@ -1,0 +1,11 @@
+<query id="deleteNmsSeverityLog" action="delete">
+    <tables>
+        <table name="nms_severity_log" />
+    </tables>
+    <conditions>
+        <condition operation="in" column="severity_srl" var="severity_srl" filter="number" pipe="where" />
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" pipe="and" />
+        <condition operation="in" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+        <condition operation="in" column="aware" var="aware" pipe="and" />
+    </conditions>
+</query>

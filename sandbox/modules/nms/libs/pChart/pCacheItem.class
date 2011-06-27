@@ -1,0 +1,25 @@
+<?php
+    class pCacheItem extends pCache {
+
+        /* Create the pCache object */
+        function pCacheItem($CacheFolder="Cache/") {
+            $this->CacheFolder = $CacheFolder;
+            if(!is_dir($this->CacheFolder)) {
+                mkdir($this->CacheFolder, 0777, true);
+            }
+        }
+
+        /* This function is retrieving the cached picture if applicable */
+        function GetFromCache($ID,$Data) {
+            $Hash = $this->GetHash($ID,$Data);
+            if($this->IsInCache("","",$Hash)) {
+                $FileName = $this->CacheFolder.$Hash;
+                if($GLOBALS['nms_act']) return $FileName;
+
+                header('Content-type: image/png');
+                @readfile($FileName);
+                exit();
+            }
+        }
+    }
+?>

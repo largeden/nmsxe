@@ -1,0 +1,15 @@
+<query id="insertNmsSyslogLog" action="insert">
+    <tables>
+        <table name="nms_syslog_log" />
+    </tables>
+    <columns>
+        <column name="priority" var="priority" filter="number" notnull="notnull" />
+        <column name="facility" var="facility" filter="number" notnull="notnull" />
+        <column name="severity" var="severity" filter="number" notnull="notnull" />
+        <column name="ip_type" var="ip_type" notnull="notnull" />
+        <column name="ip_address" var="ip_address" notnull="notnull" />
+        <column name="ip_port" var="ip_port" notnull="notnull" />
+        <column name="value" var="value" default="" />
+        <column name="regdate" var="regdate" default="curdate()" />
+    </columns>
+</query>

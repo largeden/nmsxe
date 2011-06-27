@@ -1,0 +1,26 @@
+<query id="getNmsTotalInfo" action="select">
+    <tables>
+        <table name="modules" alias="modules" />
+        <table name="nms_mib" alias="nms_mib" />
+        <table name="nms_group" alias="nms_group" type="left join">
+            <conditions>
+                <condition operation="equal" column="nms.group_srl" default="nms_group.group_srl" />
+            </conditions>
+        </table>
+        <table name="nms" alias="nms" />
+    </tables>
+    <columns>
+        <column name="*" />
+        <column name="nms_mib.description" alias="nms_mib_description" />
+        <column name="nms.extra_vars" alias="nms_extra_vars" />
+        <column name="nms_group.extra_vars" alias="nms_group_extra_vars" />
+        <column name="nms_mib.extra_vars" alias="nms_mib_extra_vars" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="nms_mib.mib_srl" var="mib_srl" pipe="where" />
+        <group pipe="and">
+            <condition operation="equal" column="modules.module_srl" default="nms.module_srl" filter="number" notnull="notnull" pipe="and" />
+            <condition operation="equal" column="nms.module_srl" default="nms_mib.module_srl" filter="number" notnull="notnull" pipe="and" />
+        </group>
+    </conditions>
+</query>

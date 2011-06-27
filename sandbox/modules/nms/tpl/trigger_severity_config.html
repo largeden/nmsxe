@@ -1,0 +1,40 @@
+<!--%import("filter/config_severity.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, config_severity)" enctype="multipart/form-data">
+<input type="hidden" name="module_srl" value="{$nms_info->module_srl}" />
+    <h4 class="xeAdmin">{$lang->nms_dispNmsAdminSeverityConfig_summary}</h4>
+    <p class="summary">{nl2br($lang->nms_about_dispNmsAdminSeverityConfig)}</p>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminSeverityInfo_summary}">
+    <caption>{$lang->nms_caption} : Severity Config</caption>
+        <!--@foreach($lang->nms_act as $actname => $about)-->
+        <tr><th colspan="2" class="act"><div>{$actname}</div></th></tr>
+        <tr>
+            <th><div>{$lang->nms_severity_value}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_value" value="{$severity_config->act_value[$actname]}" class="inputTypeText w400" />
+                <!--@if($lang->nms_act_member[$actname])--><a href="{getUrl('','module','nms','act','dispNmsAdminMember','target','act_'.$actname.'_value','type',$lang->nms_act_member[$actname])}" onclick="popopen(this.href);return false;" class="buttonSet buttonMember" title="{$lang->nms_member}"><span>{$lang->nms_member}</span></a><!--@endif-->
+                <p>{$about}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_severity_form}</div></th>
+            <td>
+                <textarea name="act_{$actname}_form" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($severity_config->act_form[$actname])}</textarea>
+                <p>{$lang->nms_about_severity_form}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_severity_path}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_path" value="{$severity_config->act_path[$actname]}" class="inputTypeText w400" />
+                <p>{nl2br($lang->nms_about_severity_path)}<b>{realpath("./")}</b></p>
+            </td>
+        </tr>
+        <!--@endforeach-->
+        <tr>
+            <th colspan="2" class="button">
+                <span class="button strong black"><input type="submit" value="{$lang->cmd_save}" /></span>
+            </th>
+        </tr>
+    </table>
+</form>

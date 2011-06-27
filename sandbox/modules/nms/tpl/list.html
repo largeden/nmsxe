@@ -1,0 +1,12 @@
+<!--#include("header.html")-->
+
+{$befor_content}
+{$after_content}
+
+<block cond="$new_version">
+{@ Context::addHtmlHeader('
+    <script type="text/javascript">//<![CDATA[
+        var msg_nms_new_version = "'.$lang->msg_nms_new_version.'";
+    //]]></script>
+'); }
+</block>

@@ -1,0 +1,14 @@
+<filter name="wizard_step3" module="nms" act="procNmsAdminSettingWizard">
+    <form>
+        <node target="nms_wizard_mib_list" required="true" />
+    </form>
+    <parameter>
+        <param name="step" target="step" />
+    </parameter>
+    <response callback_func="$nms.doWizardInsertMib">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="step" />
+    </response>
+</filter>

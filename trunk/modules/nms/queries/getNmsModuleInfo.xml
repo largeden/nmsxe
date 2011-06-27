@@ -1,0 +1,20 @@
+<query id="getNmsModuleInfo" action="select">
+    <tables>
+        <table name="modules" alias="modules" />
+        <table name="nms" alias="nms" />
+    </tables>
+    <columns>
+        <column name="modules.*" />
+        <column name="nms.group_srl" alias="group_srl" />
+        <column name="nms.ip_type" alias="ip_type" />
+        <column name="nms.host" alias="host" />
+        <column name="nms.community" alias="community" />
+        <column name="nms.regdate" alias="regdate" />
+        <column name="nms.checkdate" alias="checkdate" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="modules.module_srl" default="nms.module_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="modules.module" var="module" default="nms" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="modules.module_srl" var="module_srl" filter="number" pipe="and" />
+    </conditions>
+</query>

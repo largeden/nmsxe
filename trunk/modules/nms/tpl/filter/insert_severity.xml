@@ -1,0 +1,25 @@
+<filter name="insert_severity" module="nms" act="procNmsAdminInsertSeverity" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="nms_title_mib_list" required="true" />
+        <node target="nms_title_severity_level" required="true" />
+        <node target="nms_title_value" required="true" />
+        <node target="nms_title_type" required="true" />
+        <node target="nms_title_event_sec" filter="number" />
+        <node target="nms_title_event_count" filter="number" />
+    </form>
+    <parameter>
+        <param name="mib_srl" target="nms_title_mib_list" />
+        <param name="severity" target="nms_title_severity_level" />
+        <param name="value" target="nms_title_value" />
+        <param name="type" target="nms_title_type" />
+        <param name="event_sec" target="nms_title_event_sec" />
+        <param name="event_count" target="nms_title_event_count" />
+    </parameter>
+    <response callback_func="completeInsertSeverity">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module_srl" />
+        <tag name="mib_srl" />
+        <tag name="severity" />
+    </response>
+</filter>

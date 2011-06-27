@@ -1,0 +1,34 @@
+/* BACKGROUND */
+.tree-black .ltr, .tree-black .rtl { background:url("bg.gif") left top repeat; min-width:100%; _width:100%; margin-left:0; margin-right:0; display:table; }
+.tree-black .ltr > li.leaf, .tree-black .rtl > li.leaf { background-image:none; }
+
+/* LOCKED */
+.tree-black .locked li a { color:gray; }
+/* DOTS */
+.tree-black ul { background-position:6px 1px; background-repeat:repeat-y; background-image:url("dot_for_ie.gif"); }
+.tree-black li { background-position:-64px -16px; background-repeat:no-repeat; background-image:url("icons.gif"); }
+/* NO DOTS */
+.tree-black .no_dots, .tree-black .no_dots ul { background:transparent; }
+.tree-black .no_dots li.leaf { background-image:none; background-color:transparent; }
+/* OPEN or CLOSED */
+.tree-black li.open { background:url("icons.gif") -32px -48px no-repeat; }
+.tree-black li.closed, #jstree-dragged.tree-black li li.open { background:url("icons.gif") -48px -32px no-repeat; }
+#jstree-marker { background-image:url("icons.gif"); }
+/* DEFAULT, HOVER, CLICKED, LOADING STATES */
+.tree-black li span { border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tree-black li span.over { background: #fffad1; border:1px solid #fff3d1; padding:0px 3px 0px 3px; }
+.tree-black li span.clicked { background: #fff693; border:1px solid #ffe993; padding:0px 3px 0px 3px; }
+
+/* ICONS */
+.tree-black ins { background-image:url("icons.gif"); background-position:0 0; background-repeat:no-repeat; }
+.tree-black ul li a.loading ins { background-image:url("throbber.gif") !important; background-position:0 0 !important; } /* UL is added to make selector stronger */
+.tree-black li a ins.forbidden { background-position:-16px -16px; }
+.tree-black .locked li a ins { background-position:0 -48px; }
+.tree-black li span ins { background-position:-16px 0; }
+#jstree-dragged.tree-black ins { background:url("icons.gif") -16px -32px no-repeat; }
+#jstree-dragged.tree-black ins.forbidden { background:url("icons.gif") -16px -16px no-repeat; }
+/* CONTEXT MENU */
+.tree-black-context a ins { background-image:url("icons.gif"); background-repeat:no-repeat; background-position:-64px -64px; }
+.tree-black-context a ins.create { background-position:0 -16px; }
+.tree-black-context a ins.rename { background-position:-16px 0px; }
+.tree-black-context a ins.remove { background-position:0 -32px; }

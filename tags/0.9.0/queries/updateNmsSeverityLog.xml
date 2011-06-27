@@ -1,0 +1,14 @@
+<query id="updateNmsSeverityLog" action="update">
+    <tables>
+        <table name="nms_severity_log" />
+    </tables>
+    <columns>
+        <column name="value" var="value" />
+        <column name="aware" var="aware" default="0" notnull="notnull" />
+        <column name="awaredate" var="awaredate" />
+        <column name="extra_vars" var="extra_vars" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="severity_srl" var="severity_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

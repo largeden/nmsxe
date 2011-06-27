@@ -1,0 +1,49 @@
+<?php
+    $font_path = _XE_PATH_."modules/nms/libs/pChart/Fonts/";
+    $image_path = _XE_PATH_."modules/nms/libs/pChart/Images/";
+
+    switch(Context::getLangType()) {
+        case 'ko': $font = "NanumGothicBold.ttf"; break;
+        case 'js': $font = "meiryob.ttc"; break;
+        case 'zh-CN': $font = "meiryob.ttc"; break;
+        case 'zh-TW': $font = "meiryob.ttc"; break;
+        default: $font = "tahoma.ttf"; break;
+    }
+
+    $width = 180;
+    $height = 100;
+
+	$oNms = new pChartItem($width,$height);
+    $count = 1000;
+    $oNms->nmsCountDelay = 20;
+    $oNms->nmsCountMinus = 12;
+    $oNms->setDateFormat("H");
+    $Xdesc = "hour";
+
+    $oNms->nmsMini = true;
+    $oNms->Palette[0] = array("R"=>0,"G"=>153,"B"=>255);
+    $oNms->Palette[1] = array("R"=>60,"G"=>180,"B"=>60);
+    $oNms->Palette[2] = array("R"=>233,"G"=>188,"B"=>36);
+    $oNms->Palette[3] = array("R"=>173,"G"=>96,"B"=>147);
+    $oNms->Palette[4] = array("R"=>64,"G"=>42,"B"=>21);
+
+	$oNms->drawGraphAreaGradient(254,254,254,10,TARGET_BACKGROUND);
+//	$oNms->drawBackground(254,254,254);
+	$oNms->setGraphArea(5,45,$width-7,70);
+	$oNms->setFontProperties($font_path."tahoma.ttf",8);
+	$oNms->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,238,238,238,TRUE,0,2,true,$count);
+
+	$oNms->setFontProperties($font_path.$font,15);
+	$oNms->drawTextBox(0,-10,$oNms->GArea_X2,$oNms->GArea_Y2,$output[0]->get("mib_title"),0,140,140,140,ALIGN_CENTER,FALSE);
+
+	$oNms->setFontProperties($font_path."tahoma.ttf",7);
+    if($delay) {
+	    foreach($delay as $key => $time)
+	        $oNms->setLabelDelay($DataSet->GetData(),$DataSet->GetDataDescription(),"Name",$key,$time,255,100,100,10,FALSE);
+    }
+
+//	$oNms->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription());
+    $oNms->drawFilledCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),1,0);
+    $oNms->drawFromPNG($image_path."back_mini.png",0,0,1);
+    $oNms->Stroke();
+?>

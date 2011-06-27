@@ -1,0 +1,26 @@
+<query id="getNmsCompressMonth" action="select">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <columns>
+        <column name="snmp_srl" />
+        <column name="module_srl" />
+        <column name="mib_srl" />
+        <column name="avg(value)" alias="value" />
+        <column name="regdate" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" pipe="where" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+        <condition operation="less" column="substr(regdate,1,8)" var="regdate" filter="number" pipe="and" />
+        <condition operation="less" column="session" var="session" filter="number" pipe="and" />
+    </conditions>
+    <groups>
+        <group column="module_srl" />
+        <group column="mib_srl" />
+        <group column="substr(regdate,1,6)" />
+    </groups>
+    <navigation>
+        <index var="sort_index" default="snmp_srl" order="asc" />
+    </navigation>
+</query>

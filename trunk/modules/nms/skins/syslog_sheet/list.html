@@ -1,0 +1,80 @@
+<!--#include("./init.html")-->
+<!--#include("./header.html")-->
+<!--%import("../../tpl/filter/delete_syslog_log.xml")-->
+    <div class="list">
+        <div class="list_count">
+            <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+                 <img src="./images/{$colorset}/document.gif" alt="document" width="16" height="16" />
+            <!--@end-->
+            {$lang->cmd_list} : <strong>{count($syslog_info)} / {$total_count}</strong>
+        </div>
+        <div class="list_table">
+            <form action="./" method="post" onsubmit="return procFilter(this, delete_syslog_log)" enctype="multipart/form-data">
+            <table class="nmsTable" summary="{$lang->nms_dispNmsAdminSyslogLog_summary}">
+                <thead>
+                    <tr>
+                        <th scope="col"><div><a href="{getUrl('sort_index','syslog_srl','order_type',$order_type)}" title="{$lang->no}">{$lang->no}</a></div></th>
+                        <!--@if($grant->manager)-->
+                        <th scope="col"><input type="checkbox" onclick="clickCheckBoxAll(this.form, 'cart'); return false;" /></th>
+                        <!--@endif-->
+                        <th scope="col"><div><a href="{getUrl('sort_index','value','order_type',$order_type)}" title="{$lang->nms_syslog_value}">{$lang->nms_syslog_value}</a></div></th>
+                        <th scope="col"><div><a href="{getUrl('sort_index','facility','order_type',$order_type)}" title="{$lang->nms_syslog_facility}">{$lang->nms_syslog_facility}</a></div></th>
+                        <th scope="col"><div><a href="{getUrl('sort_index','severity','order_type',$order_type)}" title="{$lang->nms_syslog_severity}">{$lang->nms_syslog_severity}</a></div></th>
+                        <th scope="col"><div><a href="{getUrl('sort_index','ip_type','order_type',$order_type)}" title="{$lang->nms_syslog_ip_type}">{$lang->nms_syslog_ip_type}</a></div></th>
+                        <th scope="col"><div><a href="{getUrl('sort_index','ip_address','order_type',$order_type)}" title="{$lang->nms_syslog_ip_address}">{$lang->nms_syslog_ip_address}</a></div></th>
+                        <th scope="col"><div><a href="{getUrl('sort_index','ip_port','order_type',$order_type)}" title="{$lang->nms_syslog_ip_port}">{$lang->nms_syslog_ip_port}</a></div></th>
+                        <th scope="col" class="regdate"><div><a href="{getUrl('sort_index','regdate','order_type',$order_type)}" title="{$lang->nms_syslog_time}">{$lang->nms_syslog_time}</a></div></th>
+                    </tr>
+                </thead>
+                <!--@if($grant->manager)-->
+                <tfoot>
+                    <tr>
+                        <td colspan="10"><div><input type="submit" class="button" value="{$lang->cmd_delete}" title="{$lang->cmd_delete}" /></div></td>
+                    </tr>
+                </tfoot>
+                <!--@endif-->
+                <tbody>
+                    <!--@foreach($syslog_info as $no => $syslog)-->
+                    <tr>
+                        <td><div>{$no}</div></td>
+                        <!--@if($grant->manager)-->
+                        <td><div><input type="checkbox" name="cart" value="{$syslog->syslog_srl}" /></div></td>
+                        <!--@endif-->
+                        <td class="wide"><div>{$syslog->getValue()} {$syslog->printExtraImages(60*60*12)}</div></td>
+                        <td><div>{$syslog->getFacility()}</div></td>
+                        <td><div>{$syslog->getSeverity()}</div></td>
+                        <td><div>{$syslog->getIpType()}</div></td>
+                        <td><div>{$syslog->getIpAddr()}</div></td>
+                        <td><div>{$syslog->getIpPort()}</div></td>
+                        <td><div>{$syslog->getRegdate()}</div></td>
+                    </tr>
+                    <!--@endforeach-->
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <a href="{getUrl('page','')}" class="prevEnd">{$lang->first_page}</a>
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <strong>{$page_no}</strong>
+            <!--@else-->
+                <a href="{getUrl('page',$page_no)}">{$page_no}</a>
+            <!--@end-->
+        <!--@end-->
+        <a href="{getUrl('page',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page}</a>
+
+        <form action="./" method="get" id="fo_search">
+        <input type="hidden" name="mid" value="{$mid}" />
+        <select name="search_target" class="select">
+            <!--@foreach($search_option as $key => $val)-->
+            <option value="{$key}" <!--@if($search_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
+            <!--@endforeach-->
+        </select>
+        <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputSearch" />
+        <input type="submit" class="button" value="{$lang->cmd_search}" title="{$lang->cmd_search}" />
+        </form>
+    </div>
+<!--#include("./footer.html")-->

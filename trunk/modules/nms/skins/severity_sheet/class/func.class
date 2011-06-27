@@ -1,0 +1,9 @@
+<?php
+    if(!defined('__ZBXE__')) exit();
+
+    class severity_sheet {
+        function severity_sheet() {
+            return;
+        }
+    }
+?>

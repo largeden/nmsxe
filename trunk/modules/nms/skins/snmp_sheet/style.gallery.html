@@ -1,0 +1,22 @@
+    <div class="gallery">
+        <div class="list_count">
+            <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+                <img src="./images/{$colorset}/document.gif" alt="document" width="16" height="16" />
+            <!--@end-->
+            {$lang->cmd_list} : <strong>{count($nms_group_info)} / {$total_count}</strong>
+        </div>
+        <div class="list_content">
+            <!--@foreach($nms_group_info as $no => $nms_group)-->
+            <div class="item <!--@if($i%$module_info->width_count==0)-->clear<!--@endif-->">
+                <div class="graph mini fl">
+                    <div class="graph_option"><span class="open" title="{$nms_group->getGroupName()}">&nbsp;</span></div>
+                    <a href="{getUrl('','mid',$mid,'group_name',$nms_group->getGroupName())}" title="{$nms_group->getMibTitle()}">
+                    <em>{getUrl('','act','dispNmsGraph','mid',$mid,'graph','line','group_name',$nms_group->getGroupName(),'mode','mini','skin',$colorset.'_mini','unit',$module_info->unit)}</em>
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            {@ $i++ }
+            <!--@endforeach-->
+        </div>
+    </div>

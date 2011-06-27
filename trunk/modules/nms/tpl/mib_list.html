@@ -1,0 +1,54 @@
+<!--#include("host_header.html")-->
+<!--@if($order_type == 'desc')-->
+{@ $order_type = 'asc' }
+<!--@else-->
+{@ $order_type = 'desc' }
+<!--@endif-->
+<h4 class="xeAdmin">{$lang->nms_dispNmsAdminMibList}</h4>
+<table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminGroupList_summary}">
+<caption>{$lang->nms_caption} : Total {number_format($page_navigation->total_count)}, Page {number_format($page_navigation->cur_page)}/{number_format($page_navigation->total_page)}</caption>
+    <thead>
+        <tr>
+            <th scope="col"><div><a href="{getUrl('sort_index','mib_srl','order_type',$order_type)}" title="{$lang->no}">{$lang->no}</div></a></th>
+            <th scope="col"><div><a href="{getUrl('sort_index','mmid','order_type',$order_type)}" title="{$lang->nms_mmid}">{$lang->nms_mmid}</div></a></th>
+            <th scope="col"><div><a href="{getUrl('sort_index','mib','order_type',$order_type)}" title="{$lang->nms_mib}">{$lang->nms_mib}</div></a></th>
+            <th scope="col"><div><a href="{getUrl('sort_index','mib_title','order_type',$order_type)}" title="{$lang->nms_mib_title}">{$lang->nms_mib_title}</div></a></th>
+            <th scope="col"><div><a href="{getUrl('sort_index','max','order_type',$order_type)}" title="{$lang->nms_max}">{$lang->nms_max}</div></a></th>
+            <th scope="col"><div><a href="{getUrl('sort_index','group_name','order_type',$order_type)}" title="{$lang->nms_group_name}">{$lang->nms_group_name}</a></div></th>
+            <th scope="col" colspan="2"><div>&nbsp;</div></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--@foreach($mib_list as $no => $val)-->
+        <tr class="row{$cycle_idx}">
+            <td>{$no}</td>
+            <td>{$val->mmid}</td>
+            <td class="mib">{$val->mib}</td>
+            <td>{$val->mib_title}</td>
+            <td>{$val->max}</td>
+            <td>{$val->group_name}</td>
+            <td><a href="{getUrl('act','dispNmsAdminMibInfo','mib_srl',$val->mib_srl)}" class="buttonSet buttonSetting" title="{$lang->cmd_setup}"><span>{$lang->cmd_setup}</span></a></td>
+            <td><a href="{getUrl('act','dispNmsAdminDeleteMib','mib_srl', $val->mib_srl)}" class="buttonSet buttonDelete" title="{$lang->cmd_delete}"><span>{$lang->cmd_delete}</span></a></td>
+        </tr>
+        <!--@endforeach-->
+    </tbody>
+</table>
+
+<!-- 페이지 네비게이션 -->
+<div class="pagination a1">
+    <a href="{getUrl('page_mib','')}" class="prevEnd">{$lang->first_page}</a> 
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+        <!--@if($page_mib == $page_no)-->
+            <strong>{$page_no}</strong> 
+        <!--@else-->
+            <a href="{getUrl('page_mib',$page_no)}">{$page_no}</a> 
+        <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('page_mib',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page}</a>
+</div>
+
+<div class="clear">
+    <div class="fr">
+        <a href="{getUrl('act','dispNmsAdminInsertMib')}" class="button black strong"><span>{$lang->cmd_make}</span></a>
+    </div>
+</div>

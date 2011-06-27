@@ -1,0 +1,138 @@
+<!--%import("filter/wizard_step1.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, wizard_step1)" enctype="multipart/form-data">
+    <input type="hidden" name="step" value="1" />
+    <h4 class="xeAdmin">{$lang->nms_dispNmsAdminInsertHost}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminInsertHost_summary}">
+    <caption>{$lang->nms_caption}</caption>
+    <tr>
+        <th scope="row"><div>{$lang->mid}</div></th>
+        <td>
+            <input type="text" name="mid" value="{$nms_info->mid}" class="inputTypeText w200" />
+            <p>{$lang->about_mid}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->module_category}</div></th>
+        <td>
+            <select name="module_category_srl">
+                <option value="0">{$lang->notuse}</option>
+                <!--@foreach($module_category as $key => $val)-->
+                <option value="{$key}" <!--@if($nms_info->module_category_srl==$key)-->selected="selected"<!--@end-->>{$val->title}</option>
+                <!--@endforeach-->
+            </select>
+            <p>{$lang->about_module_category}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->browser_title}</div></th>
+        <td>
+            <input type="text" name="browser_title" value="{htmlspecialchars($nms_info->browser_title)}"  class="inputTypeText w400" id="mid_title" />
+            <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','browser_title')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting" title="{$lang->cmd_find_langcode}"><span>{$lang->cmd_find_langcode}</span></a>
+            <p>{$lang->about_browser_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_ip_type_title}</div></th>
+        <td>
+            <select name="ip_type">
+                <option value="4" <!--@if($nms_info->ip_type==4)-->selected="selected"<!--@end-->>IPv4</option>
+                <option value="6" <!--@if($nms_info->ip_type==6)-->selected="selected"<!--@end--> disabled="disable">IPv6</option>
+            </select>
+            <p>{$lang->nms_about_ip_type_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_host}</div></th>
+        <td>
+            <input type="text" name="nms_host" value="{$nms_info->host}" class="inputTypeText w200" />
+            <p>{$lang->nms_about_host}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_community}</div></th>
+        <td>
+            <input type="text" name="nms_community" value="{$nms_info->community}" class="inputTypeText w200" />
+            <p>{$lang->nms_about_community}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->layout}</div></th>
+        <td>
+            <select name="layout_srl">
+            <option value="0">{$lang->notuse}</option>
+            <!--@foreach($layout_list as $key=>$val)-->
+            <option value="{$val->layout_srl}" <!--@if($nms_info->layout_srl==$val->layout_srl)-->selected="selected"<!--@end-->>{$val->title} ({$val->layout})</option>
+            <!--@endforeach-->
+            </select>
+            <p>{$lang->about_layout}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->skin}</div></th>
+        <td>
+            <select name="skin">
+                <!--@foreach($skin_list as $key=>$val)-->
+                <option value="{$key}" <!--@if($nms_info->skin==$key)-->selected="selected"<!--@end-->>{$val->title}</option>
+                <!--@endforeach-->
+            </select>
+            <p>{$lang->about_skin}</p>
+        </td>
+    </tr>    
+    <tr>
+        <th scope="row"><div>{$lang->order_target}</div></th>
+        <td>
+            <select name="order_target">
+                <!--@foreach($order_target as $key=>$val)-->
+                <option value="{$key}" <!--@if($nms_info->order_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
+                <!--@endforeach-->
+            </select>
+
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->order_type}</div></th>
+        <td>
+            <select name="order_type">
+                <option value="asc" <!--@if($nms_info->order_type != 'desc')-->selected="selected"<!--@end-->>{$lang->order_asc}</option>
+                <option value="desc" <!--@if($nms_info->order_type == 'desc')-->selected="selected"<!--@end-->>{$lang->order_desc}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->list_count}</div></th>
+        <td>
+            <input type="text" name="list_count" value="{$nms_info->list_count?$nms_info->list_count:20}"  class="inputTypeText" />
+            <p>{$lang->about_list_count}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->search_list_count}</div></th>
+        <td>
+            <input type="text" name="search_list_count" value="{$nms_info->search_list_count?$nms_info->search_list_count:20}"  class="inputTypeText" />
+            <p>{$lang->about_search_list_count}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->page_count}</div></th>
+        <td>
+            <input type="text" name="page_count" value="{$nms_info->page_count?$nms_info->page_count:10}"  class="inputTypeText" />
+            <p>{$lang->about_page_count}</p>
+        </td>
+    </tr>    
+    <tr>
+        <th scope="row"><div>{$lang->nms_description}</div></th>
+        <td>
+            <textarea name="description" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($nms_info->description)}</textarea>
+            <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','description')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting" title="{$lang->cmd_find_langcode}"><span>{$lang->cmd_find_langcode}</span></a>
+            <p>{$lang->nms_about_description}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}" class="button"><span>{$lang->nms_wizard_cmd_prev}</span></a>
+            <span class="button green strong"><input type="submit" value="{$lang->nms_wizard_cmd_next}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+</form>

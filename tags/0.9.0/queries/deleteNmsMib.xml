@@ -1,0 +1,9 @@
+<query id="deleteNmsMib" action="delete">
+    <tables>
+        <table name="nms_mib" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+    </conditions>
+</query>

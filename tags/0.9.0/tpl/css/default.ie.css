@@ -1,0 +1,11 @@
+.headerSort {
+    background:url(../images/bg.gif) no-repeat center right;
+    background-color:#dedede;
+}
+#mibTableTbody .ui-selected, #mbTableTbody .ui-selected {
+    background:#f7eeb5;
+}
+#mibTableTbody .ui-selecting, #mbTableTbody .ui-selecting {
+    background:#fff8cc;
+}
+.wizard_step div .step { background:#f0f0f0; }

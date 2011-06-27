@@ -1,0 +1,18 @@
+<div class="view">
+    <h3>
+        <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+            <img src="./images/{$colorset}/statistics.gif" alt="statistics" width="16" height="16" />
+        <!--@end-->
+        <!--@if($group_name)-->{$mib_group_info->getMibTitle()}<!--@endif-->
+        History ({$history->getRegdate('Y-m-d H:i:s')})
+    </h3>
+    <div class="content">
+        {$history->getContent()}
+    </div>
+    <!--@if($group_name)-->
+    <div class="history">
+        <h4 id="history_list">History <img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></h4>
+        <div class="history_list"></div>
+    </div>
+    <!--@endif-->
+</div>

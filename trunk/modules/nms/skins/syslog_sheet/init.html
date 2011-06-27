@@ -1,0 +1,48 @@
+<!--#include("./class/func.class")-->
+{@ 
+    $syslog_sheet = new syslog_sheet(); 
+    Context::addBodyClass($lang_type);
+    $colorset = $module_info->colorset;
+}
+<!--@if($colorset == 'white')-->
+    <!--%import("css/white/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.opera.css",optimized=false)-->
+    <!--@endif-->
+
+<!--@else-->
+    {@ $colorset = 'black' }
+    <!--%import("css/black/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.opera.css",optimized=false)-->
+    <!--@endif-->
+<!--@endif-->
+<!--%import("js/syslog_sheet.min.js")-->
+
+<!--@if($order_type == 'desc')-->
+{@ $order_type = 'asc' }
+<!--@else-->
+{@ $order_type = 'desc' }
+<!--@endif-->
+
+<!--@if($colorset)-->
+{@ $j_colorset = "syslog_sheet.colorset='".$colorset."';" }
+<!--@endif-->
+
+{@
+$scriptCode = '
+<script type="text/javascript">//<![CDATA[
+'.$j_colorset.'
+//]]></script>';
+Context::addHTMLFooter($scriptCode);
+}

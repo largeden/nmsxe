@@ -1,0 +1,8 @@
+<query id="deleteNmsSnmpTrapLog" action="delete">
+    <tables>
+        <table name="nms_snmptrap_log" />
+    </tables>
+    <conditions>
+        <condition operation="in" column="snmptrap_srl" var="snmptrap_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

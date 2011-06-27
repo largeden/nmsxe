@@ -1,0 +1,40 @@
+<!--%import("js/common.js")-->
+<!--%import("js/nms.js")-->
+<!--%import("css/default.css")-->
+<!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+    <!--%import("css/default.ie.css",optimized=false)-->
+<!--@endif-->
+<h3 class="xeAdmin">{$lang->nms_title} <span class="gray">{$lang->nms_cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->nms_about_nms)}</div>
+
+<div class="header4">
+    <!--@if($nms_info->mid)-->
+    <h4 class="xeAdmin">{$nms_info->mid} <!--@if($nms_info->is_default=='Y')--><span class="bracket">({$lang->is_default})</span><!--@end--> <span class="vr">|</span> <a href="{getUrl('','mid',$nms_info->mid)}" onclick="window.open(this.href); return false;" class="view">View</a></h4>
+    <!--@end-->
+
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispNmsAdminIndex')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}">{$lang->nms_dispNmsAdminIndex}</a></li>
+        <li <!--@if($act=='dispNmsAdminServiceInfo')-->class="on"<!--@end-->><a
+        href="{getUrl('','module','admin','act','dispNmsAdminServiceInfo','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminServiceInfo}</a></li>
+        <!--@if($nms_info->mid&&$nms_info->mid == $module_config->severity_mid)-->
+        <li <!--@if($act=='dispNmsAdminSeverityLog')-->class="on"<!--@end-->><a
+        href="{getUrl('','module','admin','act','dispNmsAdminSeverityLog','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminSeverityLog}</a></li>
+        <!--@elseif($nms_info->mid&&$nms_info->mid == $module_config->syslog_mid)-->
+        <li <!--@if($act=='dispNmsAdminSyslogLog')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSyslogLog','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminSyslogLog}</a></li>
+        <!--@elseif($nms_info->mid&&$nms_info->mid == $module_config->snmptrap_mid)-->
+        <li <!--@if($act=='dispNmsAdminSnmpTrapLog')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSnmpTrapLog','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminSnmpTrapLog}</a></li>
+        <!--@endif-->
+        <!--@if($nms_info->mid != $module_config->severity_mid)-->
+        <li <!--@if(in_array($act, array(
+                                            'dispNmsAdminSeverityList',
+                                            'dispNmsAdminInsertSeverity',
+                                            'dispNmsAdminSeverityInfo',
+                                            'dispNmsAdminDeleteSeverity',
+                                            'dispNmsAdminInsertRestore'
+                                            )))-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSeverityList','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminSeverityList}</a></li>
+        <!--@endif-->
+        <li <!--@if($act=='dispNmsAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminGrantInfo','module_srl',$module_srl)}">{$lang->cmd_manage_grant}</a></li>
+        <li <!--@if($act=='dispNmsAdminSkinInfo')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSkinInfo','module_srl',$module_srl)}">{$lang->cmd_manage_skin}</a></li>
+    </ul>
+</div>

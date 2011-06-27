@@ -1,0 +1,15 @@
+<query id="updateNmsCompressSnmpLog" action="update">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <columns>
+        <column name="value" var="value" />
+        <column name="session" var="session" default="" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="snmp_srl" var="snmp_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

@@ -1,0 +1,37 @@
+<!--%import("js/common.js")-->
+<!--%import("js/nms.js")-->
+<!--%import("css/default.css")-->
+<!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+    <!--%import("css/default.ie.css",optimized=false)-->
+<!--@endif-->
+<h3 class="xeAdmin">{$lang->nms_title} <span class="gray">{$lang->nms_cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->nms_about_nms)}</div>
+
+<div class="header4">
+    <!--@if($nms_info->mid)-->
+    <h4 class="xeAdmin">{$nms_info->mid} <!--@if($nms_info->is_default=='Y')--><span class="bracket">({$lang->is_default})</span><!--@end--> <span class="vr">|</span> <a href="{getUrl('','mid',$nms_info->mid)}" onclick="window.open(this.href); return false;" class="view">View</a></h4>
+    <!--@end-->
+
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispNmsAdminIndex')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}">{$lang->nms_dispNmsAdminIndex}</a></li>
+        <li <!--@if($act=='dispNmsAdminHostInfo')-->class="on"<!--@end-->><a
+        href="{getUrl('','module','admin','act','dispNmsAdminHostInfo','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminHostInfo}</a></li>
+        <li <!--@if(in_array($act, array(
+                                            'dispNmsAdminMibList',
+                                            'dispNmsAdminInsertMib',
+                                            'dispNmsAdminMibInfo',
+                                            'dispNmsAdminDeleteMib'
+                                            )))-->class="on"<!--@end-->><a
+        href="{getUrl('','module','admin','act','dispNmsAdminMibList','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminMibList}</a></li>
+        <li <!--@if(in_array($act, array(
+                                            'dispNmsAdminSeverityList',
+                                            'dispNmsAdminInsertSeverity',
+                                            'dispNmsAdminSeverityInfo',
+                                            'dispNmsAdminDeleteSeverity',
+                                            'dispNmsAdminInsertRestore'
+                                            )))-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSeverityList','module_srl',$module_srl)}">{$lang->nms_dispNmsAdminSeverityList}</a></li>
+        <li <!--@if($act=='dispNmsAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminGrantInfo','module_srl',$module_srl)}">{$lang->cmd_manage_grant}</a></li>
+        <li <!--@if($act=='dispNmsAdminSkinInfo')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminSkinInfo','module_srl',$module_srl)}">{$lang->cmd_manage_skin}</a></li>
+    </ul>
+</div>

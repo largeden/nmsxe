@@ -1,0 +1,38 @@
+<!--%import("css/default.css")-->
+<!--%import("js/member.js")-->
+
+<div id="popHeader">
+    <h3 class="xeAdmin">{$lang->nms_member}</h3>
+</div>
+<div class="nms_member">
+<form id="nms_member" action="./" method="post" onsubmit="$nms_member.doMember(); return false;" enctype="multipart/form-data">
+<input type="hidden" name="target_value" value="" />
+<input type="hidden" name="mode" value="search" />
+<input type="hidden" name="type" value="{$type}" />
+<input type="hidden" name="target" value="{$target}" />
+    <fieldset>
+        <select name="selected_group_srl">
+            <option value="0">{$lang->group}</option>
+            <!--@foreach($group_list as $key => $val)-->
+            <option value="{$val->group_srl}" <!--@if($selected_group_srl==$val->group_srl)-->selected="selected"<!--@end-->>{$val->title}</option>
+            <!--@endforeach-->
+        </select>
+        <select name="search_target">
+            <option value="">{$lang->search_target}</option>
+            <!--@foreach($lang->search_target_list as $key => $val)-->
+            <option value="{$key}" <!--@if($search_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
+            <!--@endforeach-->
+        </select>
+        <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputTypeText" />
+        <span class="button black strong"><input type="submit" value="{$lang->cmd_search}" /></span>
+    </fieldset>
+</form>
+<h4 class="xeAdmin">{$lang->cmd_member_list}</h4>
+<div id="member_list" class="member_list"></div>
+<h4 class="xeAdmin">{$lang->msg_new_member}</h4>
+<div id="member_insert" class="member_list"></div>
+
+<div class="insert_button">
+    <div class="fr"><span class="button black strong"><input class="insert" type="button" value="{$lang->cmd_insert}"></span></div>
+</div>
+</div>

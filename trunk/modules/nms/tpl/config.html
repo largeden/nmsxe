@@ -1,0 +1,69 @@
+<!--#include("header.html")-->
+<!--%import("filter/insert_config.xml")-->
+
+<form action="./" method="get" onsubmit="return procFilter(this, insert_config)" enctype="multipart/form-data">
+    <h4 class="xeAdmin">{$lang->nms_dispNmsAdminConfig}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminConfig_summary}">
+    <caption>{$lang->nms_caption}</caption>
+    <tr>
+        <th scope="row"><div>{$lang->nms_cron_type}</div></th>
+        <td>
+            <label for="cronY"><input type="radio" id="cronY" name="nms_cron_type" value="Y" <!--@if($nms_info->crontype=='Y')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['Y']}</label>
+            <label for="cronN"><input type="radio" id="cronN" name="nms_cron_type" value="N" <!--@if($nms_info->crontype=='N')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['N']}</label>
+            <p>{$lang->nms_about_cron_type}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_syslog_type}</div></th>
+        <td>
+            <label for="syslogY"><input type="radio" id="syslogY" name="nms_syslog_type" value="Y" <!--@if($nms_info->syslogtype=='Y')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['Y']}</label>
+            <label for="syslogN"><input type="radio" id="syslogN" name="nms_syslog_type" value="N" <!--@if($nms_info->syslogtype=='N')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['N']}</label>
+            <p>{nl2br($lang->nms_about_syslog_type)}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_snmptrap_type}</div></th>
+        <td>
+            <label for="snmptrapY"><input type="radio" id="snmptrapY" name="nms_snmptrap_type" value="Y" <!--@if($nms_info->snmptraptype=='Y')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['Y']}</label>
+            <label for="snmptrapN"><input type="radio" id="snmptrapN" name="nms_snmptrap_type" value="N" <!--@if($nms_info->snmptraptype=='N')-->checked="checked"<!--@end--> /> {$lang->nms_typeselect['N']}</label>
+            <p>{nl2br($lang->nms_about_snmptrap_type)}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row" width="200"><div>{$lang->nms_schedule_type}</div></th>
+        <td>
+            <!--@foreach($lang->nms_schedule as $time => $nms_schedule)-->
+            <label for="for_schedule{$time}"><input type="checkbox" name="nms_schedule_type" value="{$time}" <!--@if($schedule[$time])-->checked="checked"<!--@end--> id="for_schedule{$time}" class="checkbox" />
+            {$nms_schedule}</label>
+            <!--@endforeach-->
+            <p>{nl2br($lang->nms_about_schedule_type)}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_compress}</div></th>
+        <td>
+            <input type="text" name="nms_compress" value="{$nms_info->compress}" class="inputTypeText w80" />
+            <p>{$lang->nms_about_compress}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_compress_type}</div></th>
+        <td>
+            <select name="nms_compress_type">
+                <option value="" <!--@if(!$nms_info->compress_type)-->selected="selected"<!--@end-->>{$lang->nms_notuse}</option>
+                <!--@foreach($lang->nms_about_compress_type_mode as $key => $mode)-->
+                <option value="{$key}" <!--@if($nms_info->compress_type==$key)-->selected="selected"<!--@end-->>{$mode}</option>
+                <!--@endforeach-->
+            </select>
+            <p>{$lang->nms_about_compress_type}</p>
+        </td>
+    </tr>
+    <tr>
+        <th class="button" colspan="2">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+</form>
+
+{$after_content}

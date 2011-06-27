@@ -1,0 +1,73 @@
+<!--%import("js/jquery.tablesorter.min.js")-->
+<!--%import("js/ui/jquery.ui.core.min.js")-->
+<!--%import("js/ui/jquery.ui.widget.min.js")-->
+<!--%import("js/ui/jquery.ui.mouse.min.js")-->
+<!--%import("js/ui/jquery.ui.selectable.min.js")-->
+
+<!--%import("filter/wizard_step3.xml")-->
+
+<!--@if($wizard_info->mode)-->
+<!--#include("mbrowser.html")-->
+<!--@endif-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, wizard_step3)" enctype="multipart/form-data">
+    <input type="hidden" name="step" value="3" />
+    <input type="hidden" id="nms_wizard_mib_list" name="nms_wizard_mib_list" value="" />
+    <span id="select_result" class="hidden"></span>
+    <h4 class="xeAdmin">{$lang->nms_wizard_mib_list}</h4>
+    <table id="mibTable" cellspacing="0" class="mbTable" summary="{$lang->nms_wizard_mib_list_summary}">
+    <caption>{$lang->nms_caption} : {$wizard_info->total_count} (Draw a box with your cursor to select items. Hold down the Ctrl key to make multiple non-adjacent selections.)</caption>
+        <thead>
+            <tr>
+                <th scope="col"><div>type</div></th>
+                <th scope="col"><div>{$lang->nms_mmid}</div></th>
+                <th scope="col"><div>{$lang->nms_mib_title}</div></th>
+                <th scope="col"><div>{$lang->nms_mib}</div></th>
+                <th scope="col"><div>VALUE</div></th>
+                <th scope="col"><div>{$lang->nms_max}</div></th>
+                <th scope="col"><div>VALUE</div></th>
+                <th scope="col"><div>{$lang->nms_extra_collect_mode_title}</div></th>
+                <th scope="col"><div>{$lang->nms_group_name}</div></th>
+                <th scope="col"><div>{$lang->nms_legend_name}</div></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th colspan="10" class="button">
+                    <a href="{getUrl('act','dispNmsAdminSettingWizard','step','2')}" class="button"><span>{$lang->nms_wizard_cmd_prev}</span></a>
+                    <span class="button green strong"><input type="submit" value="{$lang->nms_wizard_cmd_next}" accesskey="s" /></span>
+                </th>
+            </tr>
+        </tfoot>
+        <tbody id="mibTableTbody">
+            <!--@foreach($wizard_info->mibs as $oMib)-->
+            <tr id="{$oMib->mmid}" title="{$oMib->description}">
+                <td>{$oMib->type}</td>
+                <td>{$oMib->mmid}</td>
+                <td>{$oMib->mib_title}</td>
+                <td>{$oMib->mib}</td>
+                <td>{$oMib->mib_value}</td>
+                <td>{$oMib->max}</td>
+                <td>{$oMib->max_value}</td>
+                <td>{$oMib->collect}</td>
+                <td>{$oMib->group_name}</td>
+                <td>{$oMib->legend}</td>
+            </tr>
+            <!--@endforeach-->
+            <!--@foreach($wizard_info->mib_groups as $oMib)-->
+            <tr id="{$oMib->mmid}" title="{$oMib->description}">
+                <td>{$oMib->type}</td>
+                <td>{$oMib->mmid}</td>
+                <td>{$oMib->mib_title}</td>
+                <td>{$oMib->mib}</td>
+                <td>{$oMib->mib_value}</td>
+                <td>{$oMib->max}</td>
+                <td>{$oMib->max_value}</td>
+                <td>{$oMib->collect}</td>
+                <td>{$oMib->group_name}</td>
+                <td>{$oMib->legend}</td>
+            </tr>
+            <!--@endforeach-->
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,12 @@
+<query id="deleteNmsCompressSnmpLog" action="delete">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" pipe="where" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+        <condition operation="notin" column="snmp_srl" var="snmp_srl" filter="number" pipe="and" />
+        <condition operation="less" column="session" var="session" filter="number" pipe="and" />
+        <condition operation="less" column="substr(regdate,1,10)" var="regdate" filter="number" pipe="and" />
+    </conditions>
+</query>

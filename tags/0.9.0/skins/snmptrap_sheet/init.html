@@ -1,0 +1,56 @@
+<!--#include("./class/func.class")-->
+{@ 
+$snmptrap_sheet = new snmptrap_sheet(); 
+Context::addBodyClass($lang_type);
+$colorset = $module_info->colorset;
+}
+<!--@if($colorset == 'white')-->
+    <!--%import("css/white/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/white/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/white/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/white/default.opera.css",optimized=false)-->
+    <!--@endif-->
+
+<!--@else-->
+    {@ $colorset = 'black' }
+    <!--%import("css/black/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/black/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/black/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv("HTTP_USER_AGENT")))-->
+        <!--%import("css/black/default.opera.css",optimized=false)-->
+    <!--@endif-->
+<!--@endif-->
+<!--%import("js/snmptrap_sheet.min.js")-->
+
+<!--%import("../../tpl/js/jquery.tree.js")-->
+
+<!--@if($order_type == 'desc')-->
+{@ $order_type = 'asc' }
+<!--@else-->
+{@ $order_type = 'desc' }
+<!--@endif-->
+
+<!--@if($colorset)-->
+{@ $j_colorset = "snmptrap_sheet.colorset='".$colorset."';" }
+<!--@endif-->
+
+{@
+$scriptCode = '
+<script type="text/javascript">//<![CDATA[
+'.$j_colorset.'
+//]]></script>';
+Context::addHTMLFooter($scriptCode);
+}
+{@ Context::addHtmlHeader('
+    <script type="text/javascript">//<![CDATA[
+        var lang_cmd_open_all = "'.$lang->cmd_open_all.'";
+        var lang_cmd_close_all = "'.$lang->cmd_close_all.'";
+    //]]></script>
+'); }

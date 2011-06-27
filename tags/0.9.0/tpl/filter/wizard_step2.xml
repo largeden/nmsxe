@@ -1,0 +1,15 @@
+<filter name="wizard_step2" module="nms" act="procNmsAdminSettingWizard">
+    <form>
+        <node target="nms_wizard_list" required="true" />
+    </form>
+    <parameter>
+        <param name="step" target="step" />
+        <param name="wizard_file" target="nms_wizard_list" />
+    </parameter>
+    <response callback_func="completeWizard">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="step" />
+    </response>
+</filter>

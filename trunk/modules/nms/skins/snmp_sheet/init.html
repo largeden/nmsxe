@@ -1,0 +1,87 @@
+<!--#include("./class/func.class")-->
+{@ 
+    $snmp_sheet = new snmp_sheet(); 
+    Context::addBodyClass($lang_type);
+    $colorset = $module_info->colorset;
+    $view_graph = unserialize($module_info->view_graph);
+}
+<!--@if(!$view_graph)-->
+{@ $view_graph = array('normal','1hour','3hour','6hour','12hour','day','week','month','year','customer') }
+<!--@elseif(!is_array($view_graph))-->
+{@ $view_graph = array() }
+<!--@endif-->
+
+<!--@if($snmp_info)-->
+{@ $i = count($snmp_info) }
+<!--@endif-->
+<!--@if($colorset == 'white')-->
+    <!--%import("css/white/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/white/default.opera.css",optimized=false)-->
+    <!--@endif-->
+
+<!--@else-->
+    {@ $colorset = 'black' }
+    <!--%import("css/black/default.css")-->
+
+    <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.ie.css",optimized=false)-->
+    <!--@elseif(preg_match("/Safari/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.safari.css",optimized=false)-->
+    <!--@elseif(preg_match("/Opera/i",getenv('HTTP_USER_AGENT')))-->
+        <!--%import("css/black/default.opera.css",optimized=false)-->
+    <!--@endif-->
+<!--@endif-->
+<!--%import("js/snmp_sheet.min.js",type="body")-->
+<!--%load_js_plugin("ui.datepicker")-->
+
+<!--@if(strtolower($module_info->unit) == 'byte')-->
+{@ $byte = 1 }
+<!--@elseif(strtolower($module_info->unit) == 'kbyte')-->
+{@ $byte = 1024 }
+<!--@elseif(strtolower($module_info->unit) == 'mbyte')-->
+{@ $byte = 1024*1024 }
+<!--@elseif(strtolower($module_info->unit) == 'gbyte')-->
+{@ $byte = 1024*1024*1024 }
+<!--@endif-->
+
+<!--@if($module_config->crontype=='Y'&&$group_info->cronstate=='Y'&&$module_info->refresh=='Y')-->
+{@ $j_interval = "snmp_sheet_interval=".$group_info->schedule.";" }
+<!--@endif-->
+
+<!--@if($module_info->preview=='Y')-->
+{@ $j_preview = "snmp_sheet_preview='".$module_info->preview."';" }
+<!--@endif-->
+
+<!--@if($colorset)-->
+{@ $j_colorset = "snmp_sheet_colorset='".$colorset."';" }
+<!--@endif-->
+
+<!--@if($module_info->unit)-->
+{@ $j_unit = "snmp_sheet_unit='".$module_info->unit."';" }
+<!--@endif-->
+
+{@
+$scriptCode = '
+<script type="text/javascript">//<![CDATA[
+'.$j_interval.$j_preview.$j_colorset.$j_unit.'
+//]]></script>';
+Context::addHTMLFooter($scriptCode);
+}
+
+<!--@if($group_name)-->
+{@ $graph_height = 15*count($mib_info) }
+<style type="text/css">
+.snmp_sheet .view .graph.normal { width:700px; height:{$graph_height+250+15}px; }
+</style>
+<!--@endif-->
+<!--@if(preg_match("/(compatible; MSIE 7|compatible; MSIE 6)/i", getenv('HTTP_USER_AGENT')))-->
+<style type="text/css">
+.snmp_sheet .gallery .list_content { margin:0 auto; display:block; width:{$module_info->width_count*182}px; _width:{$module_info->width_count*184}px; zoom:1; }
+</style>
+<!--@endif-->

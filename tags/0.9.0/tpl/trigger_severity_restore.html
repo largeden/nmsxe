@@ -1,0 +1,98 @@
+<!--@if(in_array($nms_info->mid, array($module_config->syslog_mid,$module_config->snmptrap_mid)))-->
+<!--@elseif($act == 'dispNmsAdminInsertRestore')-->
+
+<!--#include("host_header.html")-->
+<!--%import("filter/insert_restore.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_restore)" enctype="multipart/form-data">
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="nms_title_mib_list" id="mib_srl" value="{$mib_srl}" />
+    <h4 class="xeAdmin">{$lang->nms_triggerDispNmsSeverityRestore_summary}</h4>
+    <p class="summary">{$lang->nms_about_triggerDispNmsSeverityRestore}</p>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminSeverityInfo_summary}">
+    <caption>{$lang->nms_caption} : Severity Restore</caption>
+        <tr>
+            <th><div>{$lang->nms_title_mib_list}</div></th>
+            <td class="wide">
+                <div class="targetItem">
+                    <strong>{$lang->list_target_item}</strong>
+                    <select size="10" name="targetItem" id="targetItem" multiple="multiple" ondblclick="$nms.doInsertItem(); return false;">
+                    <!--@foreach($mib_info as $key => $val)-->
+                        <!--@if(!$valmid)-->
+                        <optgroup label="{$val->getMid()}">
+                        <!--@elseif($valmid != $val->getMid())-->
+                        </optgroup>
+                        <optgroup label="{$val->getMid()}">
+                        <!--@endif-->
+                        <option value="{$val->getMibSrl()}">{$val->getMmid()} ({$val->getMid()})</option>
+                        {@ $valmid = $val->getMid() }
+                    <!--@endforeach-->
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="displayButton">
+                    <a href="#$nms.doInsertItem" onclick="$nms.doInsertItem(); return false;" class="buttonSet buttonRight"><span>{$lang->cmd_insert}</span></a><br />
+                    <a href="#$nms.doDeleteItem" onclick="$nms.doDeleteItem(); return false;" class="buttonSet buttonLeft"><span>{$lang->cmd_delete}</span></a><br />
+                </div>
+                <div class="displayItem">
+                    <strong>{$lang->list_display_item}</strong>
+                    <select size="10" name="mib_list" id="displayItem" multiple="multiple" ondblclick="$nms.doDeleteItem();">
+                    </select>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_title_act}</div></th>
+            <td class="wide act">
+                <!--@foreach($lang->nms_act as $actname => $about)-->
+                <input type="checkbox" id="act_{$actname}" class="checkbox" name="act_{$actname}" <!--@if($severity_info->act[$actname])-->checked="checked"<!--@endif--> />
+                <label for="act_{$actname}">{$actname}</label>
+                <!--@endforeach-->
+           </td>
+        </tr>
+        <!--@foreach($lang->nms_act as $actname => $about)-->
+        <tr id="act_{$actname}_0"><th colspan="2" class="act"><div>{$actname}</div></th></tr>
+        <tr id="act_{$actname}_1">
+            <th><div>{$lang->nms_severity_value}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_value" value="{$severity_info->act_value[$actname]}" class="inputTypeText w400" />
+                <!--@if($lang->nms_act_member[$actname])--><a href="{getUrl('','module','nms','act','dispNmsAdminMember','target','act_'.$actname.'_value','type',$lang->nms_act_member[$actname])}" onclick="popopen(this.href);return false;" class="buttonSet buttonMember" title="{$lang->nms_member}"><span>{$lang->nms_member}</span></a><!--@endif-->
+                <p>{$about}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_2">
+            <th><div>{$lang->nms_severity_form}</div></th>
+            <td>
+                <textarea name="act_{$actname}_form" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($severity_info->act_form[$actname])}</textarea>
+                <p>{$lang->nms_about_severity_form}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_3">
+            <th><div>{$lang->nms_severity_path}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_path" value="{$severity_info->act_path[$actname]}" class="inputTypeText w400" />
+                <p>{nl2br($lang->nms_about_severity_path)}<b>{realpath("./")}</b></p>
+            </td>
+        </tr>
+        <!--@endforeach-->
+        <tr>
+            <th colspan="2" class="button">
+                <span class="button strong black"><input type="submit" value="{$lang->cmd_save}" /></span>
+            </th>
+        </tr>
+    </table>
+</form>
+
+<!--@else-->
+<h4 class="xeAdmin">{$lang->nms_triggerDispNmsSeverityRestore_summary}</h4>
+<p class="summary">{$lang->nms_about_triggerDispNmsSeverityRestore}</p>
+<table cellspacing="0" class="rowTable" summary="{$lang->nms_triggerDispNmsSeverityRestore_summary}">
+<caption>{$lang->nms_caption} : Severity Restore</caption>
+    <tr>
+        <th class="button">
+            <a href="{getUrl('act','dispNmsAdminInsertRestore')}" class="button black strong"><span>{$lang->cmd_make}</span></a>
+        </th>
+    </tr>
+</table>
+<!--@endif-->

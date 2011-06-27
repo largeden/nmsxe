@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.2">
+    <title xml:lang="ko">nmsXE 통계 출력</title>
+    <title xml:lang="en">nmsXE 통계 출력</title>
+    <title xml:lang="zh-CN">nmsXE 통계 출력</title>
+    <title xml:lang="jp">nmsXE 통계 출력</title>
+    <title xml:lang="es">nmsXE 통계 출력</title>
+    <title xml:lang="ru">nmsXE 통계 출력</title>
+    <title xml:lang="fr">nmsXE 통계 출력</title>
+    <title xml:lang="zh-TW">nmsXE 통계 출력</title>
+	<description xml:lang="ko">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="en">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="zh-CN">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="jp">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="es">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="ru">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="fr">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<description xml:lang="zh-TW">nmsXE 모듈로 수집된 데이터를 출력하는 위젯 입니다.</description>
+	<version>0.1</version>
+	<date>2009-09-24</date>
+	<link>http://www.animeclub.net</link>
+
+	<author email_address="webmaster@animeclub.net" link="http://www.animeclub.net">
+		<name xml:lang="ko">라르게덴</name>
+		<name xml:lang="en">largeden</name>
+		<name xml:lang="zh-CN">largeden</name>
+		<name xml:lang="jp">ラルゲーデン</name>
+		<name xml:lang="es">largeden</name>
+		<name xml:lang="ru">largeden</name>
+		<name xml:lang="fr">largeden</name>
+		<name xml:lang="zh-TW">largeden</name>
+	</author>
+
+    <extra_vars>
+		<group>
+            <title xml:lang="ko">세부 정보</title>
+            <title xml:lang="en">details info</title>
+            <title xml:lang="zh-CN">details info</title>
+            <title xml:lang="jp">細部情報</title>
+            <title xml:lang="es">details info</title>
+            <title xml:lang="ru">details info</title>
+            <title xml:lang="fr">details info</title>
+			<title xml:lang="zh-TW">details info</title>
+			<var id="title">
+				<type>text</type>
+				<name xml:lang="ko">제목</name>
+				<name xml:lang="en">Title</name>
+				<name xml:lang="zh-CN">栏目名</name>
+				<name xml:lang="jp">タイトル</name>
+				<name xml:lang="es">Título</name>
+				<name xml:lang="ru">Заголовок</name>
+				<name xml:lang="fr">Title</name>
+				<name xml:lang="zh-TW">標題</name>
+				<description xml:lang="ko">통계 차트의 제목으로 출력됩니다.</description>
+				<description xml:lang="en">It will be the title of the newest articles.</description>
+				<description xml:lang="zh-CN">显示为最新主题列表的标题。</description>
+				<description xml:lang="jp">最新の書き込みのタイトルとして表示されます。</description>
+				<description xml:lang="es">Este será el título de los documentos recientes.</description>
+				<description xml:lang="ru">Это будет заголовком последних статей.</description>
+				<description xml:lang="fr">It will be the title of the newest articles.</description>
+				<description xml:lang="zh-TW">顯示最新主題列表的標題。</description>
+			</var>
+			<var id="order_type">
+				<type>select</type>
+				<name xml:lang="ko">정렬 방법</name>
+				<name xml:lang="jp">ソートタイプ</name>
+				<name xml:lang="en">Sorting Type</name>
+				<name xml:lang="es">Tipo de ordenamiento</name>
+				<name xml:lang="zh-CN">排序方式</name>
+				<name xml:lang="ru">Тип сортировки</name>
+				<description xml:lang="ko">정렬대상을 내림차순 또는 올림차순으로 정렬할 수 있습니다.</description>
+				<description xml:lang="jp">ソートタイプを、降順、昇順にソートできます。</description>
+				<description xml:lang="en">You can sort target articles by asending or desending order.</description>
+				<description xml:lang="es">Usted puede ordenar los documentos en orden acendente o en orden descendente.</description>
+				<description xml:lang="ru">Вы можете сортировать статьи в порядке возрастания или убывания.</description>
+				<description xml:lang="zh-CN">对其排序对象可进行升序/降序方式排序。</description>
+				<description xml:lang="zh-TW">可選擇升冪/降冪的方式對所選目標進行排列。</description>
+				<options>
+					<value>asc</value>
+					<name xml:lang="ko">올림차순</name>
+					<name xml:lang="en">Asending order</name>
+					<name xml:lang="zh-CN">升序</name>
+					<name xml:lang="jp">昇順</name>
+					<name xml:lang="es">Orden Acendente</name>
+					<name xml:lang="ru">По возрастанию</name>
+					<name xml:lang="fr">Asending order</name>
+					<name xml:lang="zh-TW">升冪</name>
+				</options>
+				<options>
+					<value>desc</value>
+					<name xml:lang="ko">내림차순</name>
+					<name xml:lang="en">Desending order</name>
+					<name xml:lang="zh-CN">降序</name>
+					<name xml:lang="jp">降順</name>
+					<name xml:lang="es">Orden Descendente</name>
+					<name xml:lang="ru">По убыванию</name>
+					<name xml:lang="fr">Desending order</name>
+					<name xml:lang="zh-TW">降冪</name>
+				</options>
+			</var>
+			<var id="id">
+				<type>text</type>
+				<name xml:lang="ko">위젯 구분자</name>
+				<name xml:lang="en">위젯 구분자</name>
+				<name xml:lang="zh-CN">위젯 구분자</name>
+				<name xml:lang="jp">위젯 구분자</name>
+				<name xml:lang="es">위젯 구분자</name>
+				<name xml:lang="ru">위젯 구분자</name>
+				<name xml:lang="fr">위젯 구분자</name>
+				<name xml:lang="zh-TW">위젯 구분자</name>
+				<description xml:lang="ko">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="en">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="zh-CN">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="jp">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="es">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="ru">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="fr">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+				<description xml:lang="zh-TW">각종 선언문 명으로 사용 됩니다. (첫자는 문자로...)</description>
+			</var>
+			<var id="data_type">
+				<type>select</type>
+				<name xml:lang="ko">출력 종류</name>
+				<name xml:lang="en">출력 종류</name>
+				<name xml:lang="zh-CN">출력 종류</name>
+				<name xml:lang="jp">출력 종류</name>
+				<name xml:lang="es">출력 종류</name>
+				<name xml:lang="ru">출력 종류</name>
+				<name xml:lang="fr">출력 종류</name>
+				<name xml:lang="zh-TW">출력 종류</name>
+				<description xml:lang="ko">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="en">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="zh-CN">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="jp">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="es">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="ru">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="fr">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<description xml:lang="zh-TW">종류를 선택해주세요. syslog, snmptrap일 경우 아래 설정은 필요 없습니다.</description>
+				<options>
+					<value></value>
+					<name xml:lang="ko">없음</name>
+					<name xml:lang="en">없음</name>
+					<name xml:lang="zh-CN">없음</name>
+					<name xml:lang="jp">없음</name>
+					<name xml:lang="es">없음</name>
+					<name xml:lang="ru">없음</name>
+					<name xml:lang="fr">없음</name>
+					<name xml:lang="zh-TW">없음</name>
+				</options>
+				<options>
+					<value>snmp</value>
+					<name xml:lang="ko">SNMP</name>
+					<name xml:lang="en">SNMP</name>
+					<name xml:lang="zh-CN">SNMP</name>
+					<name xml:lang="jp">SNMP</name>
+					<name xml:lang="es">SNMP</name>
+					<name xml:lang="ru">SNMP</name>
+					<name xml:lang="fr">SNMP</name>
+					<name xml:lang="zh-TW">SNMP</name>
+				</options>
+				<options>
+					<value>syslog</value>
+					<name xml:lang="ko">SYSLOG</name>
+					<name xml:lang="en">SYSLOG</name>
+					<name xml:lang="zh-CN">SYSLOG</name>
+					<name xml:lang="jp">SYSLOG</name>
+					<name xml:lang="es">SYSLOG</name>
+					<name xml:lang="ru">SYSLOG</name>
+					<name xml:lang="fr">SYSLOG</name>
+					<name xml:lang="zh-TW">SYSLOG</name>
+				</options>
+				<options>
+					<value>snmptrap</value>
+					<name xml:lang="ko">SNMP TRAP</name>
+					<name xml:lang="en">SNMP TRAP</name>
+					<name xml:lang="zh-CN">SNMP TRAP</name>
+					<name xml:lang="jp">SNMP TRAP</name>
+					<name xml:lang="es">SNMP TRAP</name>
+					<name xml:lang="ru">SNMP TRAP</name>
+					<name xml:lang="fr">SNMP TRAP</name>
+					<name xml:lang="zh-TW">SNMP TRAP</name>
+				</options>
+			</var>
+			<var id="order_target">
+				<type>select</type>
+				<name xml:lang="ko">정렬 대상</name>
+				<name xml:lang="en">정렬 대상</name>
+				<name xml:lang="zh-CN">정렬 대상</name>
+				<name xml:lang="jp">정렬 대상</name>
+				<name xml:lang="es">정렬 대상</name>
+				<name xml:lang="ru">정렬 대상</name>
+				<name xml:lang="fr">정렬 대상</name>
+				<name xml:lang="zh-TW">정렬 대상</name>
+				<description xml:lang="ko">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="en">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="zh-CN">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="jp">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="es">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="ru">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="fr">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<description xml:lang="zh-TW">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+				<options>
+					<value>regdate</value>
+					<name xml:lang="ko">등록일자</name>
+					<name xml:lang="en">등록일자</name>
+					<name xml:lang="zh-CN">등록일자</name>
+					<name xml:lang="jp">등록일자</name>
+					<name xml:lang="es">등록일자</name>
+					<name xml:lang="ru">등록일자</name>
+					<name xml:lang="fr">등록일자</name>
+					<name xml:lang="zh-TW">등록일자</name>
+				</options>
+				<options>
+					<value>priority</value>
+					<name xml:lang="ko">priority</name>
+					<name xml:lang="en">priority</name>
+					<name xml:lang="zh-CN">priority</name>
+					<name xml:lang="jp">priority</name>
+					<name xml:lang="es">priority</name>
+					<name xml:lang="ru">priority</name>
+					<name xml:lang="fr">priority</name>
+					<name xml:lang="zh-TW">priority</name>
+				</options>
+				<options>
+					<value>facility</value>
+					<name xml:lang="ko">facility</name>
+					<name xml:lang="en">facility</name>
+					<name xml:lang="zh-CN">facility</name>
+					<name xml:lang="jp">facility</name>
+					<name xml:lang="es">facility</name>
+					<name xml:lang="ru">facility</name>
+					<name xml:lang="fr">facility</name>
+					<name xml:lang="zh-TW">facility</name>
+				</options>
+				<options>
+					<value>severity</value>
+					<name xml:lang="ko">severity</name>
+					<name xml:lang="en">severity</name>
+					<name xml:lang="zh-CN">severity</name>
+					<name xml:lang="jp">severity</name>
+					<name xml:lang="es">severity</name>
+					<name xml:lang="ru">severity</name>
+					<name xml:lang="fr">severity</name>
+					<name xml:lang="zh-TW">severity</name>
+				</options>
+				<options>
+					<value>ip_type</value>
+					<name xml:lang="ko">ip_type</name>
+					<name xml:lang="en">ip_type</name>
+					<name xml:lang="zh-CN">ip_type</name>
+					<name xml:lang="jp">ip_type</name>
+					<name xml:lang="es">ip_type</name>
+					<name xml:lang="ru">ip_type</name>
+					<name xml:lang="fr">ip_type</name>
+					<name xml:lang="zh-TW">ip_type</name>
+				</options>
+				<options>
+					<value>ip_address</value>
+					<name xml:lang="ko">ip_address</name>
+					<name xml:lang="en">ip_address</name>
+					<name xml:lang="zh-CN">ip_address</name>
+					<name xml:lang="jp">ip_address</name>
+					<name xml:lang="es">ip_address</name>
+					<name xml:lang="ru">ip_address</name>
+					<name xml:lang="fr">ip_address</name>
+					<name xml:lang="zh-TW">ip_address</name>
+				</options>
+				<options>
+					<value>ip_port</value>
+					<name xml:lang="ko">ip_port</name>
+					<name xml:lang="en">ip_port</name>
+					<name xml:lang="zh-CN">ip_port</name>
+					<name xml:lang="jp">ip_port</name>
+					<name xml:lang="es">ip_port</name>
+					<name xml:lang="ru">ip_port</name>
+					<name xml:lang="fr">ip_port</name>
+					<name xml:lang="zh-TW">ip_port</name>
+				</options>
+				<options>
+					<value>value</value>
+					<name xml:lang="ko">값</name>
+					<name xml:lang="en">값</name>
+					<name xml:lang="zh-CN">값</name>
+					<name xml:lang="jp">값</name>
+					<name xml:lang="es">값</name>
+					<name xml:lang="ru">값</name>
+					<name xml:lang="fr">값</name>
+					<name xml:lang="zh-TW">값</name>
+				</options>
+			</var>
+			<var id="list_count">
+				<type>text</type>
+				<name xml:lang="ko">목록수</name>
+				<name xml:lang="en">The number of list</name>
+				<name xml:lang="zh-CN">目录数</name>
+				<name xml:lang="jp">リスト数</name>
+				<name xml:lang="es">Número de la lista</name>
+				<name xml:lang="ru">Число списка</name>
+				<name xml:lang="fr">The number of list</name>
+				<name xml:lang="zh-TW">目錄數</name>
+				<description xml:lang="ko">출력될 목록의 수를 정하실 수 있습니다. (기본 5개)</description>
+				<description xml:lang="en">You can set the number of articles to be displayed. (default is 5)</description>
+				<description xml:lang="zh-CN">可设置要显示的目录数。 (默认为5个)</description>
+				<description xml:lang="jp">出力されるリストの数を指定することができます。（デフォルト５個）</description>
+				<description xml:lang="es">Usted puede definir el número de los documentos a mostrar. (predefinido: 5)</description>
+				<description xml:lang="ru">Вы можете выбрать число списка статей для отображения. (стандарт: 5)</description>
+				<description xml:lang="fr">You can set the number of articles to be displayed. (default is 5)</description>
+				<description xml:lang="zh-TW">設置要顯示的目錄數。(預設是5個)</description>
+			</var>
+			<var id="page_type">
+				<type>select</type>
+				<name xml:lang="ko">페이지 출력 여부</name>
+				<name xml:lang="en">The page output</name>
+				<name xml:lang="zh-CN">Page 显示 与否</name>
+				<name xml:lang="jp">ページ 出力 與否</name>
+				<name xml:lang="es">The page output</name>
+				<name xml:lang="ru">The page output</name>
+				<name xml:lang="fr">The page output</name>
+				<name xml:lang="zh-TW">The page output</name>
+				<description xml:lang="ko">페이지를 출력할지 선택하세요.</description>
+				<description xml:lang="en">Select the output to the page.</description>
+				<description xml:lang="zh-CN">Select the output to the page.</description>
+				<description xml:lang="jp">ページを出力するか選んでください。</description>
+				<description xml:lang="es">Select the output to the page.</description>
+				<description xml:lang="ru">Select the output to the page.</description>
+				<description xml:lang="fr">Select the output to the page.</description>
+				<description xml:lang="zh-TW">Select the output to the page.</description>
+				<options>
+					<value>N</value>
+					<name xml:lang="ko">N</name>
+					<name xml:lang="en">N</name>
+					<name xml:lang="zh-CN">N</name>
+					<name xml:lang="jp">N</name>
+					<name xml:lang="es">N</name>
+					<name xml:lang="ru">N</name>
+					<name xml:lang="fr">N</name>
+					<name xml:lang="zh-TW">N</name>
+				</options>
+				<options>
+					<value>Y</value>
+					<name xml:lang="ko">Y</name>
+					<name xml:lang="en">Y</name>
+					<name xml:lang="zh-CN">Y</name>
+					<name xml:lang="jp">Y</name>
+					<name xml:lang="es">Y</name>
+					<name xml:lang="ru">Y</name>
+					<name xml:lang="fr">Y</name>
+					<name xml:lang="zh-TW">Y</name>
+				</options>
+			</var>
+			<var id="page_count">
+				<type>select</type>
+				<name xml:lang="ko">페이지 목록 수</name>
+				<name xml:lang="en">The number of page list</name>
+				<name xml:lang="zh-CN">Page 目录数</name>
+				<name xml:lang="jp">ページ リスト数</name>
+				<name xml:lang="es">The number of page list</name>
+				<name xml:lang="ru">The number of page list</name>
+				<name xml:lang="fr">The number of page list</name>
+				<name xml:lang="zh-TW">The number of page list</name>
+				<description xml:lang="ko">출력될 페이지의 수를 정하실 수 있습니다. (기본 0개)</description>
+				<description xml:lang="en">You can set the number of Pages to be displayed. (default is 5)</description>
+				<description xml:lang="zh-CN">可设置要显示的Page数。 (默认为5个)</description>
+				<description xml:lang="jp">出力されるページの数を指定することができます。（デフォルト５個）</description>
+				<description xml:lang="es">You can set the number of Pages to be displayed. (predefinido: 5)</description>
+				<description xml:lang="ru">You can set the number of Pages to be displayed. (стандарт: 5)</description>
+				<description xml:lang="fr">You can set the number of Pages to be displayed. (default is 5)</description>
+				<description xml:lang="zh-TW">設置要顯示的Page數。(預設是5個)</description>
+				<options>
+					<value>0</value>
+					<name xml:lang="ko">0</name>
+					<name xml:lang="en">0</name>
+					<name xml:lang="zh-CN">0</name>
+					<name xml:lang="jp">0</name>
+					<name xml:lang="es">0</name>
+					<name xml:lang="ru">0</name>
+					<name xml:lang="fr">0</name>
+					<name xml:lang="zh-TW">0</name>
+				</options>
+				<options>
+					<value>3</value>
+					<name xml:lang="ko">3</name>
+					<name xml:lang="en">3</name>
+					<name xml:lang="zh-CN">3</name>
+					<name xml:lang="jp">3</name>
+					<name xml:lang="es">3</name>
+					<name xml:lang="ru">3</name>
+					<name xml:lang="fr">3</name>
+					<name xml:lang="zh-TW">3</name>
+				</options>
+				<options>
+					<value>5</value>
+					<name xml:lang="ko">5</name>
+					<name xml:lang="en">5</name>
+					<name xml:lang="zh-CN">5</name>
+					<name xml:lang="jp">5</name>
+					<name xml:lang="es">5</name>
+					<name xml:lang="ru">5</name>
+					<name xml:lang="fr">5</name>
+					<name xml:lang="zh-TW">5</name>
+				</options>
+				<options>
+					<value>10</value>
+					<name xml:lang="ko">10</name>
+					<name xml:lang="en">10</name>
+					<name xml:lang="zh-CN">10</name>
+					<name xml:lang="jp">10</name>
+					<name xml:lang="es">10</name>
+					<name xml:lang="ru">10</name>
+					<name xml:lang="fr">10</name>
+					<name xml:lang="zh-TW">10</name>
+				</options>
+			</var>
+		</group>
+		<group>
+			<title xml:lang="ko">차트 세부 설정</title>
+			<title xml:lang="en">차트 세부 설정</title>
+			<title xml:lang="zh-CN">차트 세부 설정</title>
+			<title xml:lang="jp">차트 세부 설정</title>
+			<title xml:lang="es">차트 세부 설정</title>
+			<title xml:lang="ru">차트 세부 설정</title>
+			<title xml:lang="fr">차트 세부 설정</title>
+			<title xml:lang="zh-TW">차트 세부 설정</title>
+			<var id="color">
+				<type>text</type>
+				<name xml:lang="ko">색상 구분</name>
+				<name xml:lang="en">색상 구분</name>
+				<name xml:lang="zh-CN">색상 구분</name>
+				<name xml:lang="jp">색상 구분</name>
+				<name xml:lang="es">색상 구분</name>
+				<name xml:lang="ru">색상 구분</name>
+				<name xml:lang="fr">색상 구분</name>
+				<name xml:lang="zh-TW">색상 구분</name>
+				<description xml:lang="ko">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="en">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="zh-CN">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="jp">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="es">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="ru">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="fr">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+				<description xml:lang="zh-TW">#를 제외 한 색상 코드를 입력하세요.(여러개의 값일 경우 , 로 구분하세요.)<br />예) 0099FF,FFFFFF,000000</description>
+			</var>
+			<var id="statistics">
+				<type>select</type>
+				<name xml:lang="ko">통계 방식</name>
+				<name xml:lang="en">통계 방식</name>
+				<name xml:lang="zh-CN">통계 방식</name>
+				<name xml:lang="jp">통계 방식</name>
+				<name xml:lang="es">통계 방식</name>
+				<name xml:lang="ru">통계 방식</name>
+				<name xml:lang="fr">통계 방식</name>
+				<name xml:lang="zh-TW">통계 방식</name>
+				<description xml:lang="ko">통계 방식을 선택해주세요.</description>
+				<description xml:lang="en">통계 방식을 선택해주세요.</description>
+				<description xml:lang="zh-CN">통계 방식을 선택해주세요.</description>
+				<description xml:lang="jp">통계 방식을 선택해주세요.</description>
+				<description xml:lang="es">통계 방식을 선택해주세요.</description>
+				<description xml:lang="ru">통계 방식을 선택해주세요.</description>
+				<description xml:lang="fr">통계 방식을 선택해주세요.</description>
+				<description xml:lang="zh-TW">통계 방식을 선택해주세요.</description>
+				<options>
+					<value>5minutely</value>
+					<name xml:lang="ko">일간 5분 단위</name>
+					<name xml:lang="en">일간 5분 단위</name>
+					<name xml:lang="zh-CN">일간 5분 단위</name>
+					<name xml:lang="jp">일간 5분 단위</name>
+					<name xml:lang="es">일간 5분 단위</name>
+					<name xml:lang="ru">일간 5분 단위</name>
+					<name xml:lang="fr">일간 5분 단위</name>
+					<name xml:lang="zh-TW">일간 5분 단위</name>
+				</options>
+				<options>
+					<value>hourly</value>
+					<name xml:lang="ko">일간 1시간 단위</name>
+					<name xml:lang="en">일간 1시간 단위</name>
+					<name xml:lang="zh-CN">일간 1시간 단위</name>
+					<name xml:lang="jp">일간 1시간 단위</name>
+					<name xml:lang="es">일간 1시간 단위</name>
+					<name xml:lang="ru">일간 1시간 단위</name>
+					<name xml:lang="fr">일간 1시간 단위</name>
+					<name xml:lang="zh-TW">일간 1시간 단위</name>
+				</options>
+				<options>
+					<value>daily</value>
+					<name xml:lang="ko">월간 일 단위</name>
+					<name xml:lang="en">월간 일 단위</name>
+					<name xml:lang="zh-CN">월간 일 단위</name>
+					<name xml:lang="jp">월간 일 단위</name>
+					<name xml:lang="es">월간 일 단위</name>
+					<name xml:lang="ru">월간 일 단위</name>
+					<name xml:lang="fr">월간 일 단위</name>
+					<name xml:lang="zh-TW">월간 일 단위</name>
+				</options>
+				<options>
+					<value>weekly</value>
+					<name xml:lang="ko">월간 주 단위</name>
+					<name xml:lang="en">월간 주 단위</name>
+					<name xml:lang="zh-CN">월간 주 단위</name>
+					<name xml:lang="jp">월간 주 단위</name>
+					<name xml:lang="es">월간 주 단위</name>
+					<name xml:lang="ru">월간 주 단위</name>
+					<name xml:lang="fr">월간 주 단위</name>
+					<name xml:lang="zh-TW">월간 주 단위</name>
+				</options>
+				<options>
+					<value>monthly</value>
+					<name xml:lang="ko">년간 월 단위</name>
+					<name xml:lang="en">년간 월 단위</name>
+					<name xml:lang="zh-CN">년간 월 단위</name>
+					<name xml:lang="jp">년간 월 단위</name>
+					<name xml:lang="es">년간 월 단위</name>
+					<name xml:lang="ru">년간 월 단위</name>
+					<name xml:lang="fr">년간 월 단위</name>
+					<name xml:lang="zh-TW">년간 월 단위</name>
+				</options>
+				<options>
+					<value>yearly</value>
+					<name xml:lang="ko">년 단위</name>
+					<name xml:lang="en">년 단위</name>
+					<name xml:lang="zh-CN">년 단위</name>
+					<name xml:lang="jp">년 단위</name>
+					<name xml:lang="es">년 단위</name>
+					<name xml:lang="ru">년 단위</name>
+					<name xml:lang="fr">년 단위</name>
+					<name xml:lang="zh-TW">년 단위</name>
+				</options>
+			</var>
+			<var id="date">
+				<type>text</type>
+				<name xml:lang="ko">기준일</name>
+				<name xml:lang="en">기준일</name>
+				<name xml:lang="zh-CN">기준일</name>
+				<name xml:lang="jp">기준일</name>
+				<name xml:lang="es">기준일</name>
+				<name xml:lang="ru">기준일</name>
+				<name xml:lang="fr">기준일</name>
+				<name xml:lang="zh-TW">기준일</name>
+				<description xml:lang="ko">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="en">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="zh-CN">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="jp">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="es">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="ru">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="fr">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+				<description xml:lang="zh-TW">특정한 일의 정보를 보고자 할 경우 날짜를 입력해 주십시오.<br />
+				년 단위일 경우 기준 년도를 입력하면 현재 년도까지 수집합니다.<br />
+				입력하지 않으면 오늘자를 기준으로 계산 합니다.
+				예) 200909xx</description>
+			</var>
+			<var id="datetype">
+				<type>text</type>
+				<name xml:lang="ko">날짜형식</name>
+				<name xml:lang="en">날짜형식</name>
+				<name xml:lang="zh-CN">날짜형식</name>
+				<name xml:lang="jp">날짜형식</name>
+				<name xml:lang="es">날짜형식</name>
+				<name xml:lang="ru">날짜형식</name>
+				<name xml:lang="fr">날짜형식</name>
+				<name xml:lang="zh-TW">날짜형식</name>
+				<description xml:lang="ko">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="en">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="zh-CN">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="jp">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="es">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="ru">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="fr">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+				<description xml:lang="zh-TW">그래프의 XorY 좌표에 표시할 결과물의 날짜를 어떤식으로 표시할지 나타내십시오.<br />
+				예) 20xx-xx-xx xx:xx:xx 로 표시할 경우 Y-m-d H:i:s</description>
+			</var>
+			<var id="datepattern">
+				<type>text</type>
+				<name xml:lang="ko">날짜출력패턴</name>
+				<name xml:lang="en">날짜출력패턴</name>
+				<name xml:lang="zh-CN">날짜출력패턴</name>
+				<name xml:lang="jp">날짜출력패턴</name>
+				<name xml:lang="es">날짜출력패턴</name>
+				<name xml:lang="ru">날짜출력패턴</name>
+				<name xml:lang="fr">날짜출력패턴</name>
+				<name xml:lang="zh-TW">날짜출력패턴</name>
+				<description xml:lang="ko">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="en">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="zh-CN">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="jp">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="es">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="ru">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="fr">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+				<description xml:lang="zh-TW">건수가 많아지면 그래프 X 좌표가 보기 어려워지기 때문에 몇번은 건수마다 출력할지 정함
+				예) 5 : 5건의 정보가 찍힐때마다 한번씩 위 날짜형식의 결과치를 출력</description>
+			</var>
+			<var id="width">
+				<type>text</type>
+				<name xml:lang="ko">가로 사이즈</name>
+				<name xml:lang="en">가로 사이즈</name>
+				<name xml:lang="zh-CN">가로 사이즈</name>
+				<name xml:lang="jp">가로 사이즈</name>
+				<name xml:lang="es">가로 사이즈</name>
+				<name xml:lang="ru">가로 사이즈</name>
+				<name xml:lang="fr">가로 사이즈</name>
+				<name xml:lang="zh-TW">가로 사이즈</name>
+				<description xml:lang="ko">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="en">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="zh-CN">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="jp">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="es">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="ru">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="fr">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+				<description xml:lang="zh-TW">가로 사이즈를 결정해주세요 (px제외, 기본 600)</description>
+			</var>
+			<var id="height">
+				<type>text</type>
+				<name xml:lang="ko">세로 사이즈</name>
+				<name xml:lang="en">세로 사이즈</name>
+				<name xml:lang="zh-CN">세로 사이즈</name>
+				<name xml:lang="jp">세로 사이즈</name>
+				<name xml:lang="es">세로 사이즈</name>
+				<name xml:lang="ru">세로 사이즈</name>
+				<name xml:lang="fr">세로 사이즈</name>
+				<name xml:lang="zh-TW">세로 사이즈</name>
+				<description xml:lang="ko">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="en">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="zh-CN">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="jp">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="es">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="ru">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="fr">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+				<description xml:lang="zh-TW">세로 사이즈를 결정해주세요 (px제외, 기본 230)</description>
+			</var>
+			<var id="module_srls">
+				<type>module_srl_list</type>
+				<name xml:lang="ko">대상 모듈</name>
+				<name xml:lang="en">Target Module</name>
+				<name xml:lang="zh-CN">模块对象</name>
+				<name xml:lang="jp">モジュール</name>
+				<name xml:lang="es">Módulo Objetivo</name>
+				<name xml:lang="ru">Модуль назначения</name>
+				<name xml:lang="fr">Target Module</name>
+				<name xml:lang="zh-TW">目標模組</name>
+				<description xml:lang="ko">선택하신 모듈에 등록된 글을 대상으로 합니다.</description>
+				<description xml:lang="en">The target articles to be sorted will be the ones submitted in the selected module.</description>
+				<description xml:lang="zh-CN">将把被选模块当中的主题作为对象。</description>
+				<description xml:lang="jp">チェックされたモジュールに登録されたコンテンツ（書き込み）を対象とします。</description>
+				<description xml:lang="es">El objetivo de los documentos agregados serán los del módulo selccionado.</description>
+				<description xml:lang="ru">Статьи назначения для сортировки будут теми, что были размещены в выбранном модуле.</description>
+				<description xml:lang="fr">The target articles to be sorted will be the ones submitted in the selected module.</description>
+				<description xml:lang="zh-TW">把所選擇的模組作為目標。</description>
+			</var>
+		</group>
+    </extra_vars>
+</widget>

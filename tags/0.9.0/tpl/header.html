@@ -1,0 +1,23 @@
+<!--%import("js/common.js")-->
+<!--%import("js/nms.js")-->
+<!--%import("css/default.css")-->
+<!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+    <!--%import("css/default.ie.css",optimized=false)-->
+<!--@endif-->
+<h3 class="xeAdmin">{$lang->nms_title} <span class="gray">{$lang->nms_cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->nms_about_nms)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispNmsAdminIndex')-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}">{$lang->nms_dispNmsAdminIndex}</a></li>
+        <li <!--@if($act=='dispNmsAdminConfig')-->class="on"<!--@end-->><a
+        href="{getUrl('','module','admin','act','dispNmsAdminConfig')}">{$lang->nms_dispNmsAdminConfig}</a></li>
+        <li <!--@if(in_array($act, array(
+                                            'dispNmsAdminGroupList',
+                                            'dispNmsAdminInsertGroup',
+                                            'dispNmsAdminGroupInfo',
+                                            'dispNmsAdminDeleteGroup'
+                                            )))-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispNmsAdminGroupList')}">{$lang->nms_dispNmsAdminGroupList}</a></li>
+    </ul>
+</div>

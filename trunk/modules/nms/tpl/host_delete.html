@@ -1,0 +1,27 @@
+<!--#include("host_header.html")-->
+<!--%import("filter/delete_host.xml")-->
+
+<form action="./" method="get" onsubmit="return procFilter(this, delete_host)" enctype="multipart/form-data">
+<input type="hidden" name="page" value="{$page}" />
+<input type="hidden" name="module_srl" value="{$nms_info->module_srl}" />
+    <h4 class="xeAdmin">{$lang->confirm_delete}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminDeleteHost_summary}">
+    <caption>{$lang->nms_caption} : {count($nms_info)}{$lang->nms_caption_dispNmsAdminDeleteHost}</caption>
+    <tr>
+        <th scope="row"><div>{$lang->module_name}</div></th>
+        <td class="wide">{$nms_info->mid}</td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_mid_title}</div></th>
+        <td class="wide">{$nms_info->browser_title}</td>
+    </tr>
+    <tr>
+        <td class="wide" colspan="2"><label for="for_log_delete" class="fr"><input type="checkbox" name="log_delete" value="Y" id="for_log_delete" class="checkbox" /> {$lang->nms_delete_host_log}</label></td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_delete}" /></span>
+            <a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}" class="button"><span>{$lang->cmd_back}</span></a>
+        </th>
+    </table>
+</form>

@@ -1,0 +1,26 @@
+<filter name="wizard_step1" module="nms" act="procNmsAdminSettingWizard">
+    <form>
+        <node target="mid" required="true" maxlength="40" filter="alpha_number" />
+        <node target="browser_title" required="true" maxlength="250" />
+        <node target="nms_host" required="true" />
+        <node target="nms_community" required="true" maxlength="40" />
+    </form>
+    <parameter>
+        <param name="step" target="step" />
+        <param name="board_name" target="mid" />
+        <param name="module_srl" target="module_srl" />
+        <param name="module_category_srl" target="module_category_srl" />
+        <param name="browser_title" target="browser_title" />
+        <param name="skin" target="skin" />
+        <param name="ip_type" target="ip_type" />
+        <param name="host" target="nms_host" />
+        <param name="community" target="nms_community" />
+        <param name="description" target="description" />
+    </parameter>
+    <response callback_func="completeWizard">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="step" />
+    </response>
+</filter>

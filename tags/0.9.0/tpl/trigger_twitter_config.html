@@ -1,0 +1,51 @@
+<!--%import("filter/insert_twitter.xml")-->
+
+<form action="./" method="get" onsubmit="return procFilter(this, insert_twitter)" enctype="multipart/form-data">
+    <h4 class="xeAdmin">{$lang->nms_twitter_config}</h4>
+    <p class="summary">{nl2br($lang->nms_about_twitter_config)}</p>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminConfig_summary}">
+    <caption>{$lang->nms_caption} : Twitter OAuth</caption>
+    <tr>
+        <th scope="row"><div>Consumer key</div></th>
+        <td>
+            <input type="text" name="consumer_key" value="{$twiiter_info->consumer_key}" class="inputTypeText w400" />
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>Consumer secret</div></th>
+        <td>
+            <input type="text" name="consumer_secret" value="{$twiiter_info->consumer_secret}" class="inputTypeText w400" />
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->nms_twiiter_extra_var_name}</div></th>
+        <td>
+            <input type="text" name="extra_var_name" value="{$twiiter_info->extra_var_name}" class="inputTypeText w200" />
+            <p>{nl2br($lang->nms_about_twiiter_extra_var_name)}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="act">
+            <div>{$lang->nms_bitly_config}</div>
+            <p>{nl2br($lang->nms_about_bitly_config)}</p>
+        </th>
+    </tr>
+    <tr>
+        <th scope="row"><div>username</div></th>
+        <td>
+            <input type="text" name="username" value="{$bitly_info->username}" class="inputTypeText w400" />
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>API key</div></th>
+        <td>
+            <input type="text" name="apikey" value="{$bitly_info->apikey}" class="inputTypeText w400" />
+        </td>
+    </tr>
+    <tr>
+        <th class="button" colspan="2">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+</form>

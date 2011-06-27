@@ -1,0 +1,15 @@
+        <div class="history_list">
+            <ul class="history_item">
+                <!--@foreach($oHistory->data as $history)-->
+                <li>
+                    <a href="{getUrl('document_srl',$history->document_srl)}" title="{$history->getTitle()}"><img src="{$history->getThumbnail(150, 150, 'crop')}" alt="history image" class="thumb" /></a>
+                    <p>{zdate($history->get('regdate'), 'Y-m-d H:i:s', true)}</p>
+                </li>
+                <!--@endforeach-->
+                <li class="history_navigation">
+                <!--@if(!$h_page)-->{@ $h_page = 1}<!--@endif-->
+                <!--@if($h_page>1)--><div class="arrow_left"><img src="./images/{$colorset}/arrow_left.gif" alt="prev" /></div><!--@endif-->
+                <!--@if($h_page < $oHistory->page_navigation->last_page)--><div class="arrow_right"><img src="./images/{$colorset}/arrow_right.gif" alt="next" /></div><!--@endif-->
+                </li>
+            </ul>
+        </div>

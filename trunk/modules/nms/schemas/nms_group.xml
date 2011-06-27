@@ -1,0 +1,10 @@
+<table name="nms_group">
+    <column name="group_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="gid" type="varchar" size="40" notnull="notnull" />
+    <column name="schedule" type="number" size="11" notnull="notnull" />
+    <column name="cronstate" type="char" size="1" notnull="notnull" default="N" />
+    <column name="description" type="text" />
+    <column name="regdate" type="date" notnull="notnull" />
+    <column name="checkdate" type="date" notnull="notnull" />
+    <column name="extra_vars" type="text" />
+</table>

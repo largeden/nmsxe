@@ -1,0 +1,17 @@
+<query id="getNmsGroupList" action="select">
+    <tables>
+        <table name="nms_group" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="group_srl" var="group_srl" filter="number" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="group_srl" order="desc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

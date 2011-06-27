@@ -1,0 +1,128 @@
+<!--%import("js/jquery.tablesorter.min.js")-->
+
+<!--%import("filter/wizard_step4.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, wizard_step4)" enctype="multipart/form-data">
+    <input type="hidden" name="step" value="4" />
+    <h4 class="xeAdmin">{$lang->nms_dispNmsAdminInsertHost}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminInsertHost_summary}">
+    <caption>{$lang->nms_caption}</caption>
+        <tr>
+            <th scope="row"><div>{$lang->mid}</div></th>
+            <td class="wide">{$wizard_info->host->mid}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->module_category}</div></th>
+            <td class="wide"><!--@foreach($module_category as $key => $val)--><!--@if($wizard_info->host->module_category_srl==$key)-->{$val->title}<!--@end--><!--@endforeach--></td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->browser_title}</div></th>
+            <td>{htmlspecialchars($wizard_info->host->browser_title)}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->layout}</div></th>
+            <td>
+                <!--@foreach($layout_list as $key => $val)-->
+                    <!--@if($wizard_info->host->layout_srl==$val->layout_srl)-->{$val->title} ({$val->layout})<!--@end-->
+                <!--@endforeach-->
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->skin}</div></th>
+            <td>
+                <!--@foreach($skin_list as $key=>$val)-->
+                    <!--@if($wizard_info->host->skin==$key)-->{$val->title}<!--@end-->
+                <!--@endforeach-->
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_ip_type_title}</div></th>
+            <td>
+                <!--@if($wizard_info->host->ip_type==4)-->IPv4<!--@end-->
+                <!--@if($wizard_info->host->ip_type==6)-->IPv6<!--@end-->
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_host}</div></th>
+            <td>{$wizard_info->host->host}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_community}</div></th>
+            <td>{$wizard_info->host->community}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->order_target}</div></th>
+            <td>{$lang->nms_host_order_target[$wizard_info->host->order_target]}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->order_type}</div></th>
+            <td>{$wizard_info->host->order_type}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->list_count}</div></th>
+            <td>{$wizard_info->host->list_count}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->search_list_count}</div></th>
+            <td>{$wizard_info->host->search_list_count}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->page_count}</div></th>
+            <td>{$wizard_info->host->page_count}</td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_description}</div></th>
+            <td>{htmlspecialchars($wizard_info->host->description)}</td>
+        </tr>
+    </table>
+    <h4 class="xeAdmin">{$lang->nms_wizard_xml_file}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_wizard_xml_file_summary}">
+    <caption>{$lang->nms_caption} : {count($wizard_info->wizard_file)}</caption>
+        <tr>
+            <th scope="row"><div>{$lang->nms_wizard_file}</div></th>
+            <td class="wide">{$wizard_info->wizard_file}.xml</td>
+        </tr>
+    </table>
+    <h4 class="xeAdmin">{$lang->nms_wizard_mib_list}</h4>
+    <table id="mibTable" cellspacing="0" class="mbTable" summary="{$lang->nms_wizard_mib_list_summary}">
+    <caption>{$lang->nms_caption} : {$wizard_info->mibs_count}</caption>
+        <thead>
+            <tr>
+                <th scope="col"><div>type</div></th>
+                <th scope="col"><div>{$lang->nms_mmid}</div></th>
+                <th scope="col"><div>{$lang->nms_mib_title}</div></th>
+                <th scope="col"><div>{$lang->nms_mib}</div></th>
+                <th scope="col"><div>VALUE</div></th>
+                <th scope="col"><div>{$lang->nms_max}</div></th>
+                <th scope="col"><div>VALUE</div></th>
+                <th scope="col"><div>{$lang->nms_extra_collect_mode_title}</div></th>
+                <th scope="col"><div>{$lang->nms_group_name}</div></th>
+                <th scope="col"><div>{$lang->nms_legend_name}</div></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th colspan="10" class="button">
+                    <a href="{getUrl('act','dispNmsAdminSettingWizard','step','3')}" class="button"><span>{$lang->nms_wizard_cmd_prev}</span></a>
+                </th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <!--@foreach($wizard_info->mibs as $oMib)-->
+            <tr id="{$oMib->mmid}" class="selected" title="{$oMib->description}">
+                <td>{$oMib->type}</td>
+                <td>{$oMib->mmid}</td>
+                <td>{$oMib->mib_title}</td>
+                <td>{$oMib->mib}</td>
+                <td>{$oMib->mib_value}</td>
+                <td>{$oMib->max}</td>
+                <td>{$oMib->max_value}</td>
+                <td>{$oMib->collect}</td>
+                <td>{$oMib->group_name}</td>
+                <td>{$oMib->legend}</td>
+            </tr>
+            <!--@endforeach-->
+        </tbody>
+    </table>
+    <div class="wizard_complete tCenter"><span class="button xLarge blue strong"><input type="submit" value="{$lang->nms_wizard_complete}" accesskey="s" /></span></div>
+</form>

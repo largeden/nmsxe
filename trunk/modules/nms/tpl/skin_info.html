@@ -1,0 +1,7 @@
+<!--@if(in_array($nms_info->mid, array($module_config->severity_mid,$module_config->syslog_mid,$module_config->snmptrap_mid)))-->
+<!--#include("service_header.html")-->
+<!--@else-->
+<!--#include("host_header.html")-->
+<!--@endif-->
+
+{$skin_content}

@@ -1,0 +1,15 @@
+<query id="insertNmsGroup" action="insert">
+    <tables>
+        <table name="nms_group" />
+    </tables>
+    <columns>
+        <column name="group_srl" var="group_srl" notnull="notnull" />
+        <column name="gid" var="gid" notnull="notnull" minlength="1" maxlength="40" />
+        <column name="schedule" var="schedule" filter="number" notnull="notnull" />
+        <column name="cronstate" var="cronstate" notnull="notnull" />
+        <column name="description" var="description" default="" />
+        <column name="regdate" var="regdate" default="curdate()" />
+        <column name="checkdate" var="checkdate" default="curdate()" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+</query>

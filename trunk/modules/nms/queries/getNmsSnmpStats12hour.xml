@@ -1,0 +1,24 @@
+<query id="getNmsSnmpStats12hour" action="select">
+    <tables>
+        <table name="nms_snmp_log" />
+    </tables>
+    <columns>
+        <column name="module_srl" />
+        <column name="mib_srl" />
+        <column name="floor(sum(value)/count(value))" alias="value" />
+        <column name="substr(regdate,1,14)" alias="regdate" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" notnull="notnull" pipe="where" />
+        <condition operation="less" column="regdate" var="regdate" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+    <groups>
+        <group column="module_srl" />
+        <group column="mib_srl" />
+        <group column="floor(substr(regdate,1,12)/3)" />
+    </groups>
+    <navigation>
+        <index var="sort_index" default="snmp_srl" order="desc" />
+        <list_count var="list_count" default="240" />
+    </navigation>
+</query>

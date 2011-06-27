@@ -1,0 +1,27 @@
+<query id="getNmsSnmpTrapList" action="select">
+    <tables>
+        <table name="nms_snmptrap_log" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="trap" var="trap" filter="number" pipe="where" />
+        <condition operation="equal" column="ip_type" var="ip_type" filter="number" pipe="and" />
+        <condition operation="equal" column="ip_address" var="ip_address" pipe="and" />
+        <condition operation="equal" column="ip_port" var="ip_port" filter="number" pipe="and" />
+        <group pipe="and">
+            <condition operation="equal" column="trap" var="s_trap" pipe="or" />
+            <condition operation="equal" column="ip_type" var="s_ip_type" pipe="or" />
+            <condition operation="like" column="ip_address" var="s_ip_address" pipe="or" />
+            <condition operation="like" column="ip_port" var="s_ip_port" pipe="or" />
+            <condition operation="like_prefix" column="regdate" var="s_regdate" pipe="or" />
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="snmptrap_srl" order="order_type" />
+        <list_count var="list_count" default="10" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard version="0.2">
+    <title xml:lang="ko">Memory 정보</title>
+    <title xml:lang="en">Memory information</title>
+    <title xml:lang="zh-CN">Memory information</title>
+    <title xml:lang="jp">Memory information</title>
+    <title xml:lang="es">Memory information</title>
+    <title xml:lang="ru">Memory information</title>
+    <title xml:lang="fr">Memory information</title>
+    <title xml:lang="zh-TW">Memory information</title>
+    <title xml:lang="vi">Memory information</title>
+    <title xml:lang="mn">Memory information</title>
+    <description xml:lang="ko">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="en">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="zh-CN">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="jp">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="es">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="ru">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="fr">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="zh-TW">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="vi">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <description xml:lang="mn">
+        Memory의 정보를 출력합니다.(ucd-snmp)
+        memAvailReal - 사용가능한 현재 메모리 정보(KByte)
+        memTotalReal - 전체 메모리 정보(KByte)
+        ((memTotalReal-memAvailReal)/memTotalReal)*100 - 현재 사용 메모리 정보(%)
+        (memAvailReal/memTotalReal)*100 - 사용가능한 현재 메모리 정보(%)
+
+        ※ 사용하실려는 대상을 선택해서 사용하세요.
+    </description>
+    <date>2010-11-11</date>
+    <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+        <name xml:lang="ko">라르게덴</name>
+        <name xml:lang="en">largeden</name>
+        <name xml:lang="zh-CN">largeden</name>
+        <name xml:lang="jp">ラルゲデン</name>
+        <name xml:lang="es">largeden</name>
+        <name xml:lang="ru">largeden</name>
+        <name xml:lang="fr">largeden</name>
+        <name xml:lang="zh-TW">largeden</name>
+        <name xml:lang="vi">largeden</name>
+        <name xml:lang="mn">largeden</name>
+    </author>
+    <mode />
+    <mib_groups />
+    <mibs>
+        <var id="memAvailReal">
+            <mmid>memAvailReal</mmid>
+            <mib_title xml:lang="ko">memAvailReal</mib_title>
+            <mib_title xml:lang="en">memAvailReal</mib_title>
+            <mib_title xml:lang="zh-CN">memAvailReal</mib_title>
+            <mib_title xml:lang="jp">memAvailReal</mib_title>
+            <mib_title xml:lang="es">memAvailReal</mib_title>
+            <mib_title xml:lang="ru">memAvailReal</mib_title>
+            <mib_title xml:lang="fr">memAvailReal</mib_title>
+            <mib_title xml:lang="zh-TW">memAvailReal</mib_title>
+            <mib_title xml:lang="vi">memAvailReal</mib_title>
+            <mib_title xml:lang="mn">memAvailReal</mib_title>
+            <mib>.1.3.6.1.4.1.2021.4.6.0</mib>
+            <max>.1.3.6.1.4.1.2021.4.5.0</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="en">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="zh-CN">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="jp">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="es">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="ru">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="fr">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="zh-TW">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="vi">사용가능한 현재 메모리 정보(KByte)</description>
+            <description xml:lang="mn">사용가능한 현재 메모리 정보(KByte)</description>
+            <legend xml:lang="ko">memAvailReal</legend>
+            <legend xml:lang="en">memAvailReal</legend>
+            <legend xml:lang="zh-CN">memAvailReal</legend>
+            <legend xml:lang="jp">memAvailReal</legend>
+            <legend xml:lang="es">memAvailReal</legend>
+            <legend xml:lang="ru">memAvailReal</legend>
+            <legend xml:lang="fr">memAvailReal</legend>
+            <legend xml:lang="zh-TW">memAvailReal</legend>
+            <legend xml:lang="vi">memAvailReal</legend>
+            <legend xml:lang="mn">memAvailReal</legend>
+            <collect />
+        </var>
+        <var id="memTotalReal">
+            <mmid>memTotalReal</mmid>
+            <mib_title xml:lang="ko">memTotalReal</mib_title>
+            <mib_title xml:lang="en">memTotalReal</mib_title>
+            <mib_title xml:lang="zh-CN">memTotalReal</mib_title>
+            <mib_title xml:lang="jp">memTotalReal</mib_title>
+            <mib_title xml:lang="es">memTotalReal</mib_title>
+            <mib_title xml:lang="ru">memTotalReal</mib_title>
+            <mib_title xml:lang="fr">memTotalReal</mib_title>
+            <mib_title xml:lang="zh-TW">memTotalReal</mib_title>
+            <mib_title xml:lang="vi">memTotalReal</mib_title>
+            <mib_title xml:lang="mn">memTotalReal</mib_title>
+            <mib>.1.3.6.1.4.1.2021.4.5.0</mib>
+            <max>.1.3.6.1.4.1.2021.4.5.0</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">전체 메모리 정보(KByte)</description>
+            <description xml:lang="en">전체 메모리 정보(KByte)</description>
+            <description xml:lang="zh-CN">전체 메모리 정보(KByte)</description>
+            <description xml:lang="jp">전체 메모리 정보(KByte)</description>
+            <description xml:lang="es">전체 메모리 정보(KByte)</description>
+            <description xml:lang="ru">전체 메모리 정보(KByte)</description>
+            <description xml:lang="fr">전체 메모리 정보(KByte)</description>
+            <description xml:lang="zh-TW">전체 메모리 정보(KByte)</description>
+            <description xml:lang="vi">전체 메모리 정보(KByte)</description>
+            <description xml:lang="mn">전체 메모리 정보(KByte)</description>
+            <legend xml:lang="ko">memTotalReal</legend>
+            <legend xml:lang="en">memTotalReal</legend>
+            <legend xml:lang="zh-CN">memTotalReal</legend>
+            <legend xml:lang="jp">memTotalReal</legend>
+            <legend xml:lang="es">memTotalReal</legend>
+            <legend xml:lang="ru">memTotalReal</legend>
+            <legend xml:lang="fr">memTotalReal</legend>
+            <legend xml:lang="zh-TW">memTotalReal</legend>
+            <legend xml:lang="vi">memTotalReal</legend>
+            <legend xml:lang="mn">memTotalReal</legend>
+            <collect />
+        </var>
+        <var id="memusage">
+            <mmid>memusage</mmid>
+            <mib_title xml:lang="ko">memusage</mib_title>
+            <mib_title xml:lang="en">memusage</mib_title>
+            <mib_title xml:lang="zh-CN">memusage</mib_title>
+            <mib_title xml:lang="jp">memusage</mib_title>
+            <mib_title xml:lang="es">memusage</mib_title>
+            <mib_title xml:lang="ru">memusage</mib_title>
+            <mib_title xml:lang="fr">memusage</mib_title>
+            <mib_title xml:lang="zh-TW">memusage</mib_title>
+            <mib_title xml:lang="vi">memusage</mib_title>
+            <mib_title xml:lang="mn">memusage</mib_title>
+            <mib>.1.3.6.1.4.1.2021.4.6.0</mib>
+            <max>.1.3.6.1.4.1.2021.4.5.0</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="en">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="zh-CN">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="jp">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="es">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="ru">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="fr">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="zh-TW">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="vi">현재 사용 메모리 정보(%)</description>
+            <description xml:lang="mn">현재 사용 메모리 정보(%)</description>
+            <legend xml:lang="ko">usage</legend>
+            <legend xml:lang="en">usage</legend>
+            <legend xml:lang="zh-CN">usage</legend>
+            <legend xml:lang="jp">usage</legend>
+            <legend xml:lang="es">usage</legend>
+            <legend xml:lang="ru">usage</legend>
+            <legend xml:lang="fr">usage</legend>
+            <legend xml:lang="zh-TW">usage</legend>
+            <legend xml:lang="vi">usage</legend>
+            <legend xml:lang="mn">usage</legend>
+            <collect>4</collect>
+        </var>
+        <var id="memfree">
+            <mmid>memfree</mmid>
+            <mib_title xml:lang="ko">memfree</mib_title>
+            <mib_title xml:lang="en">memfree</mib_title>
+            <mib_title xml:lang="zh-CN">memfree</mib_title>
+            <mib_title xml:lang="jp">memfree</mib_title>
+            <mib_title xml:lang="es">memfree</mib_title>
+            <mib_title xml:lang="ru">memfree</mib_title>
+            <mib_title xml:lang="fr">memfree</mib_title>
+            <mib_title xml:lang="zh-TW">memfree</mib_title>
+            <mib_title xml:lang="vi">memfree</mib_title>
+            <mib_title xml:lang="mn">memfree</mib_title>
+            <mib>.1.3.6.1.4.1.2021.4.6.0</mib>
+            <max>.1.3.6.1.4.1.2021.4.5.0</max>
+            <group_name>1</group_name>
+            <description xml:lang="ko">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="en">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="zh-CN">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="jp">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="es">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="ru">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="fr">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="zh-TW">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="vi">사용가능한 현재 메모리 정보(%)</description>
+            <description xml:lang="mn">사용가능한 현재 메모리 정보(%)</description>
+            <legend xml:lang="ko">free</legend>
+            <legend xml:lang="en">free</legend>
+            <legend xml:lang="zh-CN">free</legend>
+            <legend xml:lang="jp">free</legend>
+            <legend xml:lang="es">free</legend>
+            <legend xml:lang="ru">free</legend>
+            <legend xml:lang="fr">free</legend>
+            <legend xml:lang="zh-TW">free</legend>
+            <legend xml:lang="vi">free</legend>
+            <legend xml:lang="mn">free</legend>
+            <collect>3</collect>
+        </var>
+    </mibs>
+</wizard>

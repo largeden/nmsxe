@@ -1,0 +1,14 @@
+<filter name="delete_host" module="nms" act="procNmsAdminDeleteHost" confirm_msg_code="confirm_delete">
+    <form>
+        <node target="module_srl" required="true" />
+    </form>
+    <parameter>
+        <param name="module_srl" target="module_srl" />
+        <param name="log_delete" target="log_delete" />
+    </parameter>
+    <response callback_func="completeDeleteHost">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>
