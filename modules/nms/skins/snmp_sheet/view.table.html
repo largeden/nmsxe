@@ -1,0 +1,112 @@
+<div class="view">
+    <h3>
+        <!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+            <img src="./images/{$colorset}/statistics.gif" alt="statistics" width="16" height="16" />
+        <!--@end-->
+        {$mib_group_info->getMibTitle()}
+    </h3>
+    <div class="content">
+        <div class="list_table">
+            <h4>{$mib_group_info->getMibTitle()} Table</h4>
+            <table class="nmsTable" summary="{$lang->nms_view_table}">
+            <caption>{$lang->cmd_list} : {$i}</caption>
+                <thead>
+                <tr class="option">
+                    <th colspan="20" scope="col">
+                    <form id="fo_nms_search" action="./" method="get" onsubmit="return procFilter(this, snmp_sheet.search)">
+                        <ul>
+                            <li>
+                                <select class="select" name="list_count">
+                                    <option value="20" <!--@if($list_count==20||!$list_count)-->selected="selected"<!--@endif-->>20</option>
+                                    <option value="50" <!--@if($list_count==50)-->selected="selected"<!--@endif-->>50</option>
+                                    <option value="100" <!--@if($list_count==100)-->selected="selected"<!--@endif-->>100</option>
+                                </select>
+                            </li>
+                            <li>
+                                <input type="text" value="{substr($regdate,0,8)}" name="regdate" readonly="readonly" class="inputDate" />
+                                <select class="select" name="reghour">
+                                <option value="00" <!--@if(substr($regdate,8,2)==00||substr($regdate,8,2)=='')-->selected="selected"<!--@endif-->>00</option>
+                                <!--@for($t=1; $t < 24; $t++)-->
+                                <option value="{sprintf('%02d', $t)}" <!--@if(substr($regdate,8,2)==$t)-->selected="selected"<!--@endif-->>{sprintf('%02d', $t)}</option>
+                                <!--@end-->
+                                </select>
+                            </li>
+                            <li>
+                                <input type="submit" class="button" value="{$lang->cmd_search}" />
+                            </li>
+                        </ul>
+                    </form>
+                    </th>
+                </tr>
+                <tr class="title">
+                    <th scope="col" class="no"><span>no</span></th>
+                    <!--@foreach($mib_info as $mib)-->
+                    <th scope="col"><span>{$mib->getExtraVars('legend_name')}</span></th>
+                    <!--@endforeach-->
+                    <th scope="col" class="session"><span>session</span></th>
+                    <th scope="col" class="regdate"><span>regdate</span></th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                <td colspan="20">
+                    <div class="pagination">
+                        <a href="{getUrl('table_page','')}" class="prevEnd">{$lang->first_page}</a>
+                        <!--@while($page_no = $table_page_navigation->getNextPage())-->
+
+                        <!--@if($table_page == $page_no)-->
+                                <strong>{$page_no}</strong>
+                            <!--@else-->
+                                <a href="{getUrl('table_page',$page_no)}">{$page_no}</a>
+                            <!--@end-->
+                        <!--@end-->
+                        <a href="{getUrl('table_page',$table_page_navigation->last_page)}" class="nextEnd">{$lang->last_page}</a>
+                    </div>
+                </td>
+                </tr>
+                </tfoot>
+                <tbody>
+                    <!--@foreach($snmp_info as $snmp)-->
+                    <tr>
+                        <td class="no"><div>{$snmp->getNo()}</div></td>
+                        <!--@foreach($snmp->get('value') as $value)-->
+                            <!--@if($byte)-->
+                            <td><div>{$snmp->getSizeBytes($value*$byte,3,1024)}</div></td>
+                            <!--@else-->
+                            <td><div>{$snmp->getSizeBytes($value)}</div></td>
+                            <!--@endif-->
+                        <!--@endforeach-->
+                        <td class="session"><div>{$snmp->getSession()}</div></td>
+                        <td class="regdate"><div>{$snmp->getRegdate()}</div></td>
+                    </tr>
+                    <!--@endforeach-->
+                </tbody>
+            </table>
+        </div>
+        <div class="legend">
+            <h4>{$lang->nms_view_current}</h4>
+            <ul>
+            <!--@foreach($mib_group_info->getSnmpCurrent() as $val)-->
+                <!--@if(in_array($val->collect_mode, array(2,3)))-->
+                    {@ $val->max = 100 }
+                <!--@endif-->
+                <li><span>{$val->legend_name}</span>
+                    <!--@if($byte)-->
+                    <p>{$mib_group_info->getSizeBytes($val->value*$byte,3,1024)} / {$mib_group_info->getSizeBytes($val->max*$byte,3,1024)}</p>
+                    <!--@else-->
+                    <p>{$mib_group_info->getSizeBytes($val->value)} / {$mib_group_info->getSizeBytes($val->max)}</p>
+                    <!--@endif-->
+                </li>
+            <!--@endforeach-->
+            </ul>
+            <h4>{$lang->nms_view_legend}</h4>
+            <ul>
+            <!--@foreach($mib_info as $mib)-->
+                <li><span>{$mib->getExtraVars('legend_name')}</span>
+                    <p>{$mib->getDescription()}</p>
+                </li>
+            <!--@endforeach-->
+            </ul>
+        </div>
+    </div>
+</div>

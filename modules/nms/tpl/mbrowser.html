@@ -1,0 +1,127 @@
+<!--%import("js/ui/jquery.ui.core.min.js")-->
+<!--%import("js/ui/jquery.ui.widget.min.js")-->
+<!--%import("js/ui/jquery.ui.mouse.min.js")-->
+<!--%import("js/ui/jquery.ui.selectable.min.js")-->
+<!--%import("js/ui/jquery.ui.resizable.min.js")-->
+<!--%import("js/ui/jquery.effects.core.min.js")-->
+<!--%import("js/jquery.tree.js")-->
+<!--%import("js/mbrowser.js")-->
+
+{@ Context::addHtmlHeader('
+    <script type="text/javascript">//<![CDATA[
+        var lang_cmd_open_all = "'.$lang->cmd_open_all.'";
+        var lang_cmd_close_all = "'.$lang->cmd_close_all.'";
+        var lang_nms_mmid = "'.$lang->nms_mmid.'";
+        var lang_nms_mib_title = "'.$lang->nms_mib_title.'";
+        var lang_nms_mib = "'.$lang->nms_mib.'";
+        var lang_nms_max = "'.$lang->nms_max.'";
+        var lang_nms_extra_collect_mode_title = "'.$lang->nms_extra_collect_mode_title.'";
+        var lang_nms_group_name = "'.$lang->nms_group_name.'";
+        var lang_nms_extra_lenged = "'.$lang->nms_legend_name.'";
+        var lang_msg_mmid_name_exists = "'.$lang->msg_mmid_name_exists.'";
+        var lang_msg_mib_name_exists = "'.$lang->msg_mib_name_exists.'";
+        var lang_filter_isnull = "'.$lang->filter->isnull.'";
+        var lang_filter_invalid_alpha_number = "'.$lang->filter->invalid_alpha_number.'";
+        var lang_filter_invalid_number = "'.$lang->filter->invalid_number.'";
+        var lang_cmd_submit = "'.$lang->cmd_submit.'";
+        var lang_cmd_delete = "'.$lang->cmd_delete.'";
+        var lang_confirm_delete = "'.$lang->confirm_delete.'";
+    //]]></script>
+'); }
+<div id="mbrowser">
+    <h4 class="xeAdmin">{$lang->nms_mbrowser}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_mbrowser_summary}">
+    <caption>{$lang->nms_caption}</caption>
+        <tr>
+            <th>
+                <span class="about_recache">{nl2br($lang->nms_about_remake_cache)}</span>
+                <div class="fr"><a href="#$nms_mbrowser.doRemakeCache" class="button" title="{$lang->cmd_remake_cache}"><span class="recache">{$lang->cmd_remake_cache}</span></a></div>
+            </th>
+        </tr>
+    </table>
+
+    <table cellspacing="0" class="rowTable w980" summary="{$lang->nms_mbrowser_summary}">
+    <caption>{$lang->nms_caption}</caption>
+        <thead>
+            <tr>
+                <th scope="col">
+                    <div class="fl">MBrowser</div>
+                    <div class="fr"><span class="button"><input type="button" value="{$lang->cmd_open_all}" class="branch" /></span></div>
+                </th>
+                <th scope="col"><div>description</div></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <th colspan="2">
+                <div class="fr"><a href="#$nms_mbrowser.doMbrowserInsert" class="button" title="{$lang->cmd_insert}"><span class="mb_insert">{$lang->cmd_insert}</span></a></div>
+            </th>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td class="wide">
+                <div class="mbrowser_tree_resize">
+                    <div class="mbrowser_tree">
+                        <ul type="disc">
+                           <!--@foreach($wizard_info->mbrowser->smi as $key=>$val)-->
+                           {$val->tag->endtag}
+                           <!--@if(!$val->tag->finalendtag)-->
+                           <li id="oid_.{$val->mib}" title="{$key}" class="<!--@if($val->tag->parent)-->parent<!--@else-->sub<!--@endif-->"><span id="mib{preg_replace('/\./', '_', $val->mib)}">{$val->name}</span>
+                           <!--@if(in_array($val->type, array('table','row')))-->
+                           <a href="#mbrowser_table_view" class="buttonSet buttonTable" title="Table View"></a>
+                           <!--@endif-->
+                           {$val->tag->stoptag}{$val->tag->starttag}
+                           <!--@endif-->
+                           <!--@endforeach-->
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <div class="mb_info">
+                        <table id="mb_stat" cellspacing="0" class="rowTable" summary="{$lang->nms_mb_info_summary}">
+                            <tr>
+                                <th scope="row"><div>Type</div></th>
+                                <td class="wide"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><div>Namednumber</div></th>
+                                <td class="wide"><select class="none_select" disabled="disabled"></select></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><div>Access</div></th>
+                                <td class="wide"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><div>Status</div></th>
+                                <td class="wide"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><div>Description</div></th>
+                                <td class="wide"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col" colspan="2">
+                    <div class="mb_direct">
+                        <input type="text" value="" class="inputTypeText w400" />
+                        <span class="button" style="margin-top:-4px;"><input type="button" value="{$lang->cmd_confirm}" /></span>
+                    </div>
+                    <br />
+                <div>value <span class="help">(Draw a box with your cursor to select items. Hold down the Ctrl key to make multiple non-adjacent selections.)</span></div></th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="mbrowser_value_resize">
+                        <div class="mbrowser_value"></div>
+                    </div>
+                    <div class="oid_count"><p class="fl"></p><img class="fl hidden" src="{$tpl_path}/images/loading.gif" alt="loading" /></div>
+                    <span id="value_select_result" class="hidden"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="mb_insert"></div>
+</div>

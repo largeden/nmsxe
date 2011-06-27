@@ -1,0 +1,12 @@
+<filter name="wizard_step4" module="nms" act="procNmsAdminInsertWizard" confirm_msg_code="confirm_submit">
+    <form />
+    <parameter>
+        <param name="step" target="step" />
+    </parameter>
+    <response callback_func="completeWizard">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module" />
+        <tag name="step" />
+    </response>
+</filter>

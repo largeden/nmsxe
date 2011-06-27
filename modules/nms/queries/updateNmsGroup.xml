@@ -1,0 +1,17 @@
+<query id="updateNmsGroup" action="update">
+    <tables>
+        <table name="nms_group" />
+    </tables>
+    <columns>
+        <column name="group_srl" var="group_srl" notnull="notnull" />
+        <column name="gid" var="gid" notnull="notnull" minlength="1" maxlength="40" />
+        <column name="schedule" var="schedule" filter="number" notnull="notnull" />
+        <column name="cronstate" var="cronstate" notnull="notnull" />
+        <column name="description" var="description" default="" />
+        <column name="checkdate" var="checkdate" default="curdate()" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="group_srl" var="group_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

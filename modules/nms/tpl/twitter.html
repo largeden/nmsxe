@@ -1,0 +1,26 @@
+<!--%import("css/twitter.css")-->
+<!--@if($fail||$duplicate||$oauth)-->
+<script type="text/javascript">//<![CDATA[
+<!--@if($fail)-->alert("{$lang->msg_invalid_request}");<!--@end-->
+<!--@if($duplicate)-->alert("{$lang->msg_twiiter_oauth_exists}");<!--@end-->
+<!--@if($oauth)-->alert("{$lang->success_registed}");<!--@end-->
+window.close();
+//]]></script>
+<!--@endif-->
+
+<div id="popHeader">
+    <h3 class="xeAdmin">Twitter Authentication</h3>
+</div>
+
+<div class="twitterbody tCenter">
+<!--@if($error)-->
+Could not connect to Twitter. Refresh the page or try again later.
+<!--@else-->
+{$lang->nms_twitter_redirect}
+<!--@endif-->
+</div>
+<!--@if($mode)-->
+<script type="text/javascript">//<![CDATA[
+setTimeout(function(){location.href='{$url}';},500);
+//]]></script>
+<!--@endif-->

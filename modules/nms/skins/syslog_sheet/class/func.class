@@ -1,0 +1,9 @@
+<?php
+    if(!defined('__ZBXE__')) exit();
+
+    class syslog_sheet {
+        function syslog_sheet() {
+            return;
+        }
+    }
+?>

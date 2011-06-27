@@ -1,0 +1,18 @@
+<div class="graph_list">
+    <!--@foreach($uploaded_filename as $key => $file)-->
+        <h4>{$mib_group_info->getMibTitle()} {$key}</h4>
+        <div>
+            <img src="{$file}" alt="{basename($file)}" class="graph" />
+        </div>
+    <!--@endforeach-->
+</div>
+<div class="legend">
+    <h4>{$lang->nms_view_legend}</h4>
+    <ul>
+    <!--@foreach($mib_info as $mib)-->
+        <li><span>{$mib->getExtraVars('legend_name')}</span>
+            <p>{$mib->getDescription()}</p>
+        </li>
+    <!--@endforeach-->
+    </ul>
+</div>

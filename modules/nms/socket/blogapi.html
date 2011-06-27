@@ -1,0 +1,84 @@
+<h3>[{$lang->nms_severity[$args->oSeverityInfo->severity]}] {$args->browser_title}에서 문제 {$lang->nms_severity_aware[$args->oSeverityLog->aware]}</h3>
+<p>{$args->mib_title}({$args->mib})에 설정된 조건이 {$lang->nms_severity_aware[$args->oSeverityLog->aware]}되었습니다.</p>
+
+<h4>발생정보</h4>
+<table cellspacing="1" cellpadding="5" style="border:1px solid #ccc;">
+<option>{$lang->nms_caption} : 9</option>
+<tr style="background:#ddd;">
+<th scope="col">{$lang->cmd_list}</th>
+<th scope="col">{$lang->content}</th>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_severity_aware['aware']}</th>
+<td>{$lang->nms_severity_aware[$args->oSeverityLog->aware]}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_mid_title}</th>
+<td style="background:#f5f5f5;">{$args->browser_title}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_mib_title}</th>
+<td>{$args->mib_title}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_mib}</th>
+<td style="background:#f5f5f5;">{$args->mib}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_legend_name}</th>
+<td><!--@if($args->nms_mib_extra_vars->legend_name)-->{$args->nms_mib_extra_vars->legend_name}<!--@else-->{$args->mib_title}<!--@endif--></td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_host}</th>
+<td style="background:#f5f5f5;">{$args->host}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_severity_value}</th>
+<td>{nmsItem::getSizeBytes($args->oSeverityLog->value)} / {nmsItem::getSizeBytes($args->max)}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_severity_difftime}</th>
+<td style="background:#f5f5f5;">{$args->oArgsInfo->extra_vars->sec}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_severity_time}</th>
+<td>{zdate($args->oSeverityLog->extra_vars->checkdate, 'Y-m-d H:i:s', true)}</td>
+</tr>
+</table>
+
+<h4>{$lang->nms_severity_type}</h4>
+<table cellspacing="1" cellpadding="5" style="border:1px solid #ccc;">
+<option>{$lang->nms_caption} : 5</option>
+<tr style="background:#ddd;">
+<th scope="col">{$lang->cmd_list}</th>
+<th scope="col">{$lang->content}</th>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_severity_type}</th>
+<td>{$lang->nms_type[$args->oSeverityInfo->type]}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_severity_value}</th>
+<td style="background:#f5f5f5;">{$args->oSeverityInfo->value}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_title_event_type}</th>
+<td>{$lang->nms_event_type[$args->oSeverityInfo->event->type]}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#f0f0dc;">{$lang->nms_title_event_sec}(sec)</th>
+<td style="background:#f5f5f5;">{$args->oSeverityInfo->event->sec}</td>
+</tr>
+<tr>
+<th scope="row" style="background:#fafaf0;">{$lang->nms_title_event_count}</th>
+<td>{$args->oSeverityLog->extra_vars->count} / {$args->oSeverityInfo->event->count}</td>
+</tr>
+</table>
+
+<h4>Graph</h4>
+<p>첨부파일</p>
+
+<h4>Link</h4>
+<p><a href="{Context::get('request_uri').'?mid='.$args->mid.'&group_name='.$args->group_name}" title="{Context::get('request_uri').'?mid='.$args->mid.'&group_name='.$args->group_name}" target="_blank">{Context::get('request_uri').'?mid='.$args->mid.'&group_name='.$args->group_name}</a></p>
+
+<img src="{getUrl('','act','dispNmsGraph','mid',$args->mid,'graph','line','group_name',$args->group_name,'mode','normal','skin','white','unit','Bps')}" alt="graph" />

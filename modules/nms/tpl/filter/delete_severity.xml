@@ -1,0 +1,11 @@
+<filter name="delete_severity" module="nms" act="procNmsAdminDeleteSeverity" confirm_msg_code="confirm_delete">
+    <form>
+        <node target="mib_srl" required="true" />
+    </form>
+    <parameter />
+    <response callback_func="completeDeleteSeverity">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page_sl" />
+    </response>
+</filter>

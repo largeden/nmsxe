@@ -1,0 +1,24 @@
+<div class="severity_sheet">
+    <div class="header">
+        <ul>
+            <li class="info">
+                <ol>
+                    <li><a href="{getUrl('','module','module','act','dispModuleSkinInfo','selected_module',$module_info->module, 'skin', $module_info->skin)}" onclick="popopen(this.href,'skinInfo'); return false;" title="Skin Info"><img src="./images/{$colorset}/skininfo.gif" alt="skin info" width="16" height="16" /></a></li>
+                    <!--@if($module_info->display_login_info!='N')-->
+                        <!--@if($is_logged)-->
+                            <li><a href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+                        <!--@else-->
+                            <li><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
+                        <!--@endif-->
+                    <!--@endif-->
+                    <!--@if($grant->manager && $module_info->display_management_button!='N')-->
+                        <li><a href="{getUrl('','module','admin','act','dispNmsAdminHostInfo','module_srl',$module_info->module_srl)}" target="_blank">{$lang->cmd_setup}</a></li>
+                    <!--@endif-->
+                </ol>
+            </li>
+            <!--@if($module_info->title_image)-->
+            <li class="logo"><a href="{getUrl('','mid',$mid)}" title="{$module_info->title}"><img src="{$module_info->title_image}" alt="{$module_info->title_image}" height="150" /></a></li>
+            <!--@endif-->
+            <li class="title"><h2><a href="{getUrl('','mid',$mid)}" title="{$module_info->title}">{$module_info->title}</a></h2><p>{$module_info->sub_title}</p></li>
+        </ul>
+    </div>

@@ -1,0 +1,95 @@
+<!--#include("service_header.html")-->
+
+{$befor_content}
+
+<!--%import("filter/delete_severity_log.xml")-->
+
+<!--@if($order_type == 'desc')-->
+{@ $order_type = 'asc' }
+<!--@else-->
+{@ $order_type = 'desc' }
+<!--@endif-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, delete_severity_log)" enctype="multipart/form-data">
+<h4 class="xeAdmin">{$lang->nms_dispNmsAdminSeverityLog}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_dispNmsAdminSeverityLog_summary}">
+    <caption>{$lang->nms_caption} : Total {number_format($page_navigation->total_count)}, Page {number_format($page_navigation->cur_page)}/{number_format($page_navigation->total_page)}</caption>
+        <thead>
+            <tr>
+                <th scope="col"><div><a href="{getUrl('sort_index','severity_srl','order_type',$order_type)}" title="{$lang->no}">{$lang->no}</a></div></th>
+                <th scope="col"><input type="checkbox" onclick="clickCheckBoxAll(this.form, 'cart'); return false;" /></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','regdate','order_type',$order_type)}" title="{$lang->nms_severity_time}">{$lang->nms_severity_time}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','awaredate','order_type',$order_type)}" title="{$lang->nms_severity_awaredate}">{$lang->nms_severity_awaredate}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','mid','order_type',$order_type)}" title="{$lang->nms_severity_module">{$lang->nms_severity_module}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','mmid','order_type',$order_type)}" title="{$lang->nms_severity_mib}">{$lang->nms_severity_mib}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','severity','order_type',$order_type)}" title="{$lang->nms_severity_level}">{$lang->nms_severity_level}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','value','order_type',$order_type)}" title="{$lang->nms_severity_value}">{$lang->nms_severity_value}</a></div></th>
+                <th scope="col"><div><a href="{getUrl('sort_index','aware','order_type',$order_type)}" title="{$lang->nms_severity_aware['aware']}">{$lang->nms_severity_aware["aware"]}</a></div></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="9"><div class="fr"><span class="button blue"><input type="submit" value="{$lang->cmd_delete}" /></span></div></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <!--@foreach($severity_info as $no => $val)-->
+            <tr class="row{$cycle_idx}">
+                <td>{$no}</td>
+                <td><input type="checkbox" name="cart" value="{$val->severity_srl}" /></td>
+                <td class="date">{$val->getRegdate()}</td>
+                <td class="date">{$val->getAwaredate()}</td>
+                <td>{$val->getMid()}</td>
+                <td>{$val->getMmid()}</td>
+                <td>{$val->getSeverity()}</td>
+                <td class="wide">{$val->getValue()}</td>
+                <td>
+                <!--@if($val->get('aware') == 1)-->{$val->getAware()}
+                <!--@else-->
+                <select class="severity_aware">
+                    <option value="{$val->severity_srl}/0" <!--@if($val->get('aware') == 0)-->selected="selected"<!--@end-->>{$lang->nms_severity_aware[0]}</option>
+                    <option value="{$val->severity_srl}/1" <!--@if($val->get('aware') == 1)-->selected="selected"<!--@end-->>{$lang->nms_severity_aware[1]}</option>
+                    <option value="{$val->severity_srl}/2" <!--@if($val->get('aware') == 2)-->selected="selected"<!--@end-->>{$lang->nms_severity_aware[2]}</option>
+                </select>
+                <!--@endif-->
+                </td>
+            </tr>
+            <!--@endforeach-->
+        </tbody>
+    </table>
+</form>
+
+<!-- 페이지 네비게이션 -->
+<div class="pagination a1">
+    <a href="{getUrl('page','')}" class="prevEnd">{$lang->first_page}</a> 
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+        <!--@if($page == $page_no)-->
+            <strong>{$page_no}</strong> 
+        <!--@else-->
+            <a href="{getUrl('page',$page_no)}">{$page_no}</a> 
+        <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('page',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page}</a>
+</div>
+
+<!-- 검색 -->
+<div class="tCenter">
+    <form action="./" method="get" class="adminSearch">
+    <input type="hidden" name="module" value="{$module}" />
+    <input type="hidden" name="act" value="{$act}" />
+    <input type="hidden" name="module_srl" value="{$module_srl}" />
+        <fieldset>
+            <select name="search_target">
+                <option value="">{$lang->search_target}</option>
+                <!--@foreach($lang->nms_severity_search_option as $key => $val)-->
+                <option value="{$key}" <!--@if($search_target==$key)-->selected="selected"<!--@end-->>{$val}</option>
+                <!--@endforeach-->
+            </select>
+            <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputTypeText" />
+            <span class="button blue"><input type="submit" value="{$lang->cmd_search}" /></span>
+            <a href="{getUrl('','module',$module,'act',$act,'module_srl',$module_srl)}" class="button black"><span>{$lang->cmd_cancel}</span></a>
+        </fieldset>
+    </form>
+</div>
+
+{$after_content}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">nmsXE</title>
+    <title xml:lang="en">nmsXE</title>
+    <title xml:lang="zh-CN">nmsXE</title>
+    <title xml:lang="jp">nmsXE</title>
+    <title xml:lang="es">nmsXE</title>
+    <title xml:lang="ru">nmsXE</title>
+    <title xml:lang="fr">nmsXE</title>
+    <title xml:lang="zh-TW">nmsXE</title>
+    <title xml:lang="vi">nmsXE</title>
+    <title xml:lang="mn">nmsXE</title>
+    <description xml:lang="ko">시스템, 네트워크 자원을 수집하여 관리해주는 모듈 입니다.</description>
+    <description xml:lang="en">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="zh-CN">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="jp">システム、ネットワークリソースを収集し、管理するモジュールです。</description>
+    <description xml:lang="es">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="ru">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="fr">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="zh-TW">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="vi">Systems, and network resources is a module for managing the collection.</description>
+    <description xml:lang="mn">Systems, and network resources is a module for managing the collection.</description>
+    <version>0.9.0</version>
+    <date>2011-02-09</date>
+    <category>package</category>
+    <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+        <name xml:lang="ko">라르게덴</name>
+        <name xml:lang="en">largeden</name>
+        <name xml:lang="zh-CN">largeden</name>
+        <name xml:lang="jp">ラルゲデン</name>
+        <name xml:lang="es">largeden</name>
+        <name xml:lang="ru">largeden</name>
+        <name xml:lang="fr">largeden</name>
+        <name xml:lang="zh-TW">largeden</name>
+        <name xml:lang="vi">largeden</name>
+        <name xml:lang="mn">largeden</name>
+    </author>
+    <history version="0.9.0" date="2011-02-09"> 
+        <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+            <name xml:lang="ko">라르게덴</name>
+            <name xml:lang="en">largeden</name>
+            <name xml:lang="zh-CN">largeden</name>
+            <name xml:lang="jp">ラルゲデン</name>
+            <name xml:lang="es">largeden</name>
+            <name xml:lang="ru">largeden</name>
+            <name xml:lang="fr">largeden</name>
+            <name xml:lang="zh-TW">largeden</name>
+            <name xml:lang="vi">largeden</name>
+            <name xml:lang="mn">largeden</name>
+        </author>
+        <log xml:lang="ko">모듈제거 부분 개선</log>
+        <log xml:lang="en">Remove a module improvements</log>
+        <log xml:lang="zh-CN">Remove a module improvements</log>
+        <log xml:lang="jp">モジュールは削除部分改善</log>
+        <log xml:lang="es">Remove a module improvements</log>
+        <log xml:lang="ru">Remove a module improvements</log>
+        <log xml:lang="fr">Remove a module improvements</log>
+        <log xml:lang="zh-TW">Remove a module improvements</log>
+        <log xml:lang="vi">Remove a module improvements</log>
+        <log xml:lang="mn">Remove a module improvements</log>
+    </history>
+    <history version="0.8.7" date="2011-02-01"> 
+        <author email_address="developer@nmsxe.com" link="http://www.nmsxe.com">
+            <name xml:lang="ko">라르게덴</name>
+            <name xml:lang="en">largeden</name>
+            <name xml:lang="zh-CN">largeden</name>
+            <name xml:lang="jp">ラルゲデン</name>
+            <name xml:lang="es">largeden</name>
+            <name xml:lang="ru">largeden</name>
+            <name xml:lang="fr">largeden</name>
+            <name xml:lang="zh-TW">largeden</name>
+            <name xml:lang="vi">largeden</name>
+            <name xml:lang="mn">largeden</name>
+        </author>
+        <log xml:lang="ko">printExtraImages() 등록시간 수정, 기타 버그 개선</log>
+        <log xml:lang="en">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="zh-CN">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="jp">printExtraImages 登録時間修正及びその他のバグ改善</log>
+        <log xml:lang="es">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="ru">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="fr">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="zh-TW">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="vi">printExtraImages() registration time fixed, and other bug fixed</log>
+        <log xml:lang="mn">printExtraImages() registration time fixed, and other bug fixed</log>
+    </history>
+</module>

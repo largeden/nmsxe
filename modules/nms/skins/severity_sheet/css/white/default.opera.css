@@ -1,0 +1,4 @@
+.severity_sheet .to_select span { padding:5px 35px 6px 20px; }
+.severity_sheet .to_select ul { border-top-color:#eaeaea; }
+.severity_sheet .inputSearch { border-bottom-width:1px; border-bottom-color:#f8f8f8; }
+.severity_sheet .button { padding:5px 20px 5px 20px; border-bottom-width:1px; border-bottom-color:#f8f8f8; }

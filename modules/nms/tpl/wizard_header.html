@@ -1,0 +1,26 @@
+<!--%import("js/common.js")-->
+<!--%import("js/nms.js")-->
+<!--%import("css/default.css")-->
+
+<!--@if(preg_match("/compatible; MSIE/i", getenv('HTTP_USER_AGENT')))-->
+    <!--%import("css/default.ie.css",optimized=false)-->
+<!--@elseif(preg_match("/Opera/i", getenv('HTTP_USER_AGENT')))-->
+    <!--%import("css/default.opera.css",optimized=false)-->
+<!--@endif-->
+
+<h3 class="xeAdmin">{$lang->nms_title} <span class="gray">{$lang->nms_cmd_management}</span></h3>
+<div class="infoText">{nl2br($lang->nms_about_nms)}</div>
+
+<ul class="localNavigation">
+    <li><a href="{getUrl('','module','admin','act','dispNmsAdminIndex')}">{$lang->nms_dispNmsAdminIndex}</a></li>
+    <li <!--@if($act=='dispNmsAdminSettingWizard')-->class="on"<!--@end-->><a
+        href="#">{$lang->nms_cmd_wizard}</a></li>
+</ul>
+
+<div class="wizard_step">
+    <div class="fl <!--@if($step==1 || !$step)-->this<!--@endif-->"><div class="number">1</div><div class="step"><span><a href="{getUrl('step','1')}" title="{$lang->nms_dispNmsAdminInsertHost}">{$lang->nms_dispNmsAdminInsertHost}</a></span></div><img src="./images/arrow.gif" alt="arrow" /></div>
+    <div class="fl <!--@if($step==2)-->this<!--@endif-->"><div class="number">2</div><div class="step"><span><a href="{getUrl('step','2')}" title="{$lang->nms_dispNmsAdminInsertHost}">{$lang->nms_wizard_xml_file}</a></span></div><img src="./images/arrow.gif" alt="arrow" /></div>
+    <div class="fl <!--@if($step==3)-->this<!--@endif-->"><div class="number">3</div><div class="step"><span><a href="{getUrl('step','3')}" title="{$lang->nms_dispNmsAdminInsertHost}">{$lang->nms_wizard_step3}</a></span></div><img src="./images/arrow.gif" alt="arrow" /></div>
+    <div class="fl <!--@if($step==4)-->this<!--@endif-->"><div class="number">4</div><div class="step"><span><a href="{getUrl('step','4')}" title="{$lang->nms_dispNmsAdminInsertHost}">{$lang->nms_wizard_step4}</a></span></div></div>
+    <div class="clear"></div>
+</div>

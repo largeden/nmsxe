@@ -1,0 +1,20 @@
+<query id="getNmsMibList" action="select">
+    <tables>
+        <table name="nms_mib" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" pipe="where" />
+        <condition operation="equal" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="mmid" var="mmid" pipe="and" />
+        <condition operation="equal" column="group_name" var="group_name" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="mib_srl" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

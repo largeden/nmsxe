@@ -1,0 +1,34 @@
+<query id="getNmsSeverityList" action="select">
+    <tables>
+        <table name="modules" alias="modules" />
+        <table name="nms_mib" alias="nms_mib" type="left join">
+            <conditions>
+                <condition operation="equal" column="nms_severity_log.mib_srl" default="nms_mib.mib_srl" />
+            </conditions>
+        </table>
+        <table name="nms_severity_log" alias="nms_severity_log" />
+    </tables>
+    <columns>
+        <column name="nms_severity_log.*" />
+        <column name="nms_mib.mmid" alias="mmid" />
+        <column name="modules.mid" alias="mid" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="modules.module_srl" default="nms_severity_log.module_srl" filter="number" notnull="notnull" pipe="where" />
+        <group pipe="and">
+            <condition operation="like" column="modules.mid" var="s_mid" pipe="or" />
+            <condition operation="like" column="nms_mib.mmid" var="s_mmid" pipe="or" />
+            <condition operation="equal" column="nms_severity_log.severity" var="s_severity" pipe="or" />
+            <condition operation="like" column="nms_severity_log.value" var="s_value" pipe="or" />
+            <condition operation="equal" column="nms_severity_log.aware" var="s_aware" pipe="or" />
+            <condition operation="like_prefix" column="nms_severity_log.regdate" var="s_regdate" pipe="or" />
+            <condition operation="like_prefix" column="nms_severity_log.awaredate" var="s_awaredate" pipe="or" />
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="nms_severity_log.severity_srl" order="order_type" />
+        <list_count var="list_count" default="10" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

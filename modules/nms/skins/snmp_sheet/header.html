@@ -1,0 +1,42 @@
+<div class="snmp_sheet">
+    <div class="header">
+        <ul>
+            <li class="info">
+                <ol>
+                    <li><a href="{getUrl('','module','module','act','dispModuleSkinInfo','selected_module',$module_info->module, 'skin', $module_info->skin)}" onclick="popopen(this.href,'skinInfo'); return false;" title="Skin Info"><img src="./images/{$colorset}/skininfo.gif" alt="skin info" width="16" height="16" /></a></li>
+                    <!--@if($module_info->display_login_info!='N')-->
+                        <!--@if($is_logged)-->
+                            <li><a href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+                        <!--@else-->
+                            <li><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
+                        <!--@endif-->
+                    <!--@endif-->
+                    <!--@if($grant->manager && $module_info->display_management_button!='N')-->
+                        <li><a href="{getUrl('','module','admin','act','dispNmsAdminHostInfo','module_srl',$module_info->module_srl)}" target="_blank">{$lang->cmd_setup}</a></li>
+                    <!--@endif-->
+                </ol>
+            </li>
+            <!--@if($module_info->title_image)-->
+            <li class="logo"><a href="{getUrl('','mid',$mid)}" title="{$module_info->title}"><img src="{$module_info->title_image}" alt="{$module_info->title_image}" height="150" /></a></li>
+            <!--@endif-->
+            <li class="title"><h2><a href="{getUrl('','mid',$mid)}" title="{$module_info->title}">{$module_info->title}</a></h2><p>{$module_info->sub_title}</p></li>
+            <li class="menu">
+                <!--@if(!$group_name&&$list_style=='gallery')--><p><img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></p><!--@endif-->
+                <a href="{getUrl('mid',$mid,'list_style','gallery','group_name','','list_count','','regdate','','document_srl','')}" title="gallery"><img src="./images/{$colorset}/gallery.gif" alt="gallery" width="32" height="32" /></a>
+            </li>
+            <li class="menu">
+                <!--@if(!$group_name&&$list_style=='list')--><p><img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></p><!--@endif-->
+                <a href="{getUrl('mid',$mid,'list_style','list','group_name','','list_count','','regdate','','document_srl','')}" title="list"><img src="./images/{$colorset}/list.gif" alt="list" width="32" height="32" /></a>
+            </li>
+            <!--@if($group_name)-->
+            <li class="menu">
+                <!--@if($view_style=='table')--><p><img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></p><!--@endif-->
+                <a href="{getUrl('view_style','table','document_srl','')}" title="view_table"><img src="./images/{$colorset}/view_table.gif" alt="view_table" width="32" height="32" /></a>
+            </li>
+            <li class="menu">
+                <!--@if($view_style=='graph')--><p><img src="./images/{$colorset}/arrow.gif" alt="arrow" width="11" height="6" /></p><!--@endif-->
+                <a href="{getUrl('view_style','graph','document_srl','')}" title="view_graph"><img src="./images/{$colorset}/view_graph.gif" alt="view_graph" width="32" height="32" /></a>
+            </li>
+            <!--@endif-->
+        </ul>
+    </div>

@@ -1,0 +1,15 @@
+<query id="getNmsSyslogList" action="select">
+    <tables>
+        <table name="nms_syslog_log" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions />
+    <navigation>
+        <index var="sort_index" default="syslog_srl" order="desc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

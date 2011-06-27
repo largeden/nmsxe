@@ -1,0 +1,128 @@
+<!--#include("host_header.html")-->
+
+{$befor_content}
+
+<!--#include("mbrowser.html")-->
+
+<!--%import("filter/insert_mib.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_mib)" enctype="multipart/form-data">
+<input type="hidden" name="page_mib" value="{$page_mib}" />
+<input type="hidden" id="module_srl" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="mib_srl" value="{$mib_info->mib_srl}" />
+    <h4 class="xeAdmin">{$act=='dispNmsAdminInsertMib'?$lang->nms_dispNmsAdminInsertMib:$lang->nms_dispNmsAdminMibInfo}</h4>
+    <p class="summary">{$lang->nms_about_dispNmsAdminInsertMib}</p>
+    <table cellspacing="0" class="rowTable" summary="{$act=='dispNmsAdminInsertMib'?$lang->nms_dispNmsAdminInsertMib_summary:$lang->nms_dispNmsAdminMibInfo_summary}">
+    <caption>{$lang->nms_caption} : MIB</caption>
+        <tr>
+            <th><div>{$lang->nms_mmid}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_mmid" value="{$mib_info->mmid}" class="inputTypeText w200" />
+                <p>{$lang->nms_about_mmid}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_mib_title}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_mib_title" value="{$mib_info->mib_title}" class="inputTypeText w400" id="mib_title" />
+                <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','mib_title')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting" title="{$lang->cmd_find_langcode}"><span>{$lang->cmd_find_langcode}</span></a>
+                <p>{$lang->nms_about_mib_title}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_mib}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_mib" value="{$mib_info->mib}" class="inputTypeText w400 nms_mib" /> <a href="#mbrowser" class="buttonSet buttonTree" title="{$lang->nms_mbrowser}"><span>{$lang->nms_mbrowser}</span></a>
+                <p>{nl2br($lang->nms_about_mib)}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_max}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_max" value="{$mib_info->max}" class="inputTypeText w200" />
+                <p>{$lang->nms_about_max}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_group_name}</div></th>
+            <td class="wide">
+                <input type="text" name="nms_group_name" value="{$mib_info->group_name}" class="inputTypeText w100" />
+                <p>{$lang->nms_about_group_name}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->nms_mib_description}</div></th>
+            <td>
+                <textarea name="description" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($mib_info->description)}</textarea>
+                <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','description')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting" title="{$lang->cmd_find_langcode}"><span>{$lang->cmd_find_langcode}</span></a>
+                <p>{$lang->nms_about_mib_description}</p>
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" class="rowTable" summary="Extra {$act=='dispNmsAdminInsertMib'?$lang->nms_extra_dispNmsAdminInsertMib_summary:$lang->nms_extra_dispNmsAdminMibInfo_summary}">
+    <caption>{$lang->nms_caption} : extra_vars</caption>
+        <tr>
+        <th><div>{$lang->nms_legend_name}</div></th>
+        <td class="wide">
+            <input type="text" name="legend_name" value="{$mib_info->extra_vars->legend_name}" class="inputTypeText w100" />
+            <p>{$lang->nms_about_legend_name}</p>
+        </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_extra_collect_mode_title}</div></th>
+            <td class="wide">
+	            <!--@foreach($lang->nms_extra_collect_mode as $key => $mode)-->
+	            <input type="radio" name="collect_mode" id="extra_collect_mode_{$key}" value="{$key}" <!--@if($mib_info->extra_vars->collect_mode == $key)-->checked="checked"<!--@endif--> class="checkbox" /> <label for="extra_collect_mode_{$key}">{$mode}</label>
+	            <!--@endforeach-->
+                <p>{nl2br($lang->nms_extra_about_collect_mode)}</p>
+            </td>
+        </tr>
+        <tr>
+            <th><div>{$lang->nms_extra_complete_act}</div></th>
+            <td class="wide act">
+                <!--@foreach($lang->nms_act as $actname => $about)-->
+                <input type="checkbox" id="act_{$actname}" name="act_{$actname}" <!--@if($severity_info->act[$actname])-->checked="checked"<!--@endif--> class="checkbox" />
+                <label for="act_{$actname}">{$actname}</label>
+                <!--@endforeach-->
+                <p>{nl2br($lang->nms_extra_about_complete_act)}</p>
+            </td>
+        </tr>
+        <!--@foreach($lang->nms_act as $actname => $about)-->
+        <tr id="act_{$actname}_0"><th colspan="2" class="act"><div>{$actname}</div></th></tr>
+        <tr id="act_{$actname}_1">
+            <th><div>{$lang->nms_severity_value}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_value" value="{$severity_info->act_value[$actname]}" class="inputTypeText w400" />
+                <!--@if($lang->nms_act_member[$actname])--><a href="{getUrl('','module','nms','act','dispNmsAdminMember','target','act_'.$actname.'_value','type',$lang->nms_act_member[$actname])}" onclick="popopen(this.href);return false;" class="buttonSet buttonMember" title="{$lang->nms_member}"><span>{$lang->nms_member}</span></a><!--@endif-->
+                <p>{$about}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_2">
+            <th><div>{$lang->nms_severity_form}</div></th>
+            <td>
+                <textarea name="act_{$actname}_form" class="inputTypeTextArea fullWidth" id="description">{htmlspecialchars($severity_info->act_form[$actname])}</textarea>
+                <p>{$lang->nms_about_severity_form}</p>
+            </td>
+        </tr>
+        <tr id="act_{$actname}_3">
+            <th><div>{$lang->nms_severity_path}</div></th>
+            <td>
+                <input type="text" name="act_{$actname}_path" value="{$severity_info->act_path[$actname]}" class="inputTypeText w400" />
+                <p>{nl2br($lang->nms_about_severity_path)}<b>{realpath("./")}</b></p>
+            </td>
+        </tr>
+        <!--@endforeach-->
+    </table>
+
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_submit_summary}">
+    <caption>{$lang->nms_caption} : submit</caption>
+        <tr>
+            <th colspan="2" class="button">
+                <span class="button strong black"><input type="submit" value="{$lang->cmd_save}" /></span>
+            </th>
+        </tr>
+    </table>
+</form>
+
+{$after_content}

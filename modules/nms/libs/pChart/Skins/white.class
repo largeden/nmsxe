@@ -1,0 +1,185 @@
+<?php
+    $font_path = _XE_PATH_."modules/nms/libs/pChart/Fonts/";
+    $image_path = _XE_PATH_."modules/nms/libs/pChart/Images/";
+
+    switch(Context::getLangType()) {
+        case 'ko': $font = "NanumGothic.ttf"; break;
+        case 'js': $font = "meiryo.ttc"; break;
+        case 'zh-CN': $font = "meiryo.ttc"; break;
+        case 'zh-TW': $font = "meiryo.ttc"; break;
+        default: $font = "tahoma.ttf"; break;
+    }
+
+    $width = 700;
+    $height = 250;
+
+    $height_count = 15*count($stats);
+    $oNms = new pChartItem($width,$height+$height_count+15);
+
+    switch($args->mode) {
+        case "1hour":
+            $count = 40;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("i");
+            $Xdesc = "min";
+        break;
+        case "3hour":
+            $count = 60;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("i");
+            $Xdesc = "min";
+        break;
+        case "6hour":
+            $count = 60;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("H");
+            $Xdesc = "hour";
+        break;
+        case "12hour":
+            $count = 24;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("H");
+            $Xdesc = "hour";
+        break;
+        case "day":
+            $count = 36;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("H");
+            $Xdesc = "hour";
+        break;
+        case "week":
+            $count = 48;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("H");
+            $Xdesc = "hour";
+        break;
+        case "month":
+            $count = 12;
+            $oNms->nmsCountDelay = 0;
+            $oNms->setDateFormat("d");
+            $Xdesc = "day";
+        break;
+        case "year":
+            $count = 30;
+            $oNms->nmsCountDelay = 8;
+            $oNms->nmsCountMinus = 5;
+            $oNms->setDateFormat("m");
+            $Xdesc = "month";
+        break;
+        default:
+            $count = 24;
+            $oNms->nmsCountDelay = 20;
+            $oNms->nmsCountMinus = 12;
+            $oNms->setDateFormat("H");
+            $Xdesc = "hour";
+        break;
+    }
+    if($args->date) $args->mode = date("Y-m-d H:i:s", strtotime($args->date));
+
+    if(strtolower($args->unit) == 'kbyte') $byte = 1024;
+    elseif(strtolower($args->unit) == 'mbyte') $byte = 1024*1024;
+    elseif(strtolower($args->unit) == 'gbyte') $byte = 1024*1024*1024;
+
+    $oNms->Palette[0] = array("R"=>0,"G"=>153,"B"=>255);
+    $oNms->Palette[1] = array("R"=>60,"G"=>180,"B"=>60);
+    $oNms->Palette[2] = array("R"=>233,"G"=>188,"B"=>36);
+    $oNms->Palette[3] = array("R"=>173,"G"=>96,"B"=>147);
+    $oNms->Palette[4] = array("R"=>64,"G"=>42,"B"=>21);
+
+    $oNms->dG_line = 240;
+    $oNms->dG_line_under = 254;
+    $oNms->dS_Y = 230;
+    $oNms->LabelDelayName = 254;
+
+    $oNms->drawGraphAreaGradient(254,254,254,10,TARGET_BACKGROUND);
+    //$oNms->drawBackground(254,254,254);
+    $oNms->setGraphArea(5,25,$width-6,$height-30);
+    $oNms->drawGraphArea(254,254,254,FALSE);
+    $oNms->drawLine(0,$height-30,$width,$height-30,235,235,235);
+    $oNms->drawLine(0,$height-30+1,$width,$height-30+1,254,254,254);
+    $oNms->setFontProperties($font_path."tahoma.ttf",8);
+    $oNms->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,50,50,50,true,0,2,true,$count);
+    $oNms->setGraphArea(5,25,$width-6,$height-30);
+    $oNms->drawGrid(1,TRUE,50,50,50,3,$count);
+    $oNms->drawScale2($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,50,50,50,true,0,2,true,$count);
+
+    $oNms->setGraphArea(null,null,$width-6,$height-30);
+
+    $oNms->R_ShadowFactor = 155;
+    $oNms->G_ShadowFactor = 0;
+    $oNms->B_ShadowFactor = 0;
+    $oNms->setFontProperties($font_path."tahoma.ttf",7);
+    if($delay) {
+        foreach($delay as $key => $time) $oNms->setLabelDelay($DataSet->GetData(),$DataSet->GetDataDescription(),"Name",$key,$time,255,100,100,10,TRUE);
+
+        $oNms->drawTextBox(0,30,$oNms->GArea_X2-1,$oNms->GArea_Y2,
+        "Update failed ".count($delay)." times.",0,254,254,254,ALIGN_TOP_RIGHT,FALSE,TRUE,50,TRUE,FALSE);
+    }
+    if($error == "interval")
+    $oNms->drawTextBox(0,30,$oNms->GArea_X2-1,$oNms->GArea_Y2,
+        "Time Interval Error",0,254,254,254,ALIGN_TOP_RIGHT,FALSE,FALSE,50,TRUE,FALSE);
+
+    $oNms->setFontProperties($font_path."tahoma.ttf",7);
+//    $oNms->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription());
+    $oNms->drawFilledCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),1,0);
+
+    $oNms->R_ShadowFactor = 0;
+    $oNms->G_ShadowFactor = 0;
+    $oNms->B_ShadowFactor = 0;
+
+    // Graph Y unit
+    $oNms->drawTextBox(10,8,$oNms->GArea_X2,$oNms->GArea_Y2,$args->unit,0,50,50,50,ALIGN_TOP_LEFT,FALSE,TRUE,7,FALSE,FALSE);
+    // Graph X unit
+    $oNms->drawTextBox(0,8,$oNms->GArea_X2,$oNms->GArea_Y2,$Xdesc,0,50,50,50,ALIGN_TOP_RIGHT,FALSE,TRUE,7,FALSE,FALSE);
+
+    $oNms->setFontProperties($font_path.$font,8);
+    // Graph Title
+    $oNms->drawTextBox(0,8,$oNms->GArea_X2,$oNms->GArea_Y2,$output[0]->get("mib_title")." (".$args->mode.")",0,30,30,30,ALIGN_TOP_CENTER,FALSE);
+
+    if($legend_name) {
+        foreach($legend_name as $key => $legend) {
+            $oNms->setLabel($DataSet->GetData(),$DataSet->GetDataDescription(),"Serie".$key,
+            preg_replace("/^0/",$Serie_count[$key]-1,floor(($Serie_count[$key]/100)*(10+$i))),$legend,
+            $oNms->Palette[$key]["R"],$oNms->Palette[$key]["G"],$oNms->Palette[$key]["B"],200);
+        $i+=10;
+        }
+    }
+
+    $oNms->setFontProperties($font_path."tahoma.ttf",8);
+    $oNms->drawLine(0,$height-30+20,$width,$height-30+20,235,235,235);
+    $oNms->drawLine(0,$height-30+21,$width,$height-30+21,254,254,254);
+
+    $oNms->setGraphArea(null,null,null,$height+7);
+
+    if($stats) {
+        $i=0;
+        foreach($stats as $key => $val) {
+            $oNms->drawFilledCircle($oNms->GArea_X1-12,$oNms->GArea_Y2+$i-3,2,$oNms->Palette[$key]["R"],$oNms->Palette[$key]["G"],$oNms->Palette[$key]["B"]);
+
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*20,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,"Cur :",0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*40,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,"Min :",0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*60,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,"Avg :",0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*80,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,"Max :",0,50,50,50,null,FALSE);
+
+            if($byte) {
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*20+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->first*$byte,3,1024),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*40+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->min*$byte,3,1024),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*60+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->avg*$byte,3,1024),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*80+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->max*$byte,3,1024),0,50,50,50,null,FALSE);
+            } else {
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*20+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->first),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*40+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->min),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*60+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->avg),0,50,50,50,null,FALSE);
+            $oNms->drawTextBox(($oNms->GArea_X2/100)*80+30,$oNms->GArea_Y2+$i,$oNms->GArea_X2,$oNms->GArea_Y2+$i,$oNms->ToMetric($val->max),0,50,50,50,null,FALSE);
+            }
+
+            $i+=15;
+        }
+    }
+
+    $oNms->setGraphArea(null,null,null,$height+$height_count+10);
+
+    $oNms->drawTextBox(0,8,$oNms->GArea_X2,$oNms->GArea_Y2,"Last update : ".date("Y-m-d H:i:s"),0,40,40,40,ALIGN_BOTTOM_RIGHT,FALSE);
+
+    $oNms->Stroke();
+?>

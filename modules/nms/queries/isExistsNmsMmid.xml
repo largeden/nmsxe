@@ -1,0 +1,13 @@
+<query id="isExistsNmsMmid" action="select">
+    <tables>
+        <table name="nms_mib" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="mmid" var="mmid" notnull="notnull" pipe="where" />
+        <condition operation="equal" column="module_srl" var="module_srl" filter="number" pipe="and" />
+        <condition operation="notequal" column="mib_srl" var="mib_srl" filter="number" pipe="and" />
+    </conditions>
+</query>

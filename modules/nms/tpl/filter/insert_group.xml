@@ -1,0 +1,19 @@
+<filter name="insert_group" module="nms" act="procNmsAdminInsertGroup" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="nms_group_title" required="true" maxlength="40" filter="alpha_number" />
+        <node target="nms_schedule_title" required="true" />
+        <node target="nms_cronstate_title" required="true" />
+    </form>
+    <parameter>
+        <param name="gid" target="nms_group_title" />
+        <param name="group_srl" target="group_srl" />
+        <param name="schedule" target="nms_schedule_title" />
+        <param name="cronstate" target="nms_cronstate_title" />
+        <param name="description" target="description" />
+    </parameter>
+    <response callback_func="completeInsertGroup">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="module_srl" />
+    </response>
+</filter>

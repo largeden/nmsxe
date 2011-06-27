@@ -1,0 +1,27 @@
+<!--%import("filter/wizard_step2.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, wizard_step2)" enctype="multipart/form-data">
+<input type="hidden" name="step" value="2" />
+    <h4 class="xeAdmin">{$lang->nms_wizard_xml_file}</h4>
+    <table cellspacing="0" class="rowTable" summary="{$lang->nms_wizard_xml_file_summary}">
+    <caption>{$lang->nms_caption} : ({count($wizard_info)})</caption>
+    <tr>
+        <th scope="row"><div>{$lang->nms_wizard_list}</div></th>
+        <td>
+            <div class="wizardItem">
+                <select size="10" name="nms_wizard_list">
+                    <!--@foreach($wizard_info as $oWizard)-->
+                    <option value="{$oWizard->wizard}" <!--@if($nms_info->wizard_file==$oWizard->wizard)-->selected="selected"<!--@end-->>{$oWizard->title}</option>
+                    <!--@endforeach-->
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+            <a href="{getUrl('act','dispNmsAdminSettingWizard','step','1')}" class="button"><span>{$lang->nms_wizard_cmd_prev}</span></a>
+            <span class="button green strong"><input type="submit" value="{$lang->nms_wizard_cmd_next}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+</form>
