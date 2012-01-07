@@ -2,7 +2,7 @@
 
 = Introduction =
 
-*[nmsXE_intro]
+   * [nmsXE_intro]
 
 Add your content here.
 
